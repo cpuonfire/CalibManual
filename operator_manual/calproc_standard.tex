@@ -1,0 +1,2545 @@
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{Standard Calibration Procedures}
+\shwlabel{secprocstandard}
+ 
+  This chapter contains ``start to finish'' procedures for
+standard calibrations.
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\newpage
+\subsection{PCA Calibration}
+
+\newprocedure{CalProcPCA}
+             {PCA Calibration Procedure}
+             {Peter Skensved}{2003/01/06}{2}
+
+ 
+
+\subsubsection{Introduction}
+  
+  This procedure describes step by step the process of performing a
+laserball PCA calibration of the SNO detector.  It is intended as
+a guideline for operators who have been trained on the manipulator
+and laser.  It assumes that the laserball is mounted on URM2 which
+is located on the 10'' gatevalve on the glovebox.
+  
+
+  Supplementing this procedure are the documents available
+from the SNO calibration home page,
+\begin{verbatim}
+  http://www.sno.phy.queensu.ca/private/calibration/index.html
+\end{verbatim}
+In particular look at:
+\begin{description}
+\item[Online Manipulator Documentation] contains online manual
+  for all commands and operations with the manip program running
+  on the manip computer.  This is the reference source for commands
+  done from the manip console.
+\item[Manipulator User Manual] contains an overview of the manipulator
+  system and descriptions of sources and some procedures.  In particular
+  it describes how to start the manmon program for controling and monitoring
+  the manipulator.
+\item[Manipulator Reference Manual] contains technical information on
+  the manipulator.
+\end{description}
+ 
+\noindent 
+  The outline of the procedure is:
+\begin{enumerate}
+\item Prepare the laser and URM for use (turn on N$_2$ supply etc).
+\item Flush URM2 with N$_2$ gas to remove O$_2$ and Rn.
+\item Calibrate URM2 central rope.
+\item Lower source into glovebox.
+\item Connect side ropes to source. (if not single axis mode)
+\item Deploy source into detector.
+\item Take PCA data
+\item Retract source to glovebox.
+\item Remove side ropes. (if not single axis mode)
+\item Retract source into source tube above gatevalve.
+\item Shutdown laser and gas flow to laser and URM.
+\end{enumerate}
+  
+
+
+
+%----------------------------------------------------------------------
+\newpage
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ & Date: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} 
+~\\
+~\\
+  The procedures in this section are intended to be followed
+sequentually for the PCA calibration except where it is noted
+that a following procedure can be skipped.  Specifically,
+if the PCA is to be done in {\em single axis} mode, the side
+ropes do not need to be attached or detached from the source.
+Procedures supplementary to the main PCA calibration are found
+in section \ref{secproclaserball}.  
+
+\begin{center}
+                     {\bf Prior to PCA}
+\end{center}
+\begin{enumerate}
+\item\checkbox Permission for procedure and confirmation of equipment readiness
+  has been received from Head of Calibration Group.
+
+\item\checkbox Laserball is mounted in URM2 which is
+  mounted on 10'' valve on glovebox.
+
+\item\checkbox 10'' gatevalve is closed and locked.
+
+  
+
+\begin{center}
+                  {\bf Readying Laser and URM for Operation}
+\end{center}
+
+\item\checkbox Verify that the LN$_2$ dewar in the junction is
+  at least 1/4 full.  If not, swap it out with another dewar.
+  Record liquid level of Dewar,
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     LN$_2$ Level:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Verify that the dewar gas pressure is approximately
+  130 to 150 psig. If not, swap it out with another dewar.
+
+\item\checkbox Turn on N$_2$ Flow to laser from dewar at junction 
+  (Marked {\bf Gas Use} on dewar).
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Note Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Turn on pressure builder valve (Marked {\bf Pressure Builder} 
+  on dewar).\\
+  %------------------------
+  \small
+  {\em The pressure builder valve opens a controlled leak on the dewar
+       to maintain the 150 psi pressure head.  If the valve is not
+       opened, the gas pressure to the laser will eventually
+       drop below the operating level.}
+  \normalsize
+  %------------------------
+
+
+\item Once the URM is flushed the N$_2$ supply may be switched from the high
+pressure dewar to the Wessington dewar. Check with the Operations Group first
+before switching. Do not use the Wessington if a transfer is in progress.
+Consult the gasboard section for details on how to switch.
+
+
+\item\checkbox Contact Detector Operator and get permission to enter DCR. Make sure
+that the DCR activity bit is set.
+  
+
+\item\checkbox Turn on lights in DCR following standard procedure. ( See Detector Operator 
+Manual )
+
+\item\checkbox Remove the flush return line on the URM.
+  %------------------------
+  \small
+  {\em The presence of the buffer line makes it difficult to measure the O$_2$ from
+the URM.
+  }
+  \normalsize
+  %------------------------
+
+
+  
+\item\checkbox Check that flush inlet line is connected to URM2.  If not
+  connect it. Open the valve on the source tube.\\
+  %------------------------
+  \small
+  {\em It may be necessary to valve off other URMs to get sufficient flow.
+  }
+  \normalsize
+  %------------------------
+
+\item\checkbox Set up Gas Board in `bypass mode' for `URM flush' only. If you are
+using the high pressure feed {\bf do not exceed } 10 psi on the regulator.
+  %------------------------
+  \small
+  {\em Bypass mode maximizes the flow to the URM.
+  }
+  \normalsize
+  %------------------------
+
+\item\checkbox Check that flow meter ( located at South-East corner of
+pipe box ) is railed. If not, open needle valve near the flowmeter fully.
+
+   {\bf Flush should continue until O$_2$ reading at the rear of the URM is less than 0.8\%.}
+   %--------------------------
+   \small
+   {\em
+     This may take up to an hour depending on when the URM was last
+     flushed.
+   }
+   \normalsize
+
+
+
+\item\checkbox Check that the source clamps are in the OUT position.  
+{\bf Both } knobs have to be in the extreme {\bf OUT} position. 
+{\bf 
+     WARNING:  If the source is moved with the clamps in the {\bf IN} position,
+       the source, umbilical,
+     and manipulator may be severely damaged ! 
+   }
+  %--------------------------------
+  \small
+  {\em
+   The clamps are used to secure the source while the URM is being moved
+   on and off the glovebox.
+  }
+  \normalsize
+  %--------------------------------
+
+
+\item\checkbox Check the pressure on the air cylinder for the umbilical
+takeup mechanism. It should be between 45 and 55 psig. 
+   {\bf Do not operate the URM if the pressure is below 40 psig. }
+ If the pressure falls below 10 psig at any point ( even momentarily ) call the OCE. 
+An internal inspection of the URM is mandatory before operating the unit again.
+   %-------------------------------
+   \small
+   {\em
+     The pressure cylinder on the URM maintains tension on the umbilical
+     takeup reel.  A low gas pressure can result in the umbilical falling
+     off the takeup reel and getting caught or jammed leading to destruction
+     of the umbilical.
+   }
+   \normalsize
+   %--------------------------------
+  
+   
+\item\checkbox Verify that the 10'' gatevalve  is locked in the  closed position.\\
+   %-------------------------------
+   \small
+   {\em
+     The valve is CLOSED when the handle points towards the pipebox and the slot
+      on the handle stem points AWAY from the source tube.
+   }
+   \normalsize
+   %--------------------------------
+ 
+\item \checkbox Calibrate Central Rope Length\\
+      (see procedure  \ref{seccalcentre} 
+       {\em Central Rope Position Calibration}).
+      Record changes in length of central rope and umbilical,
+      The current fiducial mark for URM2  on the 10'' gatevalve
+      is
+      \[
+               z_{mark} = 1559.9
+      \]
+       Note : the fiducial mark is written on the source tube. If it
+       differs from the above number use it instead. 
+
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     $\Delta$l rope:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     $\Delta$l umbilical:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+\item\checkbox Check that all seals are in place on URM.  Including:
+   \begin{itemize}
+      \item\checkbox flush inlet line
+      \item\checkbox window on front of URM  motorbox
+      \item\checkbox window on rear of URM motorbox
+      \item\checkbox umbilical feedthrough on rear of motorbox
+      \item\checkbox view port window cover on source tube
+			\item\checkbox window on rear of stretcher box
+   \end{itemize}
+
+\item\checkbox Check that you are familiar with the section on operating the laser 
+( section \ref{ChapterLaser} ) especially the {\bf Emergency Shutdown Procedure}. Also, be
+aware that UV absorbing safety glasses {\bf MUST} be worn while
+the laser is running unless {\bf ALL } covers on the laser are in place.
+
+
+\item\checkbox Plug in the powercord to the laser.
+
+\item\checkbox Check that the POWER  switch on the laser is to {\bf remote}
+
+\item\checkbox Check that the CONTROL switch on the laser is set to {\bf remote}
+
+\item\checkbox Check that the manual shutoff valve on the right of MV5 is open
+
+\item\checkbox Check that the manual shutoff valve MV9 is open.
+
+\item\checkbox  Reset the `Kill Switch' by pushing the red reset button.
+
+\item\checkbox Type {\tt n2laser poweron } on the manip computer.
+   \small
+   {\em
+ This turns on the low voltage power and  energizes the N$_2$ gas valve.
+
+   }
+   \normalsize
+   %--------------------------------
+
+
+  
+\item\checkbox Verify that N$_2$ is flowing through flow gauge FG5 to the laser head.
+If there is no flow consult an expert. {\bf Running the laser without sufficient N$_2$ flow
+causes serious damage to the laser head !}
+
+\item\checkbox Record observed laser gas pressure  and
+  flow values.
+
+\small
+{\em Note that the expected values listed below may be superseded by ones
+listed on one or more tags attached to the valves or flow meters. Always use the values found on the tags.}
+\normalsize
+
+  \begin{center}
+  \begin{tabular}{|l|c|c|}
+  \hline
+  Transducer & Expect & Observed \\
+  \hline
+         & & \\
+     PG2 & 110--150 psig &\\
+         & & \\
+  \hline
+         & & \\
+     PG3 & 90--110 psig & \\
+         & & \\
+  \hline
+         & & \\
+     PT4 & 100--110 psig & \\
+         & & \\
+  \hline
+         & & \\
+     FG5 & $\approx$ 50 (bottom of ball) & \\
+         & & \\
+  \hline
+         & & \\
+     PT6 & $\approx$ 90 psig & \\
+         & & \\
+  \hline
+  \end{tabular}
+  \end{center}
+  PG2, PG3 and FG5 are read off the gas panel on the end of the
+  laser cabinet.  PT4 and PT6 are read from the manipulator computer
+  either from the {\tt manmon} laser window or using the commands,
+  \begin{tabbing}
+   aaaaaaaaaaaaaaaaaaa\=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\=aaaa\kill
+         \>{\tt n2laser hipressure}  \> (for PT4) \\
+         \>{\tt n2laser lowpressure}  \> (for PT6) \\
+   \end{tabbing}
+
+  
+   Gas must flow through the laser for $\approx$ 10 min before turning
+  the laser high voltage on.
+  
+\item\checkbox Block the light by setting the neutral density to 20 
+\begin{verbatim}
+ n2laser setd 20
+on the manip computer.
+\end{verbatim}
+
+\item\checkbox Select  dyecell 4 ( 500 nm ) by typing
+\begin{verbatim}
+  dyelaser cell 4
+\end{verbatim}
+
+\item\checkbox Check the state of the laser by issuing a 
+\begin{verbatim}
+n2laser monitor 
+\end{verbatim}
+command on the manip console. It will tell you what the general state of the laser is.
+\begin{itemize}
+\item\checkbox Check that all 4 stirmotors are on.
+\item\checkbox Check that there is 120V to the laser
+\item\checkbox Check that the filterwheels do not report any problems.
+\end{itemize}
+
+\item \checkbox Wait until the O$_2$ level in the URM is at or below 0.8\%
+
+
+
+%--------------------------------------------------------------
+\begin{center}
+            {\bf Deploying Source from Source Tube Into Glovebox}
+\end{center}
+
+ \item\checkbox Verify that the URM is below 0.8\% O$_2$.
+
+
+\item\checkbox Check that flush return line is connected to
+  URM2.  If not, connect it.\\
+  %------------------------
+  \small
+  {\em It may be necessary to move it from another URM.
+  }
+  \normalsize
+  %------------------------
+  
+
+ \item\checkbox Turn off DCR lights.
+
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Verify OWL light monitor is on.  Establish communications
+  with person watching light monitor.
+  %-------------------------
+  \small
+  {\em
+    Suggestion:  Station the person watching the OWL monitor at
+    the Deck Mac.  Then he/she can shout through the  wall of the
+    DCR and you don't need to use the phones which slow communications
+    down.
+  }
+  \normalsize
+  %-------------------------
+ 
+
+\item\checkbox Open gate valve ( {\bf Slowly !} ).\\
+  Record the time the valve is opened.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Opened:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Lock gate valve open.
+
+ \item\checkbox With flashlight perform light leak check on URM.  In particular
+   check the seal of the source tube window and around the base of the source tube.
+   Also, check around any inspection panel which may have been removed in the recent past.
+
+ \item\checkbox Using the dimmer switch, { \bf slowly } bring up breaker 9 lights in
+   the DCR.  Person still watching owl monitor.
+
+
+ \item\checkbox DAQ is connected to the {\bf manip} computer.
+
+ \item \checkbox In DAQ, source type is set to {\bf LASERBALL}.
+
+ \item\checkbox DAQ is in a {\bf source transitional run}.
+
+ \item \checkbox Verify that {\bf manip\_logger} on {\bf crag1}
+                 is running and logging the {\bf Laserball}  source.
+
+ \item\checkbox Check movement of laserball down:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball by 0 0 -5} \\
+  \hline
+  manmon  & in laserball window: \\
+          & set x = 0, y = 0, z = -5\\
+          & click on {\bf move by} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  %--------------------
+  \small
+  {\em 
+    The laserball should move down 5 cm.  The tension on the rope
+    should be 40-60 N.  The tension on the umbilical should be
+    10-30N.
+  }
+  \normalsize
+  %--------------------
+
+ \item\checkbox Check that the source offset and orientation is set correctly.
+   At the console type 
+ {\tt laserball sourceoffset } \\
+  The current laserball has an offset of -64.4 cm. If the reported number is
+different contact the OCE. For single axis deployment mode the orientation should
+be 0
+
+  {\tt laserball orientation 0 } \\
+ If deployed with sideropes the orientation depends on what direction the slot
+faces. If in doubt contact the OCE. 
+
+ \item\checkbox Deploy source into the glovebox:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1380} \\
+  \hline
+  manmon  & in laserball window: \\
+          & set x = 0, y = 0, z = 1380\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+  {\bf Deploying Manipulator into Centre of 
+            Detector from Glovebox}
+\end{center}
+\shwlabel{sectocentre}
+ 
+ \item\checkbox Contact Water Supervisor and advise him/her that the source is
+   being lowered into the D2O.  \\
+   %--------------------
+   \small
+   {\em
+     The water group maintains a very small differential pressure
+     between the light and heavy water.  The volume of the source
+     is enough to disrupt this differential pressure.
+   }
+   \normalsize
+   %---------------------
+
+ \item\checkbox Check tensions on urm2rope and urm2umbilical.  Rope tension
+   should be approximately 30-50 N.  Umbilical tension should
+   be between 15-40 N. Note that the tensions are reduced once the
+source is submerged.
+  
+ \item\checkbox Move laserball to centre of detector.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 66.4} \\
+  \hline
+  manmon  & in laserball window: \\
+          & click on {\bf Position the source}\\
+          & set x = 0, y = 0, z = 0\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+%-------------------------------------------------------------
+\begin{center}
+                 {\bf Turning On the Laser}
+\end{center}
+
+ \item\checkbox Verify on the console that the control power on the laser is on :
+\begin{verbatim}
+ n2laser monitor
+\end{verbatim} 
+  All voltages should be on, all stir motors should should be ON,
+ both filterwheels should be IDLE, the dye cell motor should be IDLE and
+ gas should be flowing. If not contact OCE.
+
+     If using manmon, the 
+  power lights for 120VAC and 40 VDC should turn green
+       the lights next to each dye cell indicating the stir motor
+       status should turn green and the status boxes should indicate
+  IDLE.
+
+
+
+ \item\checkbox Verify that the N2 gas has been flowing through the laser for
+    $\approx$ 10 min. Note that the gas flow is turned on and off with the 
+    n2laser poweron/poweroff commands.
+
+
+
+%   It will take about 5 minutes while the laser warms up.  A status
+%   message should indicate this waiting period.
+%   After the laser is warmed up, it will indicate that it is ready.
+
+ \item\checkbox  Select desired wavelength or dye cell.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ dyelaser cell $<$0-9$>$} \\
+          & or \\
+          & {\tt manip$>$ dyelaser wavelength $<$wavelength$>$}\\
+  \hline
+  manmon  & in laserwindow \\
+          & click on button above desired dye cell\\
+  \hline
+  \end{tabular}
+  \end{center}
+ \item\checkbox Set ND = 6.0 or higher.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n2laser setnd 6.0} \\
+  \hline
+  manmon  & laserwindow-$>$Windows-$>$Neutral Density Settings \\
+          & click on desired neutral density\\
+  \hline
+  \end{tabular}
+  \end{center}
+  %--------------------
+  \small
+  {\em
+    The filter wheels are set to a large attenuation when first turning
+    on the laser to prevent a large amount of light being introduced 
+    into the detector and overwhelming the data aquisition.  Once
+    the laser is on, the rate and intensity can be adjusted to the
+    desired level.
+  }
+  \normalsize
+  %--------------------
+
+
+  \item\checkbox Wait for the laser to return status READY
+
+ \item\checkbox Turn on laser light.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n2laser start} \\
+  \hline
+  manmon  & in laserwindow \\
+          & click on {\bf light on}\\
+  \hline
+  \end{tabular}
+  \end{center}
+   Now wait 90 seconds while the trigger is delayed.
+   Laser will come on at 10 Hz trigger rate.
+  
+\checkitem Plug the Laserball Trigger signal into the EXTA input on the
+  MTCD.
+  
+%-------------------------------------------------------------
+
+\begin{center}
+                 {\bf Taking PCA Data}
+\end{center}
+\item {\bf PCA Runs}
+  The exact nature of the PCA runs will vary.  The ``caonical''
+  run tends to be 
+  \begin{enumerate}
+  \checkitem Long Low Occupancy Run.
+    \begin{itemize}
+    \item 500nm
+    \item The centroid for the raw TAC is usually at 1800.
+    \item 5-8\% occupancy (ND setting at 500nm is approximately 5.5).
+    \item 40 Hz laser trigger rate (or best you can do without buffer
+          overflow).
+    \item Run Type: PCA 
+    \item 10 subruns (2-3 hours).
+    \end{itemize}
+  \checkitem Short Medium Occupancy Run.
+    \begin{itemize}
+    \item 500nm
+    \item The centroid for the raw TAC is usually at 1800.
+    \item 20-25\% occupancy (ND setting at 500nm is approximately 5.0).
+    \item 5-10 Hz laser trigger rate (or best you can do without buffer
+          overflow).
+    \item Run Type: PCA 
+    \item 3 subruns (20 minutes).
+    \end{itemize}
+  \end{enumerate}
+%-------------------
+\small
+{\em
+  The laser can be run up to 45Hz but the current DAQ looks like
+it sometimes has trouble keeping up.  Generally you want to keep
+the data rate to no more than 300kB/s.
+}
+\normalsize
+%------------------
+
+%-------------------------------------------------------------
+
+\begin{center}
+                 {\bf Turning Off Laser}
+\end{center}
+
+\checkitem Unplug the  EXTA at the MTCD.
+
+ \item\checkbox Turn off laser light
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n2laser stop} \\
+  \hline
+  manmon  & in laserwindow \\
+          & click on {\bf light off}\\
+  \hline
+  \end{tabular}
+  \end{center}
+ \item\checkbox Turn off laser power
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n2laser poweroff} \\
+  \hline
+  manmon  & in laserwindow \\
+          & click on {\bf power off}\\
+  \hline
+  \end{tabular}
+  \end{center}
+ \item\checkbox Unplug laser power cord from wall outlet\\
+  %-------------------
+  \small
+  {\em
+    The laser is unplugged when it is not intended to be used for
+    extended periods.  This is because it has been observed that
+    on several occasions after an unscheduled power outage that the
+    laser has come up in a funny state.
+  }
+  \normalsize
+  %-------------------
+  
+
+
+%-------------------------------------------------------------
+\begin{center}
+                   {\bf Retracting Manipulator to glovebox}
+\end{center}
+
+\item\checkbox Contact Water Supervisor.  Inform him/her that the source is
+   about to be removed from the D$_2$O. 
+
+\item\checkbox Retract laserball from AV into glovebox.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1300} \\
+  \hline
+  manmon  & in laserball window: \\
+          & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z = 1300\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+\item\checkbox Retract laserball to position to disconnect side ropes.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1380} \\
+  \hline
+  manmon  & in laserball window: \\
+          & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z = 1380\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  %------------------------
+  \small
+  {\em
+    When moving the laserball to 1380, it is important to make sure
+    you are moving with respect to the { \bf pivot } and  { \bf not } the
+   centre of the source which is
+    approximately 64 cm  below the pivot.  This is especially important if the sideropes
+are attached ! 
+
+  }
+  \normalsize
+  %-----------------------
+
+  
+
+
+  
+%-------------------------------------------------------------
+\begin{center}
+           {\bf Retracting source above gate valve.  Side ropes NOT attached.}
+\end{center}
+\shwlabel{secabovegv}
+\item\checkbox move laserball to 1530
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1530} \\
+  \hline
+  \end{tabular}
+  \end{center}  
+\item\checkbox move laserball to 1540
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1540} \\
+  \hline
+  \end{tabular}
+  \end{center}  
+\item\checkbox move laserball to 1550
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ laserball to 0 0 1550} \\
+  \hline
+  \end{tabular}
+  \end{center}
+{\bf
+ NOTE:\\
+   MINIMUM SAFE HEIGHT TO CLOSE GATEVALVE IS 1535cm.\\
+   If unable to get above this height, contact expert.
+}
+\item\checkbox Retrieve the gatevalve key from the DCR lock box.
+\item\checkbox Unlock the gatevalve.
+\item\checkbox Carefully close the gate valve by rotating the handle {\em clockwise}.
+  {\em Expect resistance when the handle is about 3/4 of the way to
+  the closed position.  This is the normal overcentering of the
+  valve mechanism.} {\bf If resistance is felt before this or 
+  if any sounds are heard that might be caused by valve hitting the source,
+  STOP and contact an expert.}
+  Record the time the valve is closed.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Closed:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+ 
+\item\checkbox Lock the gatevalve in the {\bf CLOSED} position.
+\item\checkbox Return the gatevalve key to the DCR lock box.
+ 
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Close the URM flush valve if the soure does not need drying out.
+\small
+{\em It is desirable to leave a minute flow of N$_2$ through the URM in order to dry
+out the source and the umbilical. Contact OCE for instructions.}
+
+\normalsize
+\item\checkbox Turn off the URM flush regulator ( if the source does not need drying out ).
+
+\item\checkbox IF the laser is off,
+   turn off gas flow at the LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item close {\bf Gas Use} valve
+   \item close {\bf Pressure Building} valve
+   \end{enumerate}
+
+
+ \item\checkbox If the source is retracted, and gate valve closed,
+   turn off gas flow at the high pressure LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item close {\bf Gas Use} valve
+   \item close {\bf Pressure Building} valve
+   \end{enumerate}
+
+
+
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+           {\bf After Calibration}
+\end{center}
+\item\checkbox Source is above gate valve.
+\item\checkbox Gate valve is closed and locked.
+\item\checkbox Laser is off.
+\item\checkbox Manual shutoff valve to the right of MV5 is closed
+\item\checkbox Laser power cord is unplugged from wall outlet.
+\item\checkbox High pressure LN$_2$ dewar is turned off (both {\bf Gas Use} valve and 
+  {\bf Pressure Building} valve).
+\item\checkbox Flush return line is disconnected from rear of URM2
+\item\checkbox Gas board is set up to provide sufficient flow to dry out the inside
+of the URM.
+
+\end{enumerate}
+
+
+   
+
+{\small
+~\\
+~\\
+\noindent
+{\bf Revision History:}\\
+\begin{tabular}{llll}
+Rev. & Date & Author & Comments\\
+
+0             & 
+?    & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+  First Draft
+}\\
+
+1             & 
+?    & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+  Many earlier drafts
+}\\
+
+
+2             & 
+2003/01/06 & 
+Peter Skensved &
+\parbox[t]{3.0in}{
+  Many updates
+}\\
+
+
+\end{tabular}
+}
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\newpage
+\subsection{N16 Calibration}
+
+\newprocedure{CalProcN16}
+             {N16 Calibration Procedure}
+             {Fraser Duncan/Peter Skensved}{2003/09/20}{2}
+
+  
+  This procedure describes step by step the process of performing an
+N16  calibration at the centre of the detector in single axis mode.  It is intended as
+a guideline for operators who have been trained on the manipulator
+and N16.  It assumes that the N16 source is mounted on URM3,
+located on gatevalve 3 on the glovebox (gatevalve 3 is the 4''
+valve located at the northwest corner.
+  
+
+
+\noindent 
+  The outline of the procedure is:
+\begin{enumerate}
+\item Prepare the URM for use (turn on N$_2$ supply etc).
+\item Flush URM3 with N$_2$ gas to remove room air and radon.
+\item Calibrate URM3 central rope.
+\item Lower source into glovebox.
+\item Deploy source into detector.
+\item Take N16 data
+\item Retract source to glovebox.
+\item Retract source into source tube above gatevalve.
+\item Shutdown N16 gas board and gas flow to laser and URM.
+\end{enumerate}
+  
+\vspace*{0.25in}
+\noindent 
+You will need the following procedures to complete an N16
+calibration.
+\begin{itemize}
+\item {\bf N16 Calibration} (this procedure) 
+\item {\bf Central Rope Calibration Procedure}
+\item {\bf DT Generator Turn On Procedure}
+\item {\bf N16 Source Startup Procedure}
+\item {\bf N16 Source Shutdown Procedure}
+\item {\bf DT Generator Turn Off Procedure}
+
+\end{itemize}
+
+%----------------------------------------------------------------------
+\newpage
+\subsubsection{Procedure}
+~\\
+
+\noindent
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ & Date: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} 
+~\\
+~\\
+
+  The procedures in this section are intended to be followed
+sequentually for the N16 calibration except where it is noted
+that a following step can be skipped.  Specifically,
+if the N16 is to be done in {\em single axis} mode, the side
+ropes do not need to be attached or detached from the source.
+%%Procedures supplementary to the main N16 calibration are found
+%%in section \ref{secsupp}.  
+
+\begin{center}
+                    {\bf Prior to N16}
+\end{center}
+\begin{enumerate}
+\item \checkbox Permission for procedure and confirmation of equipment readiness
+  has been received from Head of Calibration Group.
+
+\item \checkbox N16 is mounted in URM3 which is
+  mounted on glovebox gatevalve 3.
+
+\item \checkbox Gatevalve 3 is closed and locked ( or handle is removed ).
+
+  
+
+\begin{center}
+                  {\bf Readying N16 Source and URM for Operation}
+\end{center}
+ 
+
+\item \checkbox Contact Detector Operator and verify that the DCR activity bit is set.
+  
+
+\item \checkbox Turn on lights in DCR following standard procedure.
+  
+
+\item \checkbox Verify that the high pressure N$_2$ to the laser is valved
+off ( end of laser, upper right hand corner )
+
+
+\item \checkbox Verify that all valves on the gasboard are closed and the regulator
+is set to zero.
+
+
+
+\item\checkbox Remove the flush return line on the URM.
+  %------------------------
+  \small
+  {\em The presence of the buffer line makes it difficult to measure the O$_2$ from
+the URM.
+  }
+  \normalsize
+  %------------------------
+
+
+
+\item\checkbox Check that flush inlet line is connected to URM3.  If not
+  connect it. Open the valve at the source tube.\\
+  %------------------------
+	\small
+  {\em It may be necessary to valve off the other URMs to get sufficient flow.
+  }
+  %------------------------
+  \normalsize
+
+
+
+\item \checkbox Verify that the LN$_2$ dewar in the junction is
+  at least 1/4 full.  If not, swap it out with another dewar.
+  Record liquid level of Dewar,
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     LN$_2$ Level:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item \checkbox Verify that the dewar gas pressure is above
+  20 psig. If not, swap it out with another dewar. Unlike the laser the 16N
+does not require a minimum of 100 psig N$_2$. The N$_2$ is only used for flushing.
+Note that the dewar won't last long if the pressure is below 100 psig
+
+\item \checkbox Turn on the high pressure N$_2$ flow from the dewar at junction 
+  (Marked {\bf Gas Use} on dewar).
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Note Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item \checkbox Turn on pressure builder valve (Marked {\bf Pressure Builder} 
+  on dewar).\\
+  %------------------------
+  \small
+  {\em The pressure builder valve opens a controlled leak on the dewar
+       to maintain the 150 psig pressure head.  If the valve is not
+       opened, the gas pressure to the laser and URM will eventually
+       drop below the operating level ( 10psig ). }
+  \normalsize
+  %------------------------
+
+
+
+\item\checkbox Set up Gas Board in `bypass mode' for `URM flush' only. If you are
+using the high pressure feed {\bf do not exceed } 10 psi on the regulator.
+  %------------------------
+  \small
+  {\em Bypass mode maximizes the flow to the URM. ( Gas enters at top left hand corner,
+flows through regulator along outside right hand side line
+down to the URM with all other valves closed - see GasBoard Section for details ).
+
+  }
+  \normalsize
+  %------------------------
+
+\item\checkbox Check that flow meter ( located at east side of
+pipe box ) is railed. If not, open needle valve near the flowmeter fully.
+
+   {\bf Flush should continue until O$_2$ reading at the rear of the URM is less than 0.8\%.}
+   %--------------------------
+   \small
+   {\em
+     This may take up to an hour depending on when the URM was last
+     flushed.
+   }
+   \normalsize
+
+
+
+\item Once the URM is flushed the N$_2$ supply may be switched from the high
+pressure dewar to the Wessington dewar. Check with the Operations Group first
+before switching. Do not use the Wessington if a transfer is in progress.
+Consult the gasboard section for details on how to switch. If the flush is continued
+from the high pressure dewar reduce the flow using the needle valve. A setting of
+2 full turns above the point where the flowmeter rails is sufficient.
+
+
+
+\item\checkbox Verify ( blue ) valve on N16 Umbilical gas feed line (the translucent
+               line) is OPEN.  If not, open it.
+
+
+\item\checkbox Execute the N16 PMT Turn On Procedure
+
+
+
+\item\checkbox Do not connect the PMT trigger cable to channel 4, slot 15, crate 17
+before obtaining permission from the detector operator.
+
+\item \checkbox Check that the source clamps are in the RELEASE position.  
+   There are two clamps.  Check both.\\
+  {\bf
+    WARNING:  The clamp positions RELEASE and HOLD are 90 deg apart.
+      Rotate the clamp in the SHORT direction (90deg) from the HOLD
+      to RELEASE position.       The clamp must {\bf not}  be rotated the 
+other way !
+
+  }
+  %--------------------------------
+  \small
+  {\em
+   The clamps are used to secure the source while the URM is being moved
+   on and off the glovebox.  If the source is moved with the clamps in
+   the HOLD position, it may severely damage the manipulator and the umbilical.
+  }
+  \normalsize
+  %--------------------------------
+ 
+\item \checkbox Check the pressure on the air cylinder for the umbilical
+takeup mechanism. It should be between around 55 psig.
+   {\bf Do not operate the URM if the pressure is below 40 psig. }
+ If the pressure falls below 10 psig at any point ( even momentarily ) call the OCE. 
+An internal inspection of the URM is mandatory before operating the unit again.
+   %-------------------------------
+   \small
+   {\em
+     The pressure cylinder on the URM maintains tension on the umbilical
+     takeup reel.  A low gas pressure can result in the umbilical falling
+     off the takeup reel and getting caught or jammed leading to destruction
+     of the umbilical.
+   }
+   \normalsize
+   %--------------------------------
+
+
+  
+\item\checkbox Verify that Gate Valve 3 is closed and locked ( or handle is removed ).
+   %-------------------------------
+   \small
+   {\em
+     The valve is CLOSED when the handle points towards the pipebox and the slot
+      on the handle stem points AWAY from the source tube.
+   }
+   \normalsize
+   %--------------------------------
+
+
+\item \checkbox Calibrate Central Rope Length\\
+      (see procedure  
+       {\em Central Rope Position Calibration}).
+      Record changes in length of central rope and umbilical.
+       The current fiducial mark for URM3 on gatevalve 3 is 
+   \[
+         z_{mark} = 1558.5 
+       \]
+       Note : the fiducial mark is written on the source tube. If it
+       differs from the above number use what is written on the source tube.
+
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     $\Delta$l rope:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     $\Delta$l umbilical:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ 
+\item \checkbox Check that all seals are in place on URM.  Including:
+   \begin{itemize}
+      \item\checkbox flush inlet line
+      \item\checkbox window on front of URM  motorbox
+      \item\checkbox window on rear of URM motorbox
+      \item\checkbox umbilical feedthrough on rear of motorbox
+      \item\checkbox view port window cover on source tube
+       \item\checkbox window on rear of stretcher box
+   \end{itemize}
+\small
+{ \em
+ Note that the flush outlet is small enough and is shadowed well enough that it does not
+pose a threat to the detector unless light is shone directly at into it. 
+
+
+} 
+
+\normalsize
+
+\end{enumerate}
+
+
+
+%--------------------------------------------------------------
+\begin{center}
+            {\bf Deploying Source from Source Tube Into Glovebox}
+\end{center}
+
+
+\begin{enumerate}
+
+ \item\checkbox Verify that the URM is below approximately 0.8\% O$_2$.
+
+
+\item\checkbox Check that flush return line is connected to
+  URM3.  If not, connect it.\\
+  %------------------------
+  \small
+  {\em It may be necessary to move it from another URM.
+  }
+  \normalsize
+  %------------------------
+  
+
+ \item\checkbox Turn off DCR lights.
+
+
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Verify OWL light monitor is on.  Establish communications
+  with person watching light monitor.
+  %-------------------------
+  \small
+  {\em
+    Suggestion:  Station the person watching the OWL monitor at
+    the Deck Mac.  Then he/she can shout through the  wall of the
+    DCR and you don't need to use the phones which slow communications
+    down. Or contact the detector operator by phone.
+  }
+  \normalsize
+  %-------------------------
+ 
+
+\item\checkbox Open gate valve ( {\bf Slowly !} ).\\
+  Record the time the valve is opened.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Opened:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Remove handle and key for gatevalve 3 and place {\bf Gatevalve Open}
+sign on valve.
+
+ \item\checkbox With a flashlight perform light leak check on URM.  In particular
+   check the seal of the source tube window and around the base of the source tube.
+   Also, check around any inspection panel which may have been removed in the recent past.
+
+ \item\checkbox Using the dimmer switch, { \bf slowly } bring up breaker 9 lights in
+   the DCR.  Person still watching owl monitor. If everything is ok bring up the other
+    breakers. {\bf If there is any sign of a lightleak turn off the DCR lights
+immediately, close the gatevalve and contact the OCE.}
+
+
+
+
+ \item\checkbox DAQ is connected to the {\bf manip} computer.
+
+ \item \checkbox In DAQ, source type is set to {\bf N16}.
+
+ \item\checkbox DAQ is in a {\bf source transitional run}.
+
+ \item \checkbox Verify that {\bf manip\_logger} on {\bf crag1}
+                 is running and logging the {\bf N16}  source.
+
+
+
+
+
+ \item \checkbox Check movement of N16 down:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 by 0 0 -5} \\
+  \hline
+  manmon  & in n16 window: \\
+          & set x = 0, y = 0, z= -5\\
+          & click on {\bf move by} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  %--------------------
+  \small
+  {\em 
+    The N16 should move down 5 cm.  The tension on the rope
+    should be 90-110 N.  The tension on the umbilical should be
+    20-40N.
+  }
+  \normalsize
+  %--------------------
+
+ \item \checkbox Deploy source into the glovebox:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 1370} \\
+  \hline
+  manmon  & in n16 window: \\
+          & set x = 0, y = 0, z= 1370\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+\end{enumerate}
+
+
+%-------------------------------------------------------------
+\begin{center}
+              {\bf Deploying Manipulator into Centre of 
+            Detector from Glovebox}
+\end{center}
+\shwlabel{sectocentre}
+ 
+
+\begin{enumerate}
+
+
+
+ \item \checkbox Contact Water Supervisor and advise him/her that the source is
+   being lowered into the D$_2$O.  \\
+   %--------------------
+   \small
+   {\em
+     The water group maintains a very small differential pressure
+     between the light and heavy water.  The volume of the source
+     is enough to disrupt this differential pressure and could potentially
+     result in an SDS trip.
+   }
+   \normalsize
+   %---------------------
+
+ \item \checkbox Check tensions on URM3ROPE and URM3UMBILICAL.  Rope tension
+   should be approximately 90-110 N.  Umbilical tension should
+   be between 20-40 N.
+  
+ \item \checkbox Move N16 to centre of detector.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 71} \\
+  \hline
+  manmon  & in n16 window: \\
+          & click on {\bf Position the source}\\
+          & set x = 0, y = 0, z= 0\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  As the source goes into the water, the rope tension will decrease to
+  approximately 60 N and the umbilical to approximately 20 N.
+
+\end{enumerate}
+%-------------------------------------------------------------
+\begin{center}
+                {\bf Turning On N16 Source}
+\end{center}
+  
+
+\begin{enumerate}
+
+\item\checkbox Check that you are familiar with the section on operating the DT generator
+and the associated gasboard especially the {\bf Emergency Shutdown Procedure}.
+
+
+\item \checkbox Execute procedure \ref{procdton}, {\em Turning on DT Generator}.
+
+\item \checkbox Execute procedure \ref{procn16start}.
+  
+%-------------------------------------------------------------
+
+\begin{center}
+             {\bf Taking N16 Data}
+\end{center}
+\item\checkbox Taking N16 Data.
+  The exact nature of the N16 runs will vary.  The ``canonical''
+  run tends to be 
+  \begin{itemize}
+  \item NOC setting of 10
+  \item Target setting of 36.4
+  \item Flow rate 280-300
+  \end{itemize}
+
+\end{enumerate}
+
+%-------------------------------------------------------------
+
+\begin{center}
+             {\bf Turning Off N16 Source}
+\end{center}
+
+\begin{enumerate}
+
+\item \checkbox Execute procedure {\em Shutting Down N16 Gas System}
+\item \checkbox Execute procedure {\em Turning off DT Generator}
+
+\end{enumerate}
+
+
+%-------------------------------------------------------------
+\begin{center}
+              {\bf Retracting Manipulator to glovebox}
+\end{center}
+
+\begin{enumerate}
+
+\item \checkbox Contact Water Supervisor.  Inform him/her that the source is
+   about to be removed from the Heavy water. 
+
+\item \checkbox Retract N16 from AV into glovebox.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 1300} \\
+  \hline
+  manmon  & in N16 window: \\
+          & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z= 1300\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+\small
+{\em If sideropes are attached move the source to approximately z = 1370 and
+disconnect the sideropes before retracting the source any further. See the
+siderope procedures.}
+
+
+  {\em
+    When moving the N16 to 1370, it is important to make sure
+    you are moving the {\bf pivot}, not the centre of the source which is
+    approximately 71 cm below the pivot.
+    This is especially important if the sideropes
+    are attached ! 
+
+
+  }
+  \normalsize
+  %-----------------------
+
+  
+\end{enumerate}
+  
+%-------------------------------------------------------------
+\begin{center}
+            {\bf Retracting source above gate valve.  Side ropes NOT attached.}
+\end{center}
+\shwlabel{secabovegv}
+
+\begin{enumerate}
+
+\item \checkbox move N16 to 1530
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 1530} \\
+  \hline
+  \end{tabular}
+  \end{center}  
+\item \checkbox move n16 to 1540
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 1540} \\
+  \hline
+  \end{tabular}
+  \end{center}  
+\item \checkbox move N16 to 1550
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ n16 to 0 0 1550} \\
+  \hline
+  \end{tabular}
+  \end{center}
+{\bf
+ NOTE:\\
+   MINIMUM SAFE HEIGHT TO CLOSE GATEVALVE IS 1530cm.\\
+   If unable to get above this height ( due for example to high tension ), contact OCE
+immediately.
+}
+%%\item \checkbox Retrieve the gatevalve key from the DCR lock box.
+
+%%\item \checkbox Unlock the gatevalve.
+
+\item Remove `Gatevalve open' sign.
+
+\item \checkbox Carefully close the gate valve by rotating the handle {\em clockwise}.
+  {\em Expect resistance when the handle is about 3/4 of the way to
+  the closed position.  This is the normal overcentering of the
+  valve mechanism.} {\bf If resistance is felt before this or 
+  if any sounds are heard that might be caused by valve hitting the source,
+  STOP and contact the OCE.}
+  Record the time the valve is closed.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Closed:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+\item \checkbox Remove handle and key.
+
+ 
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+
+\item\checkbox Execute N16 PMT Turn Off Procedure
+
+\item  It is advisable to leave a slow N$_2$ flush of the URM in order to dry out
+the source and the inside of the URM. Contact the OCE to organize who will turn
+off the flow and when it should be done. If it is decided not to leave the
+flush on follow the shutoff procedure listed below :
+
+
+
+\item  Turn off gas flow at the LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item \checkbox close {\bf Gas Use} valve
+   \item \checkbox close {\bf Pressure Building} valve
+   \end{enumerate}
+
+\item \checkbox Turn off the flush on the gasboard.
+\item \checkbox Close the URM flush valve.
+
+
+\end{enumerate}
+
+%-------------------------------------------------------------
+\begin{center}
+                 {\bf After Calibration}
+\end{center}
+
+\begin{enumerate}
+
+\item \checkbox Source is above gate valve.
+\item \checkbox Gate valve is closed and handle plus key removed.
+\item \checkbox N16 PMT Power Supply set to  0V, Turned off, NIM BIN turned off.
+\item \checkbox N16 gas board is OFF.
+\item \checkbox DT Generator is OFF.
+
+
+%\item \checkbox LN$_2$ dewar is turned off (both {\bf Gas Use} valve and 
+%  {\bf Pressure Building} valve).
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+{\small
+~\\
+~\\
+\noindent
+{\bf Revision History:}\\
+\begin{tabular}{llll}
+Rev. & Date & Author & Comments\\
+
+0             & 
+?    & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+  First Draft
+}\\
+
+1             & 
+2000/07/30 & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+  Many earlier drafts
+}\\
+
+2     &
+2003/08/20 &
+Peter Skensved & 
+Revisions to reflect new realities  \\
+2004/08/10 &
+Peter Skensved & 
+More revisions to reflect even newer realities ...  \\
+
+\end{tabular}
+}
+
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\newpage
+\subsection{Acrylic Source Calibration Procedure}
+\shwlabel{procpca}~\\
+
+
+\newprocedure{CalProcAcryl}
+             {Acrylic Source Calibration Procedure}
+             {Fraser Duncan/Peter Skensved}{Oct. 2004}{3}
+
+
+
+
+\subsubsection{Introduction}
+   
+  This procedure describes step by step the deployment process
+for a acrylic source into the AV.  It is basically identical
+to the Laserball or N16 deployment procedure.
+  It is intended as
+a guideline for operators who have been trained on the manipulator
+and laser.  It assumes that the laserball is mounted on URM2 which
+is located on the 10'' gatevalve on the glovebox.
+
+
+  Supplementing this procedure are the documents available
+from the SNO calibration home page,
+\begin{verbatim}
+  http://www.sno.phy.queensu.ca/private/calibration/index.html
+\end{verbatim}
+In particular look at:
+\begin{description}
+\item[Online Manipulator Documentation] contains online manual
+  for all commands and operations with the manip program running
+  on the manip computer.  This is the reference source for commands
+  done from the manip console.
+\item[Manipulator User Manual] contains an overview of the manipulator
+  system and descriptions of sources and some procedures.  In particular
+  it describes how to start the manmon program for controling and monitoring
+  the manipulator.
+\item[Manipulator Reference Manual] contains technical information on
+  the manipulator.
+\end{description}
+
+\noindent
+  The outline of the procedure is:
+\begin{enumerate}
+\item Prepare the URM for use (turn on N$_2$ supply etc).
+\item Flush URM2 with N$_2$ gas to remove O$_2$ and Rn.
+\item Calibrate URM2 central rope.
+\item Lower source into glovebox.
+\item Connect side ropes to source. (if not single axis mode)
+\item Deploy source into detector.
+\item Take data
+\item Retract source to glovebox.
+\item Remove side ropes. (if not single axis mode)
+ \item Retract source into source tube above gatevalve.
+\item Shutdown gasflow to  URM.
+\end{enumerate}
+
+
+
+
+
+
+%----------------------------------------------------------------------
+\newpage
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ & Date: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular}
+~\\
+~\\
+  The procedures in this section are intended to be followed
+sequentually for the source calibration except where it is noted
+that a following procedure can be skipped.  Specifically,
+if the source run is to be done in {\em single axis} mode, the side
+ropes do not need to be attached or detached from the source.
+
+\begin{center}
+                     {\bf Prior to Calibration Run}
+\end{center}
+
+\begin{enumerate}
+\item\checkbox Permission for procedure and confirmation of equipment readiness
+  has been received from Head of Calibration Group.
+
+\item\checkbox Source is mounted in URM2 which is
+  mounted on 10'' valve on glovebox.
+
+\item\checkbox 10'' gatevalve is closed and locked.
+
+
+
+\begin{center}
+                  {\bf Readying URM for Operation}
+\end{center}
+
+\item\checkbox Verify that the LN$_2$ dewar in the junction is
+  at least 1/4 full.  If not, swap it out with another dewar.
+  Record liquid level of Dewar,
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     LN$_2$ Level:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Verify that the dewar gas pressure is approximately
+  130 to 150 psig. If not, swap it out with another dewar.
+
+\item\checkbox Turn on N2 Flow to laser from dewar at junction
+  (Marked {\bf Gas Use} on dewar).
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Note Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Turn on pressure builder valve (Marked {\bf Pressure Builder}
+  on dewar).\\
+  %------------------------
+  \small
+  {\em The pressure builder valve opens a controlled leak on the dewar
+       to maintain the 150 psi pressure head.  If the valve is not
+       opened, the gas pressure to the laser will eventually
+       drop below the operating level.}
+  \normalsize
+  %------------------------
+
+
+\item Once the URM is flushed the N$_2$ supply may be switched from the high
+pressure dewar to the Wessington dewar. Check with the Operations Group first
+before switching. Do not use the Wessington if a transfer is in progress.
+Consult the gasboard section for details on how to switch.
+
+
+\item\checkbox Contact Detector Operator and get permission to enter DCR. Make sure
+that the DCR activity bit is set.
+
+
+\item\checkbox Turn on lights in DCR following standard procedure. ( See Detector Operator
+Manual )
+
+\item\checkbox Remove the flush return line on the URM.
+  %------------------------
+  \small
+  {\em The presence of the buffer line makes it difficult to measure the O$_2$ from
+the URM.
+  }
+  \normalsize
+  %------------------------
+
+
+\item\checkbox Check that flush inlet line is connected to URM2.  If not
+  connect it. Open the valve on the source tube.\\
+  %------------------------
+  \small
+  {\em It may be necessary to valve off other URMs to get sufficient flow.
+  }
+  \normalsize
+  %------------------------
+
+\item\checkbox Set up Gas Board in `bypass mode' for `URM flush' only. If you are
+using the high pressure feed {\bf do not exceed } 10 psi on the regulator.
+  %------------------------
+  \small
+  {\em Bypass mode maximizes the flow to the URM.
+  }
+  \normalsize
+  %------------------------
+
+
+\item\checkbox Check that flow meter ( located at South-East corner of
+pipe box ) is railed. If not, open needle valve near the flowmeter fully.
+
+   {\bf Flush should continue until O$_2$ reading at the rear of the URM is less than 0.8\%.}
+   %--------------------------
+   \small
+   {\em
+     This may take up to an hour depending on when the URM was last
+     flushed.
+   }
+   \normalsize
+
+
+
+\item\checkbox Check that the source clamps are in the OUT position.
+{\bf Both } knobs have to be in the extreme {\bf OUT} position.
+{\bf
+     WARNING:  If the source is moved with the clamps in the {\bf IN} position,
+       the source, umbilical,
+     and manipulator may be severely damaged !
+   }
+  %--------------------------------
+  \small
+  {\em
+   The clamps are used to secure the source while the URM is being moved
+   on and off the glovebox.
+  }
+  \normalsize
+  %--------------------------------
+
+
+\item\checkbox Check the pressure on the air cylinder for the umbilical
+takeup mechanism. It should be between 45 and 55 psig.
+   {\bf Do not operate the URM if the pressure is below 40 psig. }
+ If the pressure falls below 10 psig at any point ( even momentarily ) call the OCE.
+An internal inspection of the URM is mandatory before operating the unit again.
+   %-------------------------------
+   \small
+   {\em
+     The pressure cylinder on the URM maintains tension on the umbilical
+     takeup reel.  A low gas pressure can result in the umbilical falling
+     off the takeup reel and getting caught or jammed leading to destruction
+     of the umbilical.
+   }
+   \normalsize
+   %--------------------------------
+
+
+\item\checkbox Verify that the 10'' gatevalve  is locked in the  closed position.\\
+   %-------------------------------
+   \small
+   {\em
+     The valve is CLOSED when the handle points towards the pipebox and the slot
+      on the handle stem points AWAY from the source tube.
+   }
+   \normalsize
+   %--------------------------------
+
+\item \checkbox Calibrate Central Rope Length\\
+      (see procedure  \ref{seccalcentre}
+       {\em Central Rope Position Calibration}).
+      Record changes in length of central rope and umbilical,
+      The current fiducial mark for URM2  on the 10'' gatevalve
+      is
+      \[
+               z_{mark} = 1559.9
+      \]
+       Note : the fiducial mark is written on the source tube. If it
+       differs from the above number use it instead.
+
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     $\Delta$l rope:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     $\Delta$l umbilical:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+\item\checkbox Check that all seals are in place on URM.  Including:
+   \begin{itemize}
+      \item\checkbox flush inlet line
+      \item\checkbox window on front of URM  motorbox
+      \item\checkbox window on rear of URM motorbox
+      \item\checkbox umbilical feedthrough on rear of motorbox
+      \item\checkbox view port window cover on source tube
+      \item\checkbox window on rear of stretcher box
+   \end{itemize}
+
+
+\item \checkbox Wait until the O$_2$ level in the URM is at or below 0.8\%
+
+
+%--------------------------------------------------------------
+\begin{center}
+            {\bf Deploying Source from Source Tube Into Glovebox}
+\end{center}
+
+ \item\checkbox Verify that the URM is below 0.8\% O$_2$.
+
+
+\item\checkbox Check that flush return line is connected to
+  URM2.  If not, connect it.\\
+  %------------------------
+  \small
+  {\em It may be necessary to move it from another URM.
+  }
+  \normalsize
+  %------------------------
+
+
+ \item\checkbox Turn off DCR lights.
+
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+      Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Verify OWL light monitor is on.  Establish communications
+  with person watching light monitor.
+  %-------------------------
+  \small
+  {\em
+    Suggestion:  Station the person watching the OWL monitor at
+    the Deck Mac.  Then he/she can shout through the  wall of the
+    DCR and you don't need to use the phones which slow communications
+    down.
+  }
+  \normalsize
+  %-------------------------
+
+
+\item\checkbox Open gate valve ( {\bf Slowly !} ).\\
+  Record the time the valve is opened.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Opened:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+ \item\checkbox Lock gate valve open.
+
+ \item\checkbox With flashlight perform light leak check on URM.  In particular
+   check the seal of the source tube window and around the base of the source tube.
+   Also, check around any inspection panel which may have been removed in the recent past.
+
+ \item\checkbox Using the dimmer switch, { \bf slowly } bring up breaker 9 lights in
+   the DCR.  Person still watching owl monitor.
+
+
+ \item\checkbox DAQ is connected to the {\bf manip} computer.
+
+ \item \checkbox In DAQ, source type is set to {\bf ACRYLIC}.
+
+ \item\checkbox DAQ is in a {\bf source transitional run}.
+
+ \item \checkbox Verify that {\bf manip\_logger} on {\bf crag1}
+                 is running and logging the {\bf Acrylic}  source.
+
+ \item\checkbox Check movement of acrylic source down:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic by 0 0 -5} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & set x = 0, y = 0, z = -5\\
+          & click on {\bf move by} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+  %--------------------
+  \small
+  {\em
+    The source should move down 5 cm.  The tension on the rope
+    should be 40-60 N.  The tension on the umbilical should be
+    10-30N.
+  }
+  \normalsize
+  %--------------------
+
+
+ \item\checkbox Check that the source offset is set correctly.
+   At the console type
+ {\tt acrylic sourceoffset } \\
+  The actual offset depends on the exact configuration ( canned / un-canned, spacer present etc. )  
+
+ \item\checkbox Deploy source into the glovebox:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1380} \\
+  \hline
+  manmon  & in acrylic window: \\
+
+          & set x = 0, y = 0, z = 1380\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+  {\bf Deploying Manipulator into Centre of
+            Detector from Glovebox}
+\end{center}
+%%%%\shwlabel{sectocentre}
+
+
+ \item\checkbox Contact Water Supervisor and advise him/her that the source is
+   being lowered into the D$_2$O.  \\
+   %--------------------
+   \small
+   {\em
+     The water group maintains a very small differential pressure
+     between the light and heavy water.  The volume of the source
+     is enough to disrupt this differential pressure.
+   }
+   \normalsize
+   %---------------------
+
+ \item\checkbox Check tensions on urm2rope and urm2umbilical.  Rope tension
+   should be approximately 30-50 N.  Umbilical tension should
+   be between 15-40 N. Note that the tensions are reduced once the
+source is submerged.
+
+
+ \item\checkbox Move acrylic source to centre of detector ( assuming source offset is 70 cm ).
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 70} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & click on {\bf Position the source}\\
+          & set x = 0, y = 0, z = 0\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+%-------------------------------------------------------------
+
+\checkitem Take data. The exact configuration will vary. 
+
+
+%-------------------------------------------------------------
+\begin{center}
+                   {\bf Retracting Manipulator to glovebox}
+\end{center}
+
+\item\checkbox Contact Water Supervisor.  Inform him/her that the source is
+   about to be removed from the D$_2$O.
+
+\item\checkbox Retract acrylic source from AV into glovebox.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1300} \\
+  \hline
+  manmon  & in acrylic window: \\
+           & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z = 1300\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+\item\checkbox Retract acrylic source to position to disconnect side ropes.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1380} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z = 1380\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  %------------------------
+  \small
+  {\em
+    When moving the acrylic source to 1380, it is important to make sure
+    you are moving with respect to the { \bf pivot } and  { \bf not } the
+   centre of the source which is
+    approximately 64 cm  below the pivot.  This is especially important if the sideropes
+are attached !
+}
+  \normalsize
+  %-----------------------
+
+
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+           {\bf Retracting source above gate valve.  Side ropes NOT attached.}
+\end{center}
+\shwlabel{secabovegv}
+\item\checkbox move acrylic to 1530
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1530} \\
+  \hline
+  \end{tabular}
+  \end{center}
+\item\checkbox move acrylic to 1540
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1540} \\
+  \hline
+  \end{tabular}
+  \end{center}
+\item\checkbox move acrylic to 1550
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1550} \\
+  \hline
+  \end{tabular}
+  \end{center}
+{\bf
+ NOTE:\\
+   MINIMUM SAFE HEIGHT TO CLOSE GATEVALVE IS 1535cm.\\
+   If unable to get above this height, contact expert.
+}
+\item\checkbox Retrieve the gatevalve key from the DCR lock box.
+\item\checkbox Unlock the gatevalve.
+\item\checkbox Carefully close the gate valve by rotating the handle {\em clockwise}.
+  {\em Expect resistance when the handle is about 3/4 of the way to
+  the closed position.  This is the normal overcentering of the
+  valve mechanism.} {\bf If resistance is felt before this or
+  if any sounds are heard that might be caused by valve hitting the source,
+  STOP and contact an expert.}
+  Record the time the valve is closed.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Time Gate Valve Closed:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Lock the gatevalve in the {\bf CLOSED} position.
+\item\checkbox Return the gatevalve key to the DCR lock box.
+
+ \checkitem Record the Cover Gas O$_2$ level
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Cover Gas O$_2$ Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Close the URM flush valve if the soure does not need drying out.
+\small
+{\em It is desirable to leave a minute flow of N$_2$ through the URM in order to dry
+out the source and the umbilical. Contact OCE for instructions.}
+
+\normalsize
+\item\checkbox Turn off the URM flush regulator ( if the source does not need drying out ).
+
+\item\checkbox IF the laser is off,
+   turn off gas flow at the LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item close {\bf Gas Use} valve
+   \item close {\bf Pressure Building} valve
+   \end{enumerate}
+
+
+ \item\checkbox If the source is retracted, and gate valve closed,
+   turn off gas flow at the high pressure LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item close {\bf Gas Use} valve
+   \item close {\bf Pressure Building} valve
+   \end{enumerate}
+
+
+
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+           {\bf After Calibration}
+\end{center}
+\item\checkbox Source is above gate valve.
+\item\checkbox Gate valve is closed and locked.
+\item\checkbox High pressure LN$_2$ dewar is turned off (both {\bf Gas Use} valve and
+  {\bf Pressure Building} valve) if source is not to be dryed out.
+\item\checkbox Flush return line is disconnected from rear of URM2
+\item\checkbox Gas board is set up to provide sufficient flow to dry out the inside
+of the URM.
+
+\end{enumerate}
+
+
+
+%------------------------------------------------------------
+
+\newpage
+\section{Laserball to/from Acrylic Procedures}
+
+\newprocedure{CalProcSwitch}
+   {Laserball to/from Acrylic Procedures}
+   {P. Skensved}{Oct. 2004}{3}
+
+
+\subsection{Procedure for Changing from Laserball to Acrylic Source.}
+
+
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ & Date: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular}
+~\\
+~\\
+
+This procedure describes going from the Mark III laserball to a
+generic 
+acrylic source.  The acrylic source stem replaces the laserball and
+it's stem where it attaches to the laserball ``can''.
+
+
+
+\begin{enumerate}
+      
+\checkitem Obtain permission to proceed from calibration group. 
+\checkitem Remove salt probe / plug clamp. 
+\checkitem While supporting both laserball and can remove screws which hold the laserball to the can.
+\checkitem Gently slide the laserball away from the can until CAJON fitting is exposed. Be sure to support both
+can and laserball and make sure they're aligned. 
+\checkitem Carefully unscrew top end of CAJON fitting and pull out the fiber end. Do NOT let it retract into the can.
+\checkitem Store laserball in toolbox
+\checkitem Ensure o-ring is in place on stem.
+\checkitem Ensure dummy CAJON fitting is pin place on stem.
+\small
+{\em  
+  Note : The teflon uses a steel spacer between the can and the stem ( the teflon stem is too soft to
+seal properly. Make sure the o-ring is present on the top of the spacer. It has a pin which holds
+the CAJON fitting. The o-ring between the stem and the plate is optional.
+}
+\normalsize
+\checkitem Carefully insert fiber end into stem CAJON fitting and tighten lightly.
+\checkitem Verify the saltprobe / plug o-ring is still in place.
+\checkitem Push the fiber in to the cajon fitting on the stem. Tighten the fitting ligthly.
+\checkitem Push the stem up against the can. Make sure the fiber is not bent or pinched
+in any way.
+\checkitem Slide the steel plate into place and bolt plate plus stem to can. Use correct screws.
+\checkitem Slide clamp up around saltprobe or plug. Make sure it is oriented correctly ( so that
+ it fits ) and
+tighten screw appropriately. ( {\bf Do not overtigthen  } ! )
+
+  The next few steps depend on the desired source configuration ( canned, un-canned, 
+un-canned with spacer, sealed can ).
+
+
+\checkitem Canned source
+ \begin{enumerate}
+ \checkitem Retrieve the appropriate source from the source cabinet. Make an entry in the log.
+ \checkitem Place source in delrin can
+ \checkitem Ensure o-ring is in place on lid. Ensure all three captured nuts are in place.
+ \checkitem Gently press lid into place. Make sure it is oriented correctly.
+ \small
+  {\em Use something soft like a cable tie to check that the holes line up.
+  Delrin is very soft and it is extremely easy to strip the threads. { \bf  Make absolutely sure that the
+ holes are line up properly before inserting
+  the screws ! } Use something soft like a cable tie to check the alignment. }
+ \normalsize
+
+ \checkitem Put in the three screws.  Do not use any tools - use your fingers. If there is {\bf any }
+ friction at all chances are that the holes aren't lined up. Stop immediately, remove the screws and
+ check the alingment again.
+
+ \checkitem Tighten the screws infinitesimally with and allen key. {\bf Do not overtighten ! }
+
+ \checkitem Secure srcews with stainless steel wire.
+
+ \checkitem Ensure small o-ring is in place on top of lid. 
+
+ \checkitem Attach can to stem with three screws. Use proper length screws. 
+
+ \small
+ { \em It is very easy to cross thread the screws in the captured nuts. Make {\bf absolutely} sure
+ they are in correctly and { \bf do not overtighten ! } }
+
+ \checkitem Secure screws with wire.
+ \normalsize
+
+ \end{enumerate}
+
+
+
+
+\checkitem Uncanned source
+ \begin{enumerate}
+ \checkitem Mount source with three screws. Use spacer if so desired. Use proper length screws.
+ \small
+ {\em Acrylic is brittle and easy to damage. Use extreme care when threading the
+ screws into the source. {\bf Do not overtighten !}  And do not cross thread the screws.  }
+ \normalsize
+ \checkitem Secure with wire.
+ \end{enumerate}
+
+\checkitem Sealed can
+
+   Note : A sealed can is { \bf not } to be opened anywhere in the lab. The can is an essential
+part onf the containment system for the source. At present we have two sealed sources ( both AmBe sources ).
+One is in a teflon can the other is in a stainless can. The latter differs from the standard steel can
+in that it has a small top cover. {\bf If in doubt contact the OCE !}.
+
+
+ \begin{enumerate}
+  
+  \checkitem 
+ \checkitem Attach can to stem with three screws. Use proper length screws. Do {\bf NOT } open can.
+    The sealed stainless steel can has a small top cover plate and requires a ``donut''
+    to fit the stem properly. If in doubt contact the OCE. 
+
+
+
+ \small
+ { \em It is very easy to cross thread the screws in the captured nuts. Make {\bf absolutely} sure
+ they are in correctly and { \bf do not overtighten ! } }
+ \normalsize
+ \checkitem Secure screws with wire.
+ \end{enumerate}
+
+
+
+
+\end{enumerate}
+
+
+
+
+%------------------------------------------------------------
+
+
+%------------------------------------------------------------
+
+\newpage
+
+
+\subsection{Procedure for Changing from Acrylic Source to Laserball.}
+
+
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ & Date: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular}
+~\\
+~\\
+
+This procedure describes going from the generic Acrylic Source to the Mark III Laserball.
+  The laserball replaces the acrylic source and stem.
+
+
+
+\begin{enumerate}
+
+\checkitem Obtain permission to proceed from the calibration group.
+\checkitem Remove salt probe / plug clamp.
+\checkitem Remove the 3 screws holding the can containing the source ( or the source if uncanned configuration ).
+
+\checkitem Contact OCE for instructions to verify what steps are to be followed regarding the can and source.
+   {\bf Do not proceed unless authorized to do so !}
+
+\small
+{\em  The can may be part of the containment system for the source. {\bf Do NOT open the can unless directed to do so
+by the OCE !   }    }
+\normalsize 
+
+  \checkitem Uncanned source
+
+\begin{enumerate}
+
+ \checkitem Place source in the proper bag and box in the source cabinet. Fill out logbook.
+
+\end{enumerate}
+
+\checkitem Canned source  ( {\bf NOT SEALED source }
+
+ \begin{enumerate}
+
+ \checkitem Remove 3 screws on the side.
+
+  \checkitem Gently pry off the top.
+
+  \checkitem Remove acrylic source from container. Fill out logbook and place source in proper bag and box in the source cabinet.
+
+\end{enumerate}
+
+
+\checkitem Sealed source.
+
+\small
+{\em  For the sealed source the can is an essential part of the containment system for the source.
+ {\bf Do NOT open the can  !   }    }
+\normalsize 
+
+\begin{enumerate}
+
+ \checkitem Place sealed source and ``donut'' ( if present ) in a bag and fill out the source logbook.
+
+\end{enumerate}
+
+
+\checkitem While supporting both source stem and the rest of the assembly remove screws which hold the stem to the can.
+\checkitem Remove pressure plate.
+\checkitem Gently slide the stem away from the can until CAJON fitting is exposed. Be sure to support both
+can and stem and make sure they're aligned. 
+\checkitem Carefully unscrew top end of CAJON fitting and pull out the fiber end. Do not let it retract into the can.
+\checkitem Make sure the o-rings  are in place ( one for the saltprobe / plug
+and another for the center ).
+\checkitem Push the fiber in to the CAJON  fitting on the laserball. Tighten the fitting ligthly.
+Make sure you don't twist or otherwise disturb the solid fiber on the laserball itself and make
+ sure the fiber end is through
+the o-ring.
+\checkitem Mount the laserball on the can. Make sure the fiber is not bent or pinched
+in any way. Use correct screws.
+\checkitem Slide clamp up around saltprobe or plug. Make sure it is oriented correctly ( so that it fits ) and
+tighten screw appropriately. ( {\bf Do not overtigthen  } ! )
+
+
+\end{enumerate}
+
+
+\newpage
+
+\section{Other Source  Procedures}
+
+\newprocedure{CalProcOther}
+   {Other Source  Procedures}
+   {P. Skensved}{Sept. 2004}{1}
+
+
+   The following sections describe procedues for assembling and disassembling various sources.
+
+ In order to ensure that there are no leaks and
+that the source is securely attached to the umbilical
+it is important that correct size o-rings are used everywhere. The
+assembly uses small screws and nuts in many places. These are easily
+stripped and damaged. {\bf Do not overtighten ! And do not re-tighten
+just to make ``sure'' !}  If you do not know what the proper torque
+should be contect an expert.
+  If there are holes drilled through the screws secrure them with wire.
+Do not twist or flex the wire more than necessary and make sure you do not
+leave any weakened pieces of wire  as
+they may end up in the detector. Re-do the wire instead. Bend the ends so
+that they will not poke holes in the gloves.
+

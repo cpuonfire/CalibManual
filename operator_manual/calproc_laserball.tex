@@ -1,0 +1,252 @@
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{Laser Procedures}
+\shwlabel{secproclaserball}
+   
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=7in
+\epsfbox{./figures/lasergas.eps}
+~\\
+\caption[Laser Gas System]
+        {Laser Gas System
+         \shwlabel{figlasergas}
+        }
+\end{center}
+\end{figure}
+  
+  
+\subsection{Starting the Laser}
+\begin{enumerate}
+\item Open MV1 the manual valve on the LN$_2$ dewar.
+\item Open MV2 the pressure builder valve on the LN$_2$ dewar.
+\item Note pressure on PG1, the pressure gauge on the dewar.
+      The pressure should be at least 120 psig.
+\item Note time.  {\bf The laser must NOT be turned on until 20 min
+       after gas flow has started.}
+\item Enter DCR and note values on PG2 and PG3 and FG1.
+  PG2 should be at least 120 psig, PG3 should be at least 100 PSIG
+  FG1 should be at least 40.
+\item Test control of the laser by changing the mirror position
+\item Using either manip computer or manmon determine PT4 and PT5.
+  PT4 should be at least 80 psi.
+\end{enumerate}
+  
+\subsection{Calibrating the Filter Wheels}
+The control system can sometimes loose track
+of where the filter wheels are positioned.
+To fix this follow this procedure.  This example
+is for {\tt filterwheela}, replace with 
+{\tt filterwheelb} for the 2nd filterwheel.
+\begin{enumerate}
+\item Reinitialize the filterwheel
+  \begin{verbatim}
+  filterwheela init
+  \end{verbatim}
+\item Find the tab on the wheel
+  \begin{verbatim}
+  filterwheela findtab
+  \end{verbatim}
+\item select the desired filterwheel position using
+  the {\tt n2laser setnd} command.
+\end{enumerate}
+
+\subsection{Calibrating the Dye Cell Mirror}
+\begin{enumerate}
+\item Reinitialize the mirror
+  \begin{verbatim}
+   dyelaser init
+  \end{verbatim}
+\item Find the zero of the mirror
+  \begin{verbatim}
+  dyelaser findzero
+  \end{verbatim}
+\item Select desired wavelength
+  \begin{verbatim}
+  dyelaser cell <0-9>
+  \end{verbatim}
+\end{enumerate}
+
+
+%---------------------------------------
+%\newpage 
+%\vspace*{0.2in}
+%\noindent
+%{\bf State At Completion Of This Procedure}\\
+%Laserball is assembled and ready for retraction into source tube.
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+
+
+
+\newpage
+
+\subsection{Assembly of Mark III Laserball}
+  
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Version    & 0.9 \\
+\hline
+Date       & Nov 2002\\
+\hline
+Written by & P. Skensved\\
+\hline
+\end{tabular}
+\end{center}
+ 
+\subsubsection{Overview}
+
+  This is a procedure describing the assembly of the
+Mark III laserball. In order to ensure that there are no leaks and
+that the laserball is securely attached to the umbilical
+it is important that correct size o-rings are used everywhere. The
+assembly uses small screws and nuts in many places. These are easily
+stripped and damaged. {\bf Do not overtighten ! And do not re-tighten
+just to make ``sure'' !}  If you do not know what the proper torque 
+should be contect an expert. 
+
+  If there are holes drilled through the screws secrure them with wire.
+Do not twist or flex the wire more than necessary and make sure you do not
+leave any weakened pieces of wire  as
+they may end up in the detector. Re-do the wire instead. Bend the ends so
+that they will not poke holes in the gloves.
+
+  Do not ever attempt to remove the shroud around the laserball or undo
+the 2 inch cajon fitting attached to the glass ball itself. You will disturb
+the alignment of the fiber. 
+
+\begin{figure}[p]
+\begin{center}
+\leavevmode
+\epsfxsize=6.0in
+%%%%%%%%%\epsfbox{./figures/laserball_exploded3.ps}
+\caption[View of Mark III laserball]{
+  View of Mark III laserball.
+  \shwlabel{figexploded3}
+  }
+\end{center}
+\end{figure}
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+\subsubsection{Prior To This Procedure}
+  \begin{itemize}
+  \item The rope may or may not be attached to the rotating bearing.
+  \item The carriage may or may not be attached to weight cylinder.
+  \item The spool piece may or may not be attached to weight cylinder.
+  \item The can may or may not be attached to the spool piece.
+  \item The can may or may not be assembled.
+  \item The laserball may or may not be attached to the can
+  \item The salt probe may or may not be installed and connected.
+  \end{itemize}
+
+\newpage
+
+\subsection{Assembly}
+
+\begin{enumerate}
+\checkitem Tie the rope to the rotating bearing. {\bf This is to be done by an expert only !}
+\checkitem Slide the rotating bearing on the umbilical.
+\checkitem Slide the o-ring on the umbilical. Use correct size o-ring.
+\checkitem Attach the carriage to the weight cylinder. Secure the nuts with wire.
+\checkitem Attach the spool piece to the weight cylinder. Secure the nuts with wire.
+\checkitem Slide the carriage, weight cylinder and spool piece  on the umbilical.
+\checkitem Slide a spacer with groove facing down on the umbilical.
+\checkitem Slide the o-ring on the umbilical.
+\checkitem Slide the stainless steel lid on the umbilical.
+\checkitem Slide the o-ring on the umbilical.
+\checkitem Slide the acrylic lid on the umbilical.
+\checkitem Tie the wires in a  `Hallinian' knot and secure with cable ties. {\bf This is to
+be done by an expert only !}
+\checkitem Pull the knot up against the lid ( Gently !!! )
+\checkitem Make sure the acrylic plate o-ring is in place.
+
+     The can is designed to be used with a salt probe or a dummy plug. Use the
+appropriate section for the next few steps. The can also holds a blue LED which
+is used to index the laserball in the H$_2$O. Note that only one electrical
+device can be connected at any given time. 
+
+\checkitem Assemble saltprobe.
+\begin{enumerate}
+
+\item Mount the inner clamp around the salt probe.
+\item Put the salt probe into the can.
+\item Slide the o-ring up atround the saltprobe.
+\item Connect the wires to the saltprobe. The colour codes are listed in the log book.
+item Make an entry in the logbook stating that the saltprobe is now connected to the umbilical.
+\end{enumerate}
+
+\checkitem Assemble plug.
+\begin{enumerate}
+\item Put the plug in the bottom of the can.
+\item Slide the o-ring up around the plug.
+\end{enumerate}
+
+\checkitem LED assembly.
+\begin{enumerate}
+\item Press the LED into place. Be careful not to break anything.
+\item Connect the wires to the LED. The colour codes are listed in the logbook.
+\item Make an entry in the logbook stating that the LED is now connected to the umbilical
+\end{enumerate}
+
+\checkitem Feed the fibers through the can and through the hole in the bottom of the can.
+\checkitem Make sure the wires and the fibers are placed correctly inside the can. The prefered
+routing of the fiber is in a helix so which is free to move up and down with the optical
+coupling.
+\checkitem Attach the acrylic lid to the can with 4 screws. Ensure that the o-ring is in place.
+Make sure you're using the correct holes in the plate and make sure you're using the correct
+length  screws.
+\checkitem Slide the umbilical o-ring up against the acrylic lid.
+\checkitem Check that everything looks ok inside the can
+\checkitem Slide the stainless steel lid into place. Attach with screws. Use correct screws.
+\checkitem Slide the second o-ring into place.
+\checkitem Slide the pressure plate into place.
+\checkitem Attach the can to the spool piece using 5 screws. Use correct screws.
+\checkitem Make sure the o-rings  are in place ( one for the saltprobe / plug
+and another for the center ).
+\checkitem Push the fiber in to the CAJON  fitting on the laserball. Tighten the fitting ligthly. 
+Make sure you don't twist or otherwise disturb the solid fiber on the laserball itself and make sure the fiber end is through
+the o-ring.
+\checkitem Mount the laserball on the can. Make sure the fiber is not bent or pinched
+in any way. Use correct screws.
+\checkitem Slide clamp up around saltprobe or plug. Make sure it is oriented correctly ( so that it fits ) and
+tighten screw appropriately. ( {\bf Do not overtigthen  } ! )
+
+\checkitem Slide the o-ring for the rotating bearing into place.
+\checkitem Attach the rotating bearing to the carriage with 4 screws and secure them
+with wire. Do not overtighten !!!  Do not pinch or damage the o-ring.
+
+
+\end{enumerate}
+
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\newpage
+\subsection{Disassembly of Mark III Laserball}
+\shwlabel{procpca}~\\
+\noindent
+\begin{tabular}{|l|l|}
+\hline
+Version              & 0.9 \\
+\hline
+Written/Revised by   & P. Skensved \\
+\hline
+Date Written/Revised & Nov 2002\\
+\hline
+\end{tabular}
+ 

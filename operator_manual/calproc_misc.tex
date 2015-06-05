@@ -1,0 +1,45 @@
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+
+
+\section{Misc Procedures}
+  
+\subsection{Backing Up the Manip program}
+Suppose you are backing up the version 2.2.
+\begin{enumerate}
+\item Go to the motors.2\_2 directory,
+\begin{verbatim}
+  cd c:\motors.2_2
+\end{verbatim}
+\item To to a full backup of the manipulator code type
+  \begin{verbatim}
+    backup all
+  \end{verbatim}
+  To only backup the code and not the data files type,
+  \begin{verbatim}
+    backup
+  \end{verbatim}
+  Either command creates the zip file,
+  \begin{verbatim}
+     manip.zip
+  \end{verbatim}
+\item rename the file
+  \begin{verbatim}
+    rename manip.zip manip2_2.zip
+  \end{verbatim}
+\item Copy the file to surf for archive using ftp
+\end{enumerate}
+
+   
+
+
+\subsection{Calibrating Load Cells}
+  The loadcells on the manipulator will require calibration periodically.
+In particular the zero's of the loadcells are known to drift and have a
+significant temperature variation.
+  
+
+
+

@@ -1,0 +1,270 @@
+  
+\chapter{Misc}
+  
+
+   
+\begin{figure}
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=5in
+\epsfbox{figures/catenaries.ps}
+~\\\
+\caption[Shape of Umbilical]
+        {Shape of Umbilical
+         \shwlabel{figumbilical}
+        }
+\end{center}
+\end{figure} 
+  
+\section{Control Hardware}
+  
+  
+  Each of the ropes is referred to as an ``axis'' and each axis has a
+\begin{itemize}
+\item stepping motor to wind rope in or out.
+\item shaft encoder to measure length of rope.
+\item load cell to measure tension of rope.
+\end{itemize}
+The stepping motors are controlled from a National Instruments TIO 10 card
+in the control PC that has many clock signals.  These signals are fanned
+out through the motor fanout box to the individual motor controllers.
+The readback from the axis is the load cell measuring the tension of the
+rope and the shaft encoder measuring the length of the rope.  The input
+signals go into the counter boards which are gray boxes 
+which are daisy chained together and are indvidually 
+addressable.    The address for the counters are set with jumpers on 
+the boards as is the address for the analog circuit.  Note that the
+analog circuit has a different address from the counter circuit.
+These boxes are read out by the data concentrator which is
+read by the computer.
+
+\section{Using the {\tt see} editor on the PC}
+start it by typing
+\begin{verbatim}
+  see wiring.dat
+\end{verbatim}
+Now in command mode, go to insert mode by typing 
+\begin{verbatim}
+    i
+\end{verbatim}
+To leave insert mode type 
+\begin{verbatim}
+    <esc>
+\end{verbatim}
+When in command mode, the space bar scrolls through the commands.  The
+page up and and page down buttons allow paging through text file.
+\section{Data files}
+\begin{verbatim}
+On PC
+-----
+c:\motors\manip\
+  
+   wiring.dat  -- TIO 10 wiring map
+                   counter board wiring map
+                   motor fanout wiring map
+  
+       -- both the manipulator and the AV position sensors
+  
+   motor.dat    -- physical parameters for motors
+  
+   encoder.dat  -- physical parameters for encoders
+  
+   loadcell.dat -- physical parameters for load cells
+  
+   axis.dat     -- combines motor loadcell and encoder infor plus other
+                   stuff (i.e. wire tension etc) to form info on axis
+  
+   polyaxis.dat -- combines 3 axes into the manipulator
+  
+   av.dat       -- information on acrylic vesel geometry
+
+\end{verbatim}
+  
+
+
+  
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%\appendix
+  
+\chapter{Water Level Measurement With Manipulator}
+  
+  On 5 Oct 1998 at approximately 14:00, Aksel Hallin, Peter Skensved
+and Fraser Duncan deployed the manipulator into the D2O in the Acrylic
+vessel.  It could easily be seen to the order of 2mm when the top of
+the manipulator weight cylinder contacted the D2O surface.  In the
+manipulator coordinate system, the manipulator carriage pivot was at
+ -285 cm when this happened.  The weight top plate was located 2.5"
+(6.35cm) below the pivot.  When the manipulator was returned to the glovebox
+it's calibration was checked and was found to be 1mm off.    When the
+measurement was taken, the centre of the AV as reported by the neck monitors
+was located at 3.04cm in the global coordinate system.  The manipulator
+was calibrated such that the bottom of the AV is located at -600.53 cm
+(at nominal lab temperature --- the AV is now getting colder).
+Thus the depth of water in the AV (distance from water surface to bottom
+of AV) as measured by the manipulator is:
+\[  
+    -285 - 6.35 - ( -600.53 + 3.04) = 306.14 cm
+\] 
+The measurements used to calibrate the manipulator position had an
+uncertainty of 0.16 cm.  However, there is a question of reproducability
+of the order of 1 cm.  Further the agreement between the single axis
+manipulator and the multiaxis manipulator is on the order of 1 cm.
+Thus the manipulator measurements have an uncertainty of 1 cm.
+  
+    Discussion with Ken McFarlane gave a D2O AV bubbler water depth
+reading of 131 in.  According to Dave Sinclair, the reading of that 
+bubbler is 1% low and it is calibrated in inches of H2O.  The ratio
+of H2O density to D2O density is 62.4/69.  Further, the bubbler is
+one inch above the bottom of the AV.  Thus,
+\[  
+  1.01 * 131 * (62.4/69) + 1.0 = 120.65 in  * 2.54 cm/in = 306.46 cm
+\]  
+So the manipulator and bubbler are in excellent agreement with each other,
+having a difference in the water position of 0.32 cm.
+
+
+  
+
+
+%------------------------------------------------------------------
+\chapter{Deck Elevations}
+\begin{verbatim} 
+
+URL to original Doc:
+http://manhattan.sno.laurentian.ca/sno/detector.nsf/URL/MANN-46VUSJ
+
+SUBJECT:  Elevations
+FROM:     Davis Earle
+DATE:     4/12/99 6:50:25 PM
+CATEGORY:      Commissioning,
+
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+
+
+
+LOG ENTRY:
+Relative Elevation of Various Detector Components
+By Davis Earle
+April 12, 1999
+
+
+On April 7 & 8th we measured the elevation of a number of positions on the deck,
+the elevation of the water levels and of the top of the AV. The Queen?s
+theodolite was used. The deck positions were identified with yellow labels " BM
+x" where X is some number from 1 to 15.
+
+Table 1
+
+Identify              Location
+relative elevation
+
+BM 1                 F1 ultra sound port, South side                   -11.90
+BM 2                 PSUP cable support #4, NE location            -22.35
+BM 3                 F2 cover gas port, North side                     -14.92
+BM 4                 Edge of hatch to cavity
+-24.60, -24.80
+BM 5                 Lip of the bathtub, under the cover.              -2.5
+BM 6                 AV 2 wipple tree, NE                               -0.40
+BM 7                 AV 4 wipple tree, SE                                0.0
+BM 8                 PSUP cable support #8, S                          -23.00
+BM 9                 PSUP cable support #15, N                        -23.10
+BM 10               Glove box flange to AV neck, S side            80.95
+BM 11               Glove box gate valve to D2O, top               127.00
+BM 12               Calibration Port #6                                    9.90
+BM 13               SW glove box corner, top                           104.05
+BM 14               SE glove box cornet, top                           104.00
+BM 15               NE glove box corner, top.                          103.90
+
+     The theodolite was set up in four different places and BM 6 & 7 were used
+to cross reference the readings.  All readings were normalized to BM 7 and are
+shown in Table 1 in cm.
+
+     On April 8th the distance from BM 10 to the top of the AV neck NCD ring was
+measured as 117.8 cms. At that time the CMA neck Z value was 1281.26 cm and the
+average Equator monitor reading was ?5.83 cm. These readings may be compared
+with the readings taken Sept 17, 1998 before the water fill at which time the
+distance to the NCD ring was 111.4 cm, the neck Z value was 1288.02 cm and the
+average equator monitor reading was 0.13 cm. The vessel has moved down due to
+the water loading. The amount of downward movement is listed in Table 2.
+
+Table 2
+
+                                                                         Sept
+17/98           Apr 8/99            movement
+
+>From the measurements to the NCD ring                  111.4
+117.8                   6.4 cm
+>From the neck Z via calibration computer                1288.02
+1281.26                6.76 cm
+>From the average equator monitor                            +0.13
+-5.83                   5.96 cm
+
+During the intervening  seven months adjustments have been made to the
+calibration program and to the equator monitor measuring equipment. Changes of
+several mm have been seen from time to time and also now that the water is in
+the chimney some movement of the AV neck with respect to the AV equator is not
+unexpected.  The physical measurement of 6.4 cm must be considered the most
+reliable of the three different measurements. The implied smaller movement of
+the equator as compared to the neck may or may not be real since uncertainties
+of several mms in both the neck Z and the equator monitors is expected.
+
+     The distance to the NCD ring at the top of the AV neck is measured by
+dropping a plump bob through one of the glove box ports. By noting its position
+on the NCD ring one can also determine if there has been any horizontal movement
+of the neck. Between Sept and Apr there appears to have been a 1 cm movement of
+the chimney top in a NE direction.  This movement is not seen in a change  of
+the neck X and neck Y which show only a 1mm movement. As with the neck Z
+measurement uncertainties as large as 1 cm may be present in the data from the
+calibration computer and equipment.
+
+     The water group measured the distance from the gate valve (BM 11) to the
+D2O and from the hatch (BM 4) to the H2O on April 7th. These measurements were
+combine with the theodolite measurements to get the difference between the two
+water levels which was compared with the bubbler tube measurement of the same
+difference.  This comparison was originally reported in a memo by McFarlane.
+
+"A comparison was made with physical measurements made by Davis, Tony, Hardy,
+and David Bailey against the Data Logger measurements corrected for D2O density.
+Physical measurements using combinations of a tape measure and a theodolite give
+a physical distance of 47.09 inches between the H2O and D2O levels, as measured
+at 15:13, April 7, 1999. The consistency check program (looking at columns not
+normally printed) calculated an H2O  water level of 547.53 and a D2O level of
+500.42, using bubbler set B,  at a recorded time of 15:32, for a calculated
+water level difference of 47.11 inches. The discrepancy between these two
+measurements is 0.02 inches. Neither measurement is this accurate, and the
+closeness of the numbers can only be attributed to good fortune.
+On an absolute scale, using the same measurements, the D2O level is 501.21 above
+the AV invert at ~15:13. Data averaged between recorded points at 15:07 and
+15:32 gives a D2O height above the AV invert of 500.33 inches. The discrepancy
+between the two methods is 0.88 inches. This is much better agreement than
+expected."
+
+The distance from the top of the NCD plate to the actual acrylic of the top of
+the chimney, from the drawings of the assembly, is 7/8" or 2.22 cm. This
+thickness is made up of two metal plates and a gasket. The distance from the top
+of the ACRYLIC chimney to the centre of the vessel was reported by R. Komar in
+STR-98-003 as 506.16" or 1285.63 cm. Combining these numbers with the numbers
+presented in Table 1, the PSUP plates are 1301.9 cm above the centre of the
+vessel when the equator monitor average is ?5.83 cm This assumes no movement of
+the neck down with respect to the equator. Such movement, which might be as
+large as 0.5 cm, would decrease the height difference between the AV centre and
+the PSUP plates to 1301.4 cm.
+
+Tony Noble measured the distance from the top flange of the gate valve to the
+D2O at 15:13 on Apr 7th as 25? 7 5/8" = 781.368 cm, when the D2O logger recorded
+the D2O pressure as 551.73".
+The position on the gate valve was 1.905 cm higher than BM 11
+BM 11 is 46.05 cm higher than BM 10
+BM 10 is 117.8 cm higher than the NCD ring on the neck
+which is 2.22 cm higher than the AV acrylic neck top and
+the distance to the bottom of the AV is 742.59" from Komar and assuming no
+vessel shape change.
+Taking all these measurements into consideration gives the depth of the D2O in
+the vessel as 501.1" which is in excellent agreement with Ken McFarlane?s number
+of 501.2 reported in his memo.
+\end{verbatim}
+
+

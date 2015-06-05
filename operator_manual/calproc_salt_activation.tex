@@ -1,0 +1,528 @@
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\subsection{Activation of $^{24}$Na in 
+            Salt Phase using the Super Hot Th Source}
+\shwlabel{secprocstandard}
+ 
+ 
+\procedure{ProcSaltActivate}{Fraser Duncan}{2001/08/29}{0.9}
+
+ 
+
+ This procedure describes the use of the superhot acrylic encapsulated
+Th source to activate the $^{24}$Na in the D2O during salt phase.  The method
+of deployment is to place the encapsulated source inside a metal can
+attached to a polypropelene stem mounted on the laserball bucket.
+The deployment will be with the laserball URM.
+The dangers
+inherent in this procedure are:
+\begin{enumerate}  
+\item Failure of the superhot source encapsulation.
+\item Loss of the encapsulated superhot source in the D2O volume
+\item Damage to the detector triggers due to the excessive rate
+     (500kHz) from the superhot source.
+\end{enumerate}
+The prevention of eventuality (1) is the triple encapsulation of
+the source in acrylic.  Eventually (2) is to be prevented by
+the intrinsic mechanical redundancy of the source deployment
+mechanism.  This redundancy includes:
+\begin{itemize}
+\item Two independent support mechanisms (the rope and umbilical).
+\item Multiple connections between the encapsulated source and the
+  source mechanism (multiple screws, each able to take the weight of
+  the source).
+\end{itemize}
+Item (3) is of concern because of the extremely high rate of the
+source.  The means of protecting the detector will be to start with
+the NHIT triggers off while deploying the source into the detector.
+If the rate still becomes too large, the detector will be ramped
+down.
+ 
+\noindent
+{\bf Personnel:}
+\begin{itemize}
+\item Calibration Expert:  Aksel Hallin (u/g)
+\item Detector Expert: Noel Gagnon (u/g)
+\item Trigger Expert: Josh Klein (phone)
+\end{itemize}
+
+\noindent
+{\bf Required Detector Conditions}
+\begin{itemize}
+\item No D$_2$O recirculation being done.
+\end{itemize}
+
+\noindent
+{\bf Notes:}
+\begin{itemize}
+\item Run type during activation not specified yet.  Will 
+  have to be determined  when we see what rates are tolerable.
+\item Duration of Activation run to be specified.
+\item Type of running after the activation to be specified.  Presumably
+  this should be a normal neutrino run but with  UC bit set to
+  remind people that this is not for regular analysis.  Or perhaps
+  it should still be a calibration source run.
+\end{itemize}
+
+
+\operator
+
+\begin{center}
+{\bf Preparation of the source for deployment.}
+\end{center}
+
+\begin{enumerate}
+
+  
+\checkitem Install the super-hot acrylic source on the peg:\\
+  {\em Use rubber or latex gloves for all work.}
+  \begin{enumerate}
+  \checkitem  Ensure that the source, can, and all parts have been 
+    cleaned with the standard cleaning procedure.
+  \checkitem  Place the source in the stainless steel can
+  \checkitem  With the approved teflon grease, very lightly grease the 
+    inside of the can.  Wipe it as clean as possible with a wipe.  Insert 
+    the o-ring into the groove in the black delrin universal adapter plug.
+  \checkitem Tighten the three stainless steel bolts on the diameter 
+      of the can, attaching the delrin piece to the can.
+  \checkitem  Ensure that the small o-ring is installed in the ring 
+      groove on the top
+      of the delrin spacer.  This o-ring should not be greased.
+  \checkitem  Ensure that the three stainless steel nuts are in the slots 
+    of the delrin piece and insert and tighten the screws that attach this 
+    to the bottom of the peg.
+  \end{enumerate}
+  Before deployment, re-inspect the peg, source, and carriage, looking for any
+  missing or loose fasteners or any sign of contamination.
+ 
+\checkitem The source can is secured and wired to the acrylic source peg.
+  
+\checkitem Inspect the assembled source.  All screws and bolts should be
+    tight.  The laserball assembly should be verified.  If there
+    is any doubt about the presence of the required o-rings, it should
+    be opened for inspection.
+  
+\checkitem Verify the proper pivot to source position in the manipulator code
+    (in polyaxis.dat the acrylic object).
+    This will have to be measured.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     d(pivot-source):~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+ \checkitem Measure the weight of the source using the URM rope.  Enter
+  this value in {\tt polyaxis.dat}
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Acrylic Source Weight:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+ \checkitem Verify the CAST bank information on {\bf manip} is up to date
+  for the source.
+  
+\checkitem Run the source up/down in the DCR several times to verify the
+    manipulator is functioning correctly.
+
+\checkitem Retract the  source into the source tube.  The pivot should be 
+    visible from the window on the source tube.
+  
+\checkitem Insert the source clamps to secure the source in the source tube.
+ 
+\checkitem Mount the URM on the glovebox.
+  
+\checkitem Retract the source clamps.
+ 
+
+\item\checkbox Verify that the LN$_2$ dewar in the junction is
+  at least 1/4 full.  If not, swap it out with another dewar.
+  Record liquid level of Dewar,
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     LN$_2$ Level:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Verify that the dewar gas pressure is approximately
+  130 to 150 psig. If not, swap it out with another dewar.
+
+\item\checkbox Turn on N2 Flow to DCR from dewar at junction 
+  (Marked {\bf Gas Use} on dewar).
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Note Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\item\checkbox Turn on pressure builder valve (Marked {\bf Pressure Builder} 
+  on dewar).\\
+  %------------------------
+  \small
+  {\em The pressure builder valve opens a controlled leak on the dewar
+       to maintain the 150 psi pressure head.  If the valve is not
+       opened, the gas pressure to the laser and URM will eventually
+       drop below the operating level.}
+  \normalsize
+  %------------------------
+
+  
+\item\checkbox Check that flush return line is connected to
+  URM1.  If not, connect it.\\
+  %------------------------
+  \small
+  {\em It may be necessary to move it over to URM1 from URM3 (the laserball).
+  }
+  \normalsize
+  %------------------------
+
+\item\checkbox Set URM1 flush regulator at 40 psig.
+
+\item\checkbox Open URM1 flush valve.  Flow meter should be railed.
+     The sound of the gas flowing into the URM should be apparent within
+     a half metre of the URM source tube.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Note Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+   Flush should continue for at least 1 hour.
+   {\bf Do NOT use the water group's O$_2$ meter.}
+
+  
+\item\checkbox Check that the source clamps are in the RELEASE position.  
+   The RELEASE position for URM2 is for the knobs on the side of the source
+   tube to be fully OUT.  {\bf There are two knobs.  Check BOTH.}\\
+   {\bf 
+     WARNING:  If the source is moved with the clamps in, the source
+     may be damaged!
+   }
+  %--------------------------------
+  \small
+  {\em
+   The clamps are used to secure the source while the URM is being moved
+   on and off the glovebox.  If the source is moved with the clamps in
+   the hold position, it will most likely foul in the clamps and
+   require disassembly of the URM to extract.
+  }
+  \normalsize
+  %--------------------------------
+ 
+\item\checkbox Check gas pressure on URM pressure cylinder = 45 psig.\\
+   {\bf 
+   IF PRESSURE IS LESS THAN 10 PSIG DO NOT OPERATE MANIPULATOR
+   AND CONTACT EXPERT.
+   }\\
+   %-------------------------------
+   \small
+   {\em
+     The pressure cylinder on the URM maintains tension on the umbilical
+     takeup reel.  A low gas pressure can result in the umbilical falling
+     off the takeup reel and resulting in tangling and damage of the
+     umbilical.
+   }
+   \normalsize
+   %--------------------------------
+  
+   
+\item\checkbox Verify that Gate Valve 1 is locked in the  closed position.\\
+   %-------------------------------
+   \small
+   {\em
+     If the handle is on the gate valve, CLOSED is when the  handle points to 
+     the left when facing the source tube.  If the handle is not on the valve
+     then the slot on the handle stem points AWAY from the source tube when
+     the valve is closed.
+   }
+   \normalsize
+   %--------------------------------
+ 
+\item \checkbox Calibrate Central Rope Length\\
+      (see procedure  \ref{seccalcentre} 
+       {\em Central Rope Position Calibration}).
+      Record changes in length of central rope and umbilical,
+      The fiducial mark for the wide bottomed 4'' source tube on Gate Valve 1
+      is
+      \[
+               z_{mark} = 1559.9
+      \]
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     $\Delta$l rope:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     $\Delta$l umbilical:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+\item\checkbox Check that all seals are in place on URM.  Including:
+   \begin{itemize}
+      \item\checkbox view port window cover on source tube
+      \item\checkbox window on front URM hood
+      \item\checkbox window on back URM hood
+      \item\checkbox umbilical feedthrough on URM
+      \item\checkbox flush inlet line.
+      \item\checkbox flush outlet line.
+   \end{itemize}
+
+
+\item\checkbox At end of URM flush, turn regulator down to 5 psig.
+   Check that the flow meter is railed at 50.
+   %--------------------------
+   \small
+   {\em
+     The regulator only is marked down to 10 psig.  To set it to 5 psig,
+     set the clear plastic indicator to half way between 10 psig and 0.
+   }
+   \normalsize
+   %--------------------------
+  
+
+   
+%--------------------------------------------------------------
+\begin{center}
+            {\bf Deploying Source from Source Tube Into Glovebox}
+\end{center}
+
+ \item\checkbox Verify the 40psi flush of the URM has been at least 1 hour.
+
+ \item\checkbox Verify that the URM flush has been turned down to 5 psig.
+
+ \item\checkbox Turn off DCR lights.
+
+ \item\checkbox Verify Owl light monitor is on.  Establish communications
+  with person watching light monitor.
+  %-------------------------
+  \small
+  {\em
+    Suggestion:  Station the person watching the OWL monitor at
+    the Deck Mac.  Then he/she can shout through the  wall of the
+    DCR and you don't need to use the phones which slow communications
+    down.
+  }
+  \normalsize
+  %-------------------------
+
+ \item\checkbox Open gate valve.
+
+ \item\checkbox Lock gate valve open.
+
+ \item\checkbox With flashlight perform light leak check on URM.  In particular
+   check the seal of the source tube window.
+
+ \item\checkbox Using the dimmer switch, slowly bring up breaker 9 lights in
+   the DCR.  Person still watching owl monitor.
+
+ \item\checkbox DAQ is connected to the {\bf manip} computer.
+
+ \item \checkbox In DAQ, source type is set to {\bf ACRYLIC}.
+
+ \item\checkbox DAQ is in a {\bf source transitional run}.
+
+ \item \checkbox Verify that {\bf manip\_logger} on {\bf polaris}
+                 is running and logging the acrylic source.
+
+ \item\checkbox Check movement of acrylic source down:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic by 0 0 -5} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & set x = 0, y = 0, z= -5\\
+          & click on {\bf move by} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  %--------------------
+  \small
+  {\em 
+    The acrylic source should move down 5 cm.  The tension on the rope
+    should be 60-90 N.  The tension on the umbilical should be
+    5-30N.
+  }
+  \normalsize
+  %--------------------
+
+ \item\checkbox Deploy source into the glovebox:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acrylic to 0 0 1370} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & set x = 0, y = 0, z= 1370\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+
+
+%-------------------------------------------------------------
+\begin{center}
+  {\bf Deploying Source to Centre of 
+            Detector from Glovebox}
+\end{center}
+\shwlabel{sectocentre}
+ 
+ \item\checkbox Contact Water Supervisor and advise him/her that the source is
+   being lowered into the D2O.  \\
+   %--------------------
+   \small
+   {\em
+     The water group maintains a very small differential pressure
+     between the light and heavy water.  The volume of the source
+     is enough to disrupt this differential pressure.
+   }
+   \normalsize
+   %---------------------
+
+ \item\checkbox Check tensions on urm1rope and urm1umbilical.  Rope tension
+   should be approximately 60-80 N.  Umbilical tension should
+   be between 10-30 N.
+
+ \checkitem {\bf Contact Josh Klein by phone at Penn}
+ \checkitem {\bf Turn off the NHIT Triggers}
+  
+ \item\checkbox Move acrylic source base of Neck.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acryic to 0 0 600} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & click on {\bf Position the source}\\
+          & set x = 0, y = 0, z= 600\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  {\bf While moving the source, monitor the ESUM triggers on the detector
+  looking for excessive rates.}  {\em This will be complicated by
+  the presence of manipulite.  Therefore it may be wise to stop every
+  couple of meters so that a measure of the ESUM rate without the
+  background manipulite can be made.} 
+
+  {\bf At this point decide if the detector is acceptably stable to
+  run or if it is necessary to shut it down.}
+  
+ \item\checkbox Move acrylic source to centre of detector.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acryic to 0 0 0} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & click on {\bf Position the source}\\
+          & set x = 0, y = 0, z= 0\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+  {\bf While moving the source, monitor the ESUM triggers on the detector
+  looking for excessive rates.}  {\em This will be complicated by
+  the presence of manipulite.  Therefore it may be wise to stop every
+  couple of meters so that a measure of the ESUM rate without the
+  background manipulite can be made.} 
+
+\checkitem Attempt to turn on the NHIT triggers:
+  \begin{itemize}
+  \item Set NHIT threshold to 100.
+  \item Do an {\bf Enable Triggers} from the Standard Runs window while
+    watching the trigger rates.  If they are not excessive, 
+    lower the trigger threshold till it is no more than 100 Hz.
+  \end{itemize}
+
+
+%-------------------------------------------------------------
+\begin{center}
+  {\bf Retracting Source from Detector}
+\end{center}
+
+\checkitem Go to {\bf source transitional run}
+\checkitem Turn off NHIT triggers (using the {\bf Disable PMTs} button).
+\checkitem Retract the source to the glovebox.
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acryic to 0 0 1300} \\
+  \hline
+  manmon  & in acrylic window: \\
+          & click on {\bf Position the pivot}\\
+          & set x = 0, y = 0, z= 1300\\
+          & click on {\bf move to} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+\checkitem Retract source into source tube:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acryic to 0 0 1530} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+\checkitem Retract source to home position:
+  \begin{center}
+  \begin{tabular}{|l|l|}
+  \hline
+  console & {\tt manip$>$ acryic to 0 0 1550} \\
+  \hline
+  \end{tabular}
+  \end{center}
+
+\checkitem Reach into one of the south glove ports and verify that
+  the source is above the gate valve.
+
+\checkitem Close and lock gate valve.
+ \item\checkbox Close the URM flush valve.
+\item\checkbox Turn off the URM flush regulator.
+\item\checkbox IF the laser is off,
+   turn off gas flow at the LN$_2$ dewar in the junction:
+   \begin{enumerate}
+   \item close {\bf Gas Use} valve
+   \item close {\bf Pressure Building} valve
+   \end{enumerate}
+
+%-------------------------------------------------------------
+\begin{center}
+           {\bf After Calibration}
+\end{center}
+\item\checkbox Source is above gate valve.
+\item\checkbox Gate valve is closed and locked.
+\item\checkbox LN$_2$ dewar is turned off (both {\bf Gas Use} valve and 
+  {\bf Pressure Building} valve).
+\end{enumerate}
+
+ 
+

@@ -1,0 +1,406 @@
+
+
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{Manipulator Camera Procedures}
+\shwlabel{secprocCamera}
+
+  These procedures describe assembly and operation of the manipulator
+mounted camera.
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+Assembled Weight & ~~~~~~~~~~~~~~~~~~~~~\\
+\hline
+Volume           & ~~~~~~~~~~~~~~~~~~~~~\\
+(including weight and carriage) & \\
+\hline
+Pivot Centre Offset & \\
+\hline
+Pivot Bottom Offset & \\
+\hline
+\end{tabular}
+\caption[Calibration Device:Manipulator Camera]
+  {Calibration Device: Manipulator Camera
+   \shwlabel{CalDevCamera}
+  }
+\end{center}
+\end{table}
+
+
+
+\clearpage
+\begin{figure}
+\begin{center}
+\framebox{\Huge\bf Drawing of camera}
+%\leavevmode
+%\epsfxsize=7in
+%\epsfbox{../figures/n16_partial_exploded.ps}
+~\\
+\caption[Assembly drawing of the manipulator mounted camera and mount]
+        {Assembly drawing of the manipulator mounted camera and
+         it's mount.
+         \shwlabel{figcamera}
+        } 
+        
+\end{center}
+\end{figure}
+
+
+
+
+%------------------------------------------------------------
+\clearpage
+
+\subsection{Manipulator Camera Assembly Procedure}
+\newprocedure{CalProcCameraAssembly}
+             {Manipulator Camera Assembly Procedure}
+             {Fraser Duncan}{2002/09/26}{1}
+
+\begin{enumerate}
+
+\checkitem If it does not already exist, create a {\bf camera}
+  polyaxis object in {\tt polyaxis.dat}.
+
+\checkitem Mount spool piece on weight cylinder
+
+\checkitem Mount carriage on weight cylinder
+
+\checkitem Slide rotating bearing, o-ring and weight cylinder onto umbilical
+
+\checkitem Slide top pressure plate, o-ring, bottom pressure 
+           plate and o-ring onto umbilical
+
+\checkitem Slide top cover onto umbilical
+
+\checkitem Tie `Hallinian' knot on umbilical
+
+\checkitem Slide o-rings, pressure plates and spool piece into place
+
+\checkitem Do up associated nuts
+
+\checkitem Slide o-ring and rotating bearing into place
+
+\checkitem Do up screws
+
+\checkitem Secure them with wire
+
+\checkitem Tie central rope to rotating bearing ( standard figure 8 knot )
+
+\checkitem Push camera into housing ( make sure both o-rings are in place )
+
+\checkitem Slide o-ring and top cover over wires
+
+\checkitem Fasten top cover
+
+\checkitem Slide tube over wires
+
+\checkitem Feed wires though bottom hole on can
+
+\checkitem Mount camera housing on can
+
+\checkitem Secure knurled nuts with locking wire
+
+\checkitem Secure tubing with cable ties
+
+\checkitem Do up connection inside can ( make sure o-ring is in place )
+
+\checkitem Test camera:
+  \begin{enumerate}
+  \checkitem Connect umbilical to camera controller.
+  \checkitem Connect camera controller to monitor and VCR.
+  \checkitem Turn on camera and attempt to image appropriate object
+     below URM.
+  \checkitem Record image on video tape.
+  \checkitem Play back video tape to verify recording.
+  \checkitem Disconnect umbilical from camera.
+  \end{enumerate}
+
+\checkitem {\bf Do Not Operate}
+  Status tag put dry end of umbilical to prevent connection
+  of power to camera lights.
+
+\checkitem Fasten lid on can
+
+\checkitem Measure:
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     carriage pivot to bottom of camera:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     carriage pivot to camera pivot:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+\checkitem Record above distances in log book.
+
+\checkitem Set the pivot-pivot offset in the {\bf camera} polyaxis
+  object in {\tt polyaxis.dat}.
+
+\checkitem Set the pivot-bottom distance in the {\bf camera} polyaxis
+  object in {\tt polyaxis.dat} to 2cm greater than the above
+  pivot-bottom distance.
+
+\checkitem Clean and Inspect everything
+
+\checkitem Mount guide tube cone
+
+\checkitem Measure
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     top of cone to bottom of camera:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+\checkitem Record above measurement in log book.
+
+\checkitem Clean and inspect everything
+
+\checkitem Adjust the camera to the desired orientation.\\
+  {\em This is probably straight down for the first deployment
+   to look for the Berkely Blob.}
+
+\checkitem Retract the camera into the URM and calibrate the central
+  rope.
+
+
+\end{enumerate}
+
+
+
+{\small
+~\\
+~\\
+\noindent
+{\bf Revision History:}\\
+\begin{tabular}{llll}
+Rev. & Date & Author & Comments\\
+0           & 
+2002/09/26  & 
+Peter Skensved &
+\parbox[t]{3.0in}{
+  First draft
+}\\
+
+1             & 
+2002/09/26    & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+  Slight format changes.  Fleshed out camera test procedure.
+}
+\end{tabular}
+}
+
+
+
+
+%------------------------------------------------------------
+\clearpage
+
+\subsection{Manipulator Camera Deployment Down Guidetube \# 1}
+\newprocedure{CalProcCameraDeployment}
+             {Manipulator Camera Deployment Down Guidetube \# 1}
+             {Fraser Duncan}{2002/09/26}{1}
+
+
+\noindent
+  The deployment is like any other source in the guide tube :
+
+Since the clearance bewteen the bottom of the camera and the gate valve
+special care must be exercised so as not to decapitate the source ie.
+distances in z has to be double checked before the valve is closed.
+
+Special care must be while driving the source in the guide tube since there
+is a non-zero chance of getting the source caught especially at the entrance
+to the guide tube, at the `knee' and at the valve. An experienced operator
+has to be present at all times.
+
+
+Since we will be driving the camera close to the acrylic vessel we will have to
+override the minimum distances set in MANIP. It is important that the 
+defaults be re-established after this deployment. This is an `expert only' 
+task.
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+                  &   Z (cm) \\
+\hline
+  & \\
+Entrance to PSUP  &  734.4  \\
+  & \\
+\hline
+  & \\
+Top of AV         &  446.9  \\
+  & \\
+\hline
+\end{tabular}
+\caption[Camera deployment down GT1]
+  {Z positions necessary for deployment down guidetube \# 1.
+   \shwlabel{TabCameraGuidetube}
+  }
+\end{center}
+\end{table}
+
+\noindent
+{\bf Prior to deployment:}
+\begin{enumerate}
+\item Camera was assembled according to procedure \ref{CalProcCameraAssembly}
+  in URM.
+\item URM is mounted on guide tube.
+
+\item Umbilical is disconnected from the camera controller.  This should
+  be indicated by a status tag.
+
+\item Sufficient blank video tapes are available to record the 
+  entire deployment.
+
+\end{enumerate}
+
+{\bf 
+  This device emitts light and could damage either phototubes
+  or the trigger if used in the detector while HV is on.
+}
+
+\noindent
+{\bf Procedure:}
+
+\begin{enumerate}
+
+\checkitem Verify guidetube gate valve is closed.
+
+\checkitem Flush the URM with nitrogen until O$_2$ level is below
+  0.5\%.
+
+\checkitem Calibrate central rope using cross hairs or bottom flange
+           ( there should be enough clearance to see the top of the
+           cone through the window - if not use `high tension point'
+           instead ).
+
+\checkitem Remove {\bf Do Not Operate} status tag from umbilical end.
+
+\checkitem Connect umbilical to camera controller.
+
+\checkitem Turn on camera and attempt to image top of gate valve.  If unable
+  to image the gatevalve, investigate before proceeding.
+
+\checkitem Stop SNO detector data run.
+
+\checkitem Ramp down detector HV and turn off HV supplies on all 
+  crates.
+
+\checkitem Do HV status from {\em HV Master} and verify all HV supplies
+  are off.
+
+\checkitem Do CMOS read on all crates to verify HV is off.
+
+\checkitem Disconnect HV cables from all crates including OWL tubes.
+
+\checkitem Verify that the Analog Light Monitor has HV off.
+
+\checkitem Verify that the Analog Light Monitor has HV power supply
+  unplugged.
+
+\checkitem Verify that the Analog Light Monitor has the HV cables unplugged
+  from the power supply.
+
+\checkitem Start recording on the VCR.  Use best quality recording
+  level.
+
+\checkitem Open the guide tube gate valve.
+
+\checkitem Deploy the source slowly down to just above the water
+  surface.  attempt to image the surface of the water, looking
+  for any surface film or debri.
+
+\checkitem Deploy camera to 1 m above bottom of guide tube.\\
+  ( Z = 834 cm)
+
+\checkitem Attempt to image the opening of the guide tube into the
+  the PSUP.  
+
+\checkitem Deploy the camera assembly into the PSUP.
+  
+\checkitem Deploy camera assembly to 1 m above AV ( Z = 550).\\
+  Attempt to image AV.
+
+\checkitem Deploy camera to 50 cm above AV ( Z = 497).\\
+  Attempt to image AV.
+
+\checkitem Deploy camera to 30 cm above AV (Z = 477).\\
+  Attempt to image AV.
+
+\checkitem Deploy camera to 20 cm above AV (Z = 467).\\
+  Attempt to image AV.
+
+\checkitem  Deploy camera to 10 cm above AV (z = 457).\\
+   Watch rope and umbilical tensions for indications of 
+   contact.
+
+\checkitem If a closer deployment to the AV is required,
+  set the maximum speed of the rope and umbilical to 0.5 cm/s.
+
+\checkitem After the imaging of the AV, retract the  camera from the
+  detector.
+
+\checkitem Verify the source is above gate valve visually with camera.
+
+\checkitem Close the gate valve.
+
+\checkitem Turn off the camera lights
+
+\checkitem Disconnect the umbilical from the camera controller.
+
+\checkitem Put {\bf Do Not Operate} status tag on the dry end of the
+  umbilical.
+
+\checkitem Reconnect HV cables to PMT crates and ramp up the detector.
+
+\end{enumerate}
+
+
+
+{\small
+~\\
+~\\
+\noindent
+{\bf Revision History:}\\
+\begin{tabular}{llll}
+Rev. & Date & Author & Comments\\
+0           & 
+2002/09/26  & 
+Peter Skensved &
+\parbox[t]{3.0in}{
+  First Draft
+}\\
+
+1             & 
+2002/09/26    & 
+Fraser Duncan &
+\parbox[t]{3.0in}{
+ More detailed procedure.
+}
+\end{tabular}
+}
+
+
+
+\newpage
+\markright{\standardheader}
+
+
+

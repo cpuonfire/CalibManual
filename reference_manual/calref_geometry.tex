@@ -1,0 +1,332 @@
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+  
+\chapter{Manipulator Geometry}
+\shwlabel{ChapterGeometry}
+  
+\section{Global Coordinate System}
+  When positioning the manipulator the user is in fact positioning the
+carraige pivot of the manipulator in the {\bf global coordinate system}
+which is located at the designed centre of the PSUP and the AV.  Be
+warned that neither the PSUP nor the AV are actually expected to be centred
+on the global origin. In fact it is known that the PSUP has shifted by
+at least 2'' and the AV shifts depending on the load.  Because the exact
+location of the AV is needed to position the manipulator (need to know the
+location of the anchor blocks in the AV) there are neck monitors used
+to measure the position of the top of the AV neck and thus infer the position
+of the centre of the AV.
+  
+  From the construction drawings the deck of the DCR
+floor is located at
+\begin{verbatim}
+        100' = 1200 in.
+\end{verbatim}
+by definition.  The nominal centre of the AV 
+and thus the origin of the global coordinate system is located at a height
+of 
+\begin{verbatim}
+           56' 7 1/2 `` = 679.5 in.
+\end{verbatim}
+Therefore the distance from the global origin to the deck is
+\[
+        520.5 in. = 1322.07 cm
+\]
+by design.
+  
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+measurement                  & dim (in)     & dim (cm)        & from
+\\ \hline
+height of DCR floor          & 100'= 1200'' & 3048.00         & definition \\
+height of global origin      & 56' 7 1/2'' = 679.5'' & 1725.93 & design \\
+d(global origin to DCR floor)& 520.5''               & 1322.07 & calc \\
+\hline
+\end{tabular}
+\caption[Global Coordinate System]
+        {Global Coordinate System
+         \shwlabel{tabglobaldim}
+        }
+\end{center}
+\end{table}
+  
+  
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|} \hline
+                               & coord system & location & source of measurement \\
+DCR Floor                      & global &  z = 1318.47 cm &  \\
+\hline
+Bottom of Tube Flange on URM-1 & global & z= 1504.43 & \\
+\hline
+Height of side rope feedthroughs & global & z = 1424.22 & \\
+on glovebox                      & & & \\
+\hline
+\end{tabular}
+\caption[Manipulator Geometry]
+        {Manipulator Geometry
+         \shwlabel{tabmangeo}
+         }
+\end{center}
+\end{table}
+  
+  
+\section{Glovebox and Universal Interface}
+  
+  The dais of the universal inteface is located 17 and 1/8 `` above
+the floor of the cleanroom.  Taking the nominal height of the DCR floor
+as 1322.07 cm, the UI Dais is located at 1384.30 cm and the top of the
+glovebox is located at 1427.80 cm in global coordinates.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+measurement                      & dim (in)   & dim (cm) & from \\ \hline
+DCR floor to UI Dais             & 17 1/8 ``  & 43.50    & measurement \\
+UI Dais to top plate of glovebox & 24 1/2 ``  & 62.23    & measurement \\
+Nominal height of UI Dais        &            & 1384.30  & measurement \\
+Nominal height of glovebox top   &            & 1427.80  & measurement \\
+\hline
+westrope feedthrough  x          & -21.000''  & -53.340  & Drawing \\
+westrope feedthrough  y          &   0.750''  &   1.905  & Drawing \\
+\hline
+eastrope feedthrough  x          &  21.000''  &  53.340  & Drawing \\
+eastrope feedthrough  y          &   0.750''  &   1.905  & Drawing \\
+\hline
+northrope feedthrough  x         &   0.000''  &   0.000  & Drawing \\
+northrope feedthrough  y         &  15.750''  &  40.005  & Drawing \\
+\hline
+southrope feedthrough  x         &   0.000''  &   0.000  & Drawing \\
+southrope feedthrough  y         & -20.250''  & -51.435  & Drawing \\
+\hline
+10'' gate valve        x         &   0.000''  &   0.000  & Drawing \\
+10'' gate valve        y         &  -8.500''  & -21.590  & Drawing \\
+\hline
+ 6'' gate valve        x         &   6.656''  &  16.906 & Drawing \\
+ 6'' gate valve        y         &   9.250''  &  23.495 & Drawing \\
+\hline
+ 4'' gate valve        x         &  -6.313''  & -16.035 & Drawing \\
+ 4'' gate valve        y         &   9.250''  &  23.495 & Drawing \\
+\hline
+\end{tabular}
+\caption[Glovebox and UI dimensions]
+        {Glovebox and UI dimensions
+         \shwlabel{tabgbdim}
+        }
+\end{center}
+\end{table}
+  
+  
+\section{Acrylic Vessel}
+The thermal expansion coefficient for the acrylic is,
+\[
+        6 \times 10^{-5} C^{-1}
+\]
+The design specs for the AV give the 
+distance from top of chimmney to centre of vessel at 23 C
+\begin{verbatim}
+        42' 2 3/8''
+\end{verbatim}
+which is 506.375 cm. and the
+nominal outside radius
+\begin{verbatim}
+        236.6''
+\end{verbatim} which is 600.964 cm.
+with a nominal thickness of 2.15'' (5.461cm).
+
+This can be compared to the results found in SNO-STR-98-003 (R. Komar) 
+for actual measurements of the AV.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+measurement                    & design     & as built \\ \hline
+Vessel Inner Radius            &  236.43''  & 236.38$\pm$0.23'' \\ 
+Top of Chimney to AV centre    & 506.375''  & 506.16$\pm$0.12'' \\
+Top of Chimney to bottom of AV & 742.59''   & 742.59$\pm$0.05'' \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+Using the Komar measurements, the nominal dimensions of the AV
+are given in table \ref{tabavdim}.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+measurement                      & dim (in)   & dim (cm)& from \\ \hline
+Average Vessel Inner Radius &  236.38$\pm$0.23'' & 600.41$\pm$0.58 
+                            & measurement\\
+Top of Chimney to AV bottom &  742.59$\pm$0.05''  & 1886.18$\pm$0.13
+                            & measurement\\
+Top of Chimney to AV centre &  506.16$\pm$0.12''  & 1285.65$\pm$0.30 
+                            & measured?\\
+Neck Ring gasket            &   1/8''             & 0.3175 & measured\\
+Neck Ring plate             &   3/8''             & 0.9525 & measured \\
+AV Centre to AV top plate   &  506.66''           & 1286.92 & calculated \\
+DCR floor to AV top plate   &  12.4375       & 31.59 & measured/calculated\\
+\hline
+\end{tabular}
+\caption[Acrylic Vessel Dimensions]
+        {Acrylic Vessel Dimensions
+         \shwlabel{tabavdim}
+        }
+\end{center}
+\end{table}
+On top of the AV neck flange is a gasket (1/8'') and a stainless steel
+top plate (3/8'').  This gives a distance from the centre of the
+AV to the top plate of,
+\[
+     506.16 + 1/8 + 3/8 = 506.66 in = 1286.92 cm
+\]
+The distance from the AV top plate to the UI flange on the DCR floor
+was measured before the UI was installed.  (This flange is no longer
+accessable since the UI has been installed.)  This was a measurement
+after the final installation of the AV at nominal lab temperature before
+any water in the AV.
+The distance measured on 3 April 1998 was
+28 9/16''.  The distance of the flange from the DCR floor was measured
+to be 16 1/8''.  Therefore the distance of the AV topplate from the
+DCR floor
+\[
+           28 9/16 - 16 1/8 = 12.4375'' = 31.59 cm
+\]
+The distance from the DCR floor to the centre of the AV from the 
+measurement of the topplate location and the Komar measurements of the
+AV are therefore,
+\[
+          1286.92 cm + 31.59 cm  = 1318.51 cm
+\]
+which corresponds to the AV being located above the nominal position
+by 
+\[
+           1322.07 - 1318.51 = 3.56 cm
+\]
+{\bf What was Chris's AV measurement at this time?}
+
+\section{URM-1 (Jury Rig)}
+URM-1 is located on the 10'' port in a jury rig.  It is physically  mounted
+32 3/16'' (81.756 cm) above the glovebox.  The source tube flange is 1''
+thick so the tube flange is located 79.216 cm above the glovebox.  The
+nominal height of the top of the glovebox is (table \ref{tabgbdim})
+1427.80 cm so the location of the URM-1 tube flange is
+\[
+        1427.80 + 79.216 = 1507.02 cm
+\]
+
+
+  
+\section{Guidetubes}
+
+\begin{verbatim}
+Hi John,
+  I am currently looking at how consistant our measurement of the location
+of the centre of the AV is with respect to the Deck and UI and will send
+out a report when I have some numbers.  Mostly I have no knowledge of the
+location of the PSUP.  However I do have one datum.
+  
+  When we put the source down guide tube number 5 (the one in the north
+west corner of the DCR) we found that the exit of the guide tube into 
+the PSUP was out of true with the top of the guide tube in the DCR.  
+I am told that when the guide tubes were installed that they were aligned
+by a plumb bob to better than 1/4".  When we put the source down last 
+spring, we found that exit of the guide tube into the PSUP had shifted
+approximately 2".  This number was determined by centring a 4" diameter
+cone at the exit of the tube and noting where the string holding it was
+located at the top of the tube.  The bottom of the tube was shifted
+in the southwest direction (-x, -y) by about 2".  I have numbers for
+the nominal location of the guide tube as being at 
+        x = -586.6,  y = 222.2
+The guide tube is supposed to enter the PSUP at z = 560.  Please note
+that I have no idea if this misalignment means that the PSUP was out
+of true when the guide tube was installed or if it became out of true
+when AFTER the guide tube was installed.  
+  
+  Cheers,
+     Fraser
+\end{verbatim}
+
+  
+\section{other}
+The design specs for the AV indicate,
+\begin{verbatim}
+  distance from top of chimmney to centre of vessel at 23 C
+        42' 2 3/8''
+  nominal outside radius
+        236.6''
+  nominal thickness 2.15''
+\end{verbatim}
+This can be compared to the results found in SNO-STR-98-003 (R. Komar) 
+for actual measurements of the AV.
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+measurement                    & design     & as built \\ \hline
+Vessel Inner Radius            &  236.43''  & 236.38$\pm$0.23'' \\ 
+Top of Chimney to AV centre    & 506.375''  & 506.16$\pm$0.12'' \\
+Top of Chimney to bottom of AV & 742.59''   & 742.59$\pm$0.05'' \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+  
+  
+  
+\begin{table}
+\begin{center}
+\begin{tabular}{lrrrrrr}
+  & CT4 \\
+\hline
+x &  230.75 in \\
+  & -586.11 cm \\
+
+y & 81.875 in \\
+  & 207.96 cm \\
+  
+r & 586.12 cm \\
+  
+Enters PSUP & 564.64 cm \\
+
+\end{tabular}
+\caption[Guide Tubes]
+        {Guide Tubes
+         \shwlabel{tabguidetubes}
+        }
+\end{center}
+\end{table}
+   
+\begin{figure}
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=6.5in
+\epsfbox{figures/guide_tubes.ps}
+~\\\
+\caption[Guide Tube Layout In DCR]
+        {Layout of the Guide Tubes in the DCR
+         \shwlabel{figguidetubeplan}
+        }
+\end{center}
+\end{figure} 
+ 
+  
+   
+\begin{figure}
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=6.5in
+\epsfbox{figures/guide_tubes_elevation.ps}
+~\\\
+\caption[Guide Tube Elevation View]
+        {Guide Tube Elevation View
+         \shwlabel{figguidetubeelevation}
+        }
+\end{center}
+\end{figure} 
+ 
+  

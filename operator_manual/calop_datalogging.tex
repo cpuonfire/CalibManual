@@ -1,0 +1,101 @@
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+\chapter{Data Logging}
+\shwlabel{ChapterDataLogging}
+  
+  There are several means by which data from the manipulator
+system are logged.
+\begin{itemize}
+\item {\bf manip\_logger} web based logging tool
+\item CMA logging of AV rope lengths
+\item Command and Error logging on {\bf manip}
+\item Explicit logging of source data through {\bf manmon}
+\end{itemize}
+   
+
+\section{manip\_logger web based data logging}
+
+\begin{verbatim}
+
+Fraser,
+
+We found a network card and got the MANIP test computer
+running here again.  I've tested the new logging feature
+and it seems to work well (at least for the salt probe).
+
+The new manip_logger is now running on polaris.
+
+The new feature is very flexible.  You can configure polling
+objects dynamically without restarting the logger.  All you
+do is edit the file "extra_log.dat" in the manip_logger
+directory (on polaris in the online private web pages).
+
+Here is my documentation:
+
+--------------------------------------------------------------- 
+
+This is the current "extra_log.dat" file:
+
+salt {
+state = off;
+delay = 60; // delay time (secs)
+entry = "TESTROPELOADCELL", "Tension:", 1;
+entry = "LASERBALL", "Position:", 3;
+}
+
+You can add up to 20 entries similar to this one.
+
+To enable the above polling, simply edit this file and change
+the state from "off" to "on".
+
+This entry produces a log file called "salt_YYMM.log2" with
+the following format:
+
+2001 7 17 12 49 43 94.12 9.00 -25.00 0.00
+2001 7 17 12 50 41 94.12 9.00 -25.00 0.00
+2001 7 17 12 51 41 94.12 9.00 -25.00 0.00
+2001 7 17 12 52 41 94.12 9.00 -25.00 0.00
+
+The first 6 lines are year, month, day, hour, minute, second,
+as with the other log2 files.  The next lines are those
+specified by the "entry" lines in "extra_log.dat".  Here,
+it has logged the testropeloadcell tension and the laserball
+position.
+
+Here are more details about the format of "extra_log.dat":
+
+state - "on" or "off" to enable or disable logging for this item.
+
+delay - nominal delay between log entries in seconds (actual
+delay implemented is the nearest multiple of 10 seconds).
+
+entry - The first argument is the object to poll (case
+insensitive).  The 2nd argument is the case-sensitive string
+to match the specific parameter of the "monitor" command to
+be logged.  This must be an exact match of all characters
+up to and including the colon.  The 3rd argument is the number
+of values to log for this parameter (ie.  x,y,z position is
+3 values).
+
+The manip_logger checks every logging cycle (10 seconds) to
+see if this file has been modified.  If it has, the new
+settings are loaded.
+
+---------------------------------------------------------------
+
+Hopefully this makes sense.  And hopefully it will work OK
+for you.  If you have any problems, you can always go back
+to the old version which I've moved to private/manip_logger/old.
+
+I'll be back in 3 weeks.  Good luck.
+
+ - Phil
+
+
+\end{verbatim}
+
+
+
+

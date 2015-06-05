@@ -1,0 +1,884 @@
+ 
+  
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+
+\chapter{Manipulator}
+\shwlabel{ChapterManipulator}
+
+  
+\section{Manipulator Systems}
+  
+ 
+\begin{figure}[htbp]
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=6in
+\epsfbox{figures/MANCTRL.eps}
+\caption[SNO manipulator control hardware]{SNO manipulator control
+  \shwlabel{figmanctrl}}
+\end{center}
+\end{figure}
+  
+  
+%-------------------------------------------------------------------------
+\newpage
+\subsection{Umbilical Retrival Mechanism (URM)}
+The Umbilical Retrival Mechanism (or URM for short) is a combination
+of an umbilical stretcher box and a central rope in one gas tight
+housing.
+ 
+\subsubsection{Wiring}
+The wiring for URM-2 is shown in figure \ref{figurm2wiring}.
+\begin{figure}[htbp]
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=12in
+\epsfbox{figures/urm2wire.eps}
+\caption[URM-2 wiring]{URM-2 wiring.  {\bf The wiring of the encoders
+  on this figure is incorrect (pins 1-4 on the 9pin D connectors are
+  reversed.  The correct wiring is shown in table \ref{taburm2wiring}}.
+  \shwlabel{figurm2wiring}}
+\end{center}
+\end{figure}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|} 
+\hline
+Connector & pin & colour& function \\
+j1 & 1 & red   & rope motor-1 \\
+   & 2 & black & rope motor-2 \\
+   & 3 & white & rope motor-3 \\
+   & 4 & green & rope motor-4 \\
+\hline
+j2 & 1 & red   & umbilical motor-1 \\
+   & 2 & black & umbilical motor-2 \\
+   & 3 & white & umbilical motor-3 \\
+   & 4 & green & umbilical motor-4 \\
+\hline
+j3 & 1 & red   & rope encoder GND \\
+   & 2 & blue  & rope encoder A \\
+   & 3 & green & rope encoder B \\
+   & 4 & black & rope encoder +5VDC \\
+   & 5 &       & NC \\
+   & 6 & brown  & rope loadcell GND \\
+   & 7 & yellow & rope loadcell +8VDC \\
+   & 8 & white  & rope loadcell + \\
+   & 9 & orange & rope loadcell - \\
+\hline
+j4 & 1 & red    & umbilical encoder GND \\
+   & 2 & blue   & umbilical encoder A \\
+   & 3 & green  & umbilical encoder B \\
+   & 4 & black  & umbilical encoder +5VDC \\
+   & 5 &        & NC \\
+   & 6 & brown  & umbilical loadcell GND \\
+   & 7 & yellow & umbilical loadcell +8VDC \\
+   & 8 & white  & umbilical loadcell + \\
+   & 9 & orange & umbilical loadcell - \\
+\hline
+j5 & 1 &        & rope tension limit switch \\
+   & 2 &        & rope tension limit switch \\
+   & 3 &        & umbilical travel limit switch 1\\
+   & 4 &        & umbilical travel limit switch 1\\
+   & 5 &        & umbilical travel limit switch 2\\
+   & 6 &        & umbilical travel limit switch 2\\
+   & 7 &        &        \\
+   & 8 &        &        \\
+   & 9 &        &        \\
+\hline
+\end{tabular}
+\end{center}
+\caption[URM-2 Wiring]
+  {URM-2 Wiring.   {\bf Note the encoder wiring.  This is correct.
+    The wiring on figure \ref{figurm2wiring} is incorrect.}
+   \shwlabel{taburm2wiring}}
+\end{table}
+  
+
+%-------------------------------------------------------------------------
+\newpage
+\subsection{Side Rope Motor Mounts}
+ 
+\subsubsection{Wiring}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|} 
+\hline
+Connector & pin & colour& function \\
+\hline
+j3 & 1 & red   & rope encoder GND \\
+   & 2 & blue  & rope encoder A \\
+   & 3 & green & rope encoder B \\
+   & 4 & black & rope encoder +5VDC \\
+   & 5 &       & NC \\
+   & 6 & brown  & rope loadcell GND \\
+   & 7 & yellow & rope loadcell +8VDC \\
+   & 8 & white  & rope loadcell + \\
+   & 9 & orange & rope loadcell - \\
+\hline
+\end{tabular}
+\end{center}
+\caption[Side Rope Motor Mount Wiring]
+  {Side Rope Motor Mount Wiring
+   \shwlabel{tabsideropewiring}}
+\end{table}
+  
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+  
+\section{Control Hardware}
+ 
+  
+%\begin{figure}[htbp]
+%\begin{center}
+%\leavevmode
+%%\epsfysize=0.85\textheight
+%\epsfxsize=6in
+%\epsfbox{figures/control1.eps}
+%\caption[Manipulator Control Computer and Hardware]
+%        {Manipulator Control Computer and Hardware
+%         \shwlabel{figcontrol1}}
+%\end{center}
+%\end{figure}
+  
+  
+  Each of the ropes is referred to as an ``axis'' and each axis has a
+\begin{itemize}
+\item stepping motor to wind rope in or out.
+\item shaft encoder to measure length of rope.
+\item load cell to measure tension of rope.
+\end{itemize}
+The stepping motors are controlled from a National Instruments TIO 10 card
+in the control PC that has many clock signals.  These signals are fanned
+out through the motor fanout box to the individual motor controllers.
+The readback from the axis is the load cell measuring the tension of the
+rope and the shaft encoder measuring the length of the rope.  The input
+signals go into the counter boards which are gray boxes 
+which are daisy chained together and are indvidually 
+addressable.    The address for the counters are set with jumpers on 
+the boards as is the address for the analog circuit.  Note that the
+analog circuit has a different address from the counter circuit.
+These boxes are read out by the data concentrator which is
+read by the computer.
+  
+The motors currently assigned in the control system are given in
+table \ref{tabMCCmotors}.  
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+channel &  motor  & system\\
+\hline
+ 1 & dyeLaser mirror   & Laser\\
+ 2 & filterwheela      & Laser\\
+ 3 & filterwheelb      & Laser\\
+ 4 & laser trigger     & Laser\\
+ 5 & centralrope       & URM-1\\
+ 6 & laserumbilical    & URM-1\\
+ 7 & westropemotor     & \\
+ 8 & eastropemotor     & \\
+\hline
+ 9 & centralrope3      & URM-2\\
+10 & gasumbilical      & URM-2\\
+11 & &\\
+12 & &\\
+13 & &\\
+14 & &\\
+15 & &\\
+16 & &\\
+\hline
+\end{tabular}
+\caption[Manipulator Control Computer motors  in Use]
+        {Manipulator Control Computer motors in Use
+         \shwlabel{tabMCCmotors}
+        }
+\end{center}
+\end{table}
+The counter boards currently in use are shown in table \ref{tabMCCcounters}
+along with the analog channels used on each board.
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+DC Slot & CB address & analog address & Signal & system\\
+\hline
+ 1 & 0x80   &     &  SROPE1  & \\
+ 1 & 0x94   &     &  SROPE6  & \\
+ 1 & 0x98   &     &  SROPE7  & \\
+ 1 &        &     &          & \\
+\hline
+ 2 & 0x84   &     &  SROPE2  & \\
+ 2 & 0x88   &     &  SROPE3  & \\
+ 2 & 0x8c   &     &  SROPE4  & \\
+ 2 & 0x90   &     &  SROPE5  & \\
+\hline
+ 3 &        &     &          & \\
+ 3 &        &     &          & \\
+ 3 &        &     &          & \\
+ 3 &        &     &          & \\
+\hline
+ 4 &        &     &          & \\
+ 4 &        &     &          & \\
+ 4 &        &     &          & \\
+ 4 &        &     &          & \\
+\hline
+ 5 &  0xD8  &     &          & \\
+ 5 &        &     &          & \\
+ 5 &  0xD8  & 3   & centralrope3 &  URM-2\\
+ 5 &  0xDC  & 4   & gasumbilical &  URM-2\\
+\hline
+ 6 &  0xA0  & 1   & westrope       &  \\
+ 6 &  0xF8  & 2   & laserumbilical & URM-1 \\
+ 6 &  0xA8  & 3   & centralrope    & URM-1 \\
+ 6 &  0xAC  & 4   & eastrope       &  \\
+\hline
+ 7 &        &     &          & \\
+ 7 &        &     &          & \\
+ 7 &        &     &          & \\
+ 7 &        &     &          & \\
+\hline
+ 8 &        & 1   & N2LASERLOWPRESSURE       & Laser\\
+ 8 &        & 3   & N2LASERHIPRESSURE        & Laser\\
+ 8 &  0xE4  &     & DYELASERENCODER          & Laser \\
+ 8 &  0xE8  &     & FILTERWHEELENCODER       & Laser \\
+ 8 &  0xEC  &     & N2 laser and fileter wheel status bits     & Laser\\
+\hline
+\end{tabular}
+\caption[Manipulator Control Computer counter boards in Use]
+        {Manipulator Control Computer counter boards in Use
+         \shwlabel{tabMCCcounters}
+        }
+\end{center}
+\end{table}
+
+
+ 
+%-------------------------------
+\clearpage
+\newpage
+\subsection{Counter Boards}
+  
+  The Encoder counter boards contain circuitry for a digital shaft encoder
+and an analog circuit.  The digital encoder circuitry consists of a debounce
+circuit and a 16 bit up/down counter to count the encoder pulses.  The
+encoder is addressed with 8 address lines, 
+$A_0$ --- $A_7$.  Bits $A_0$ and $A_1$
+are not used and addresses 7C through 7F are a master reset that resets
+all counters on all boards.
+\begin{verbatim}
+             A: 7 6 5 4 3 2 1 0
+  master reset  0 1 1 1 1 1 X X
+\end{verbatim}
+  
+    The analog circuit consists of a 2 stage amplifier.  The amplified
+signal is sent to the Data concentrator where a muliplexed ADC selects
+one of 4 possible channels as the data input.  The set of jumpers at J2
+on the circuit board allow selection of which analog channel is assigned
+to each counter board.
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Counter Board J1/J2}\\
+\hline
+pin & assignment\\
+\hline
+ 1 & +5 VDC\\
+ 2 & +12 VDC\\
+ 3 & -12 VDC\\
+ 4 & CLOCK +\\
+ 5 & ANALOG 1\\
+ 6 & ANALOG 2\\
+ 7 & ANALOG 3\\
+ 8 & ANALOG 4\\
+ 9 & ANALOG 5\\
+10 & ANALOG 6\\
+11 & ANALOG 7\\
+12 & SHIELD\\
+13 & SHIELD\\
+14 & DIG GND\\
+15 & ANL GND\\
+16 & ANL GND\\
+17 & CLOCK -\\
+18 & \\
+19 & \\
+20 & \\
+21 & \\
+22 & \\
+23 & \\
+24 & \\
+25 & \\
+\hline
+\end{tabular}
+\caption[Optical Encoder Counter Board Connectors J1/J2]
+        {Optical Encoder Counter Board Connectors J1 and J2.
+         Analog Interface Daisy chain connectors.
+         Connectors have identical connections for daisy chaining.
+         \shwlabel{tabCBj1} 
+        }
+\end{center}
+\end{table}
+  
+  
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Counter Board J3/J4}\\
+\hline
+pin & assignment\\
+\hline
+1 & D0\\
+2 & D2\\
+3 & D4\\
+4 & D6\\
+5 & D8\\
+6 & D10\\
+7 & D12\\
+8 & D14\\
+9 & GND\\
+10 & A7\\
+11 & A5\\
+12 & A3\\
+13 & A1\\
+14 & GND\\
+15 & FLAG 0\\
+16 & FLAG 2\\
+17 & \\
+18 & \\
+19 & \\
+20 & D1\\
+21 & D3\\
+22 & D5\\
+23 & D7\\
+24 & D9\\
+25 & D11\\
+26 & D13\\
+27 & D15\\
+28 & BUSEN\\
+29 & A6\\
+30 & A4\\
+31 & A2\\
+32 & A0\\
+33 & GND\\
+34 & FLAG 1\\
+35 & FLAG 3\\
+36 & \\
+37 & \\
+\hline
+\end{tabular}
+\caption[Optical Encoder Counter Board Connectors J3/J4]
+        {Optical Encoder Counter Board Connectors J3 and J4.
+         Digital interface daisychain connectors.
+         Connectors have identical connections for daisy chaining.
+         \shwlabel{tabCBj3} 
+        }
+\end{center}
+\end{table}
+
+  
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{Counter Board J5}\\
+\hline
+pin & assignment\\
+\hline
+1 & GND\\
+2 & A input, shaft encoder\\
+3 & B input, shaft encoder\\
+4 & +5 VDC\\
+5 & \\
+6 & GND to load cell\\
+7 & +8 VDC to load cell\\
+8 & neg load cell signal\\
+9 & pos load cell signal\\
+\hline
+\end{tabular}
+\caption[Optical Encoder Counter Board Connector J5]
+        {Optical Encoder Counter Board Connectors J5.
+         Shaft Encoder and Analog channel input connector
+         \shwlabel{tabCBj5} 
+        }
+\end{center}
+\end{table}
+  
+\clearpage
+  
+%-------------------------------
+\newpage
+\subsection{Data Concentrator}
+  The data concentrator consists of chasis and backplane that hold up to
+8 data concentrator cards.  Each concentrator card contains 4 single stage
+amplifiers to amplify the 4 allowed analog signals from the counter boards
+and a set of buffers to drive the digital signals from the counter boards.
+Up to 4 counter boards are connected to the data concentrator card via
+2 daisy chain cables.
+    
+    The signals to/from the data concentrator card go through an interface
+card in the data concentrator chasis and connect to the I/O card in
+the Manipulator Control Computer PC.
+  
+%-------------------------------
+\newpage
+\subsection{Motor Fanout and Watchdog Timer Box}
+This box takes fans out the TIO-10 card outputs to the stepper motor
+controls and has a watchdog timer circuit to detect a dead computer
+and shut off the stepper motors.
+The fanout to each motor goes through a 4 pin connector,
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+pin & assignment \\
+\hline
+1 & +5 VDC\\
+2 & PULSE \\
+3 & DIR \\
+4 & AWO \\
+\hline
+\end{tabular}
+\caption[Motor connections on Motor Fanout Box]
+        {Motor Connections on Motor Fanout Box
+         \shwlabel{tabFOmotor}
+        }
+\end{center}
+\end{table}
+The pinouts to a motor are shown in table \ref{tabFOmotor} where,
+\begin{description}
+\item[PULSE] a pulse to step the motor one step
+\item[DIR] sets direction of motion
+\item[AWO] All Windings Off --- warning, this means no holding torque.
+\end{description}  
+The TIO-10 signals used to control each motor channel are listed in
+table \ref{tabFOtio10} along with the pins on each connector associated
+with the signal.
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+motor & motor pin & motor function& TIO-10 pin & TIO-10 funtion \\
+\hline
+1 & J2-1 & +5 VDC         &       & \\
+  & J2-2 & PULSE          & J1-3  & OUT1\\
+  & J2-3 & DIR            & J1-35 & A0\\
+  & J2-4 & AWO            & J1-36 & A1\\
+\hline
+2 & J3-1 & +5 VDC         &       & \\
+  & J3-2 & PULSE          & J1-6  & OUT2\\
+  & J3-3 & DIR            & J1-37 & A2\\
+  & J3-4 & AWO            & J1-38 & A3\\
+\hline
+3 & J4-1 & +5 VDC         &       & \\
+  & J4-2 & PULSE          & J1-9  & OUT3\\
+  & J4-3 & DIR            & J1-41 & A6\\
+  & J4-4 & AWO            & J1-42 & A7\\
+\hline
+4 & J5-1 & +5 VDC         &       & \\
+  & J5-2 & PULSE          & J1-17 & OUT6\\
+  & J5-3 & DIR            & J1-39 & A4\\
+  & J5-4 & AWO            & J1-40 & A5\\
+\hline
+5 & J6-1 & +5 VDC         &       & \\
+  & J6-2 & PULSE          & J1-20 & OUT7\\
+  & J6-3 & DIR            & J1-45 & B2\\
+  & J6-4 & AWO            & J1-46 & B3\\
+\hline
+6 & J7-1 & +5 VDC         &       & \\
+  & J7-2 & PULSE          & J1-23 & OUT8\\
+  & J7-3 & DIR            & J1-47 & B4\\
+  & J7-4 & AWO            & J1-48 & B5\\
+\hline
+7 & J8-1 & +5 VDC         &       & \\
+  & J8-2 & PULSE          & J1-26 & OUT9\\
+  & J8-3 & DIR            & J1-43 & B0\\
+  & J8-4 & AWO            & J1-44 & B1\\
+\hline
+8 & J9-1 & +5 VDC         &       & \\
+  & J9-2 & PULSE          & J1-28 & OUT10\\
+  & J9-3 & DIR            & J1-49 & B6\\
+  & J9-4 & AWO            & J1-50 & B7\\
+\hline
+\end{tabular}
+\caption[TIO-10 signals used for motor control]
+        {TIO-10 signals used for motor control
+         \shwlabel{tabFOtio10}
+        }
+\end{center}
+\end{table}
+  
+\clearpage
+ 
+%-------------------------------
+\newpage
+\subsection{Stepping Motors and Stepping Motor Controllers}
+The stepping motor controllers used for the manipulator are Superior Electric
+SLO-SYN Model SS2000MD4 Tranlator/Drive which is ``a bipolar, adjustable
+speed, two-phase PWM drive which uses hybrid power devices''.
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{l|l} 
+pin & Assignment \\ \hline
+1  &  OPTO \\
+2  & PULSE \\
+3  & DIR \\
+4  & AWO \\
+\end{tabular}
+\caption[Stepping Motor Controller IO terminal block]
+        {Stepping Motor Controller IO terminal block
+         \shwlabel{tabSMIO}
+        }
+\end{center}
+\end{table}  
+The IO connections are shown in table \ref{tabSMIO}
+where the signals are:
+\begin{description}
+\item[OPTO] Opto-Isolator Supply\\
+    User supplied power for the opto-isolators.
+\item[PULSE] Pulse input\\
+    A low to high transition on this terminal advances the motor one
+    step.  The step size is determined by the Step Resolution switch
+    settings.
+\item[DIR] Direction Input\\
+    When this signal is high, motor rotation will be clockwise.  Rotation
+    will be counterclockwise when this signal is low.
+    Clockwise and counterclockwise directions are properly oriented
+    when viewing the motor from the end opposite the mounting flange.
+\item[AWO] All windings Off Input\\
+  When this signal is low, AC and DC current to the motor will be
+  zero.  {\bf Caution:  There will be no holding torque when the AWO signal
+  is low.}
+\end{description}
+\begin{tabbing}
+\=aaaaa\=aa\=aaaa\=aa\kill
+\>OPTO \\
+\>  \>Voltage --- 4.5 to 6.0 VDC\\
+\>  \>Current --- 16 mA per signal used\\
+\>Other Signals\\
+\>  \>Votage\\
+\>  \>   \>Low:  \>$\leq$0.8 VDC\\
+\>  \>   \>      \>$\geq$0.0 VDC\\
+\>  \>   \>High: \>$\leq$0.8 VDC\\
+\>  \>   \>      \> $\geq$0.0 VDC\\
+\>  \>Current\\
+\>  \>   \>Low:  \>$\leq$16 mA\\
+\>  \>   \>High: \>$\leq$0.2 mA\\
+
+\end{tabbing}
+The Motor and power supply connections are given in table\ref{tabSMps}
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{l|l} 
+pin & Assignment \\ \hline
+1  & M1 (Phase A+) \\
+2  & M3 (Phase A-) \\
+3  & M4 (Phase B+) \\
+4  & M5 (Phase B-) \\
+5  & Vm(+)\\
+6  & Vom(-)\\
+\end{tabular}
+\caption[Stepping Motor Controller Motor and Power Supply terminal block]
+        {Stepping Motor Controller Motor and Power Supply terminal block
+         \shwlabel{tabSMps}
+        }
+\end{center}
+\end{table}
+where Vm(+) is a 24VDC unregulated supply voltage and Vom(-) is it's return.
+The motor current is determined by the dip switch 1-7 settings shown
+in table \ref{tabSMdip}
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{c|l} 
+switch & current \\ \hline
+none & 0.5 A \\
+1  & 0.75 A \\
+2  & 1.0 A \\
+3  & 1.5 A \\
+4  & 2.0 A \\
+5  & 2.5 A \\
+6  & 3.0 A \\
+7  & 3.5 A \\
+\end{tabular}
+\caption[Stepping Motor Controller current settings]
+        {Stepping Motor Controller Motor current settings.  Only one
+         switch should be set at a time.
+         \shwlabel{tabSMdip}
+        }
+\end{center}
+\end{table}
+The number of pulses per revolution is selected using dip switch 8.  The
+settings are given in table \ref{tabSMstep}
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{c|l|l} 
+switch position 8 & Step Resolution & Pulses per Rev \\ \hline
+0 (off) & Full-Step & 200 \\
+1 (on)  & Half-Step & 400 \\
+\end{tabular}
+\caption[Stepping Motor Controller step size]
+        {Stepping Motor Controller Motor step size
+         \shwlabel{tabSMstep}
+        }
+\end{center}
+\end{table}
+ 
+%-----------------------------------------------------
+\clearpage 
+\newpage
+\subsubsection{Stepping Motor Connections}
+  
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+motor type &  wire  & drive pin & function \\
+\hline
+4-lead     &  red         & 1 & phase A\\
+           &  white/red   & 2 & phase A\\
+           &  black       & 3 & phase B\\
+           &  white/black & 4 & phase B\\
+\hline
+\end{tabular}
+\caption[Stepping Motor Connections]
+        {Stepping Motor Connections
+         \shwlabel{tabSMconnections}
+        }
+\end{center}
+\end{table}
+  
+%---------------------------------------------------  
+\clearpage
+\newpage
+\subsection{PC-TIO-10 Card}
+The National Instruments PC-TIO-10 Card is located in the calibration 
+computer and is used to control the manipulator stepping motors (it
+is also used to control stepping motors on the N$_2$ laser used for the
+laserball).
+\begin{table}
+\begin{center}
+\begin{tabular}{|r|l|}
+\hline
+pin & signal\\ \hline
+1  & SOURCE1\\
+2  & GATE1  \\
+3  & OUT1   \\
+4  & SOURCE2\\
+5  & GATE2  \\
+6  & OUT2   \\
+7  & SOURCE3\\
+8  & GATE3  \\
+9  & OUT3   \\
+10 & SOURC4 \\
+11 & GATE4  \\
+12 & OUT4   \\
+13 & GATE5  \\
+14 & OUT5   \\
+15 & SOURCE6\\  
+16 & GATE6  \\
+17 & OUT6   \\
+18 & SOURC7 \\
+19 & GATE7  \\ 
+20 & OUT7   \\
+21 & SOURCE8\\
+22 & GATE8  \\
+23 & OUT8   \\
+24 & SOURCE9\\
+25 & GATE9  \\
+\hline
+\end{tabular}
+\caption[PC-TIO-10 card connector pin assignments (pins 1-25)]
+        {PC-TIO-10 card connector pin assignments (pins 1-25)
+         \shwlabel{tabTIO10pins}
+        }
+\end{center}
+\end{table}
+  
+  
+\begin{table}
+\begin{center}
+\begin{tabular}{|r|l|}
+\hline
+pin & signal\\ \hline
+26 & OUT9 \\ 
+27 & GATE10 \\
+28 & OUT10\\
+29 & FOUT1 \\
+30 & FOUT2\\
+31 & EXTIRQ1\\
+32 & EXTIRQ2\\
+33 & GND\\
+34 & +5V\\
+35 & A0\\
+36 & A1\\
+37 & A2\\
+38 & A3\\
+39 & A4\\
+40 & A5\\
+41 & A6\\
+42 & A7\\
+43 & B0\\
+44 & B1\\
+45 & B2\\
+46 & B3\\
+47 & B4\\
+48 & B5\\
+49 & B6\\
+50 & B7\\
+\hline
+\end{tabular}
+\caption[PC-TIO-10 card connector pin assignments cont'd (pins 26-50)]
+        {PC-TIO-10 card connector pin assignments cont'd (pins 26-50)
+         For the 8 IO lines A0-A7, the MSB is A7.  for the 8 IO lines
+         B0-B7, the MSB is B7.
+         \shwlabel{tabTIO10pinscontd}
+        }
+\end{center}
+\end{table}
+  
+%-------------------------------------
+\newpage
+\subsection{Optical Encoders}
+The optical encoders used to measure the rope lengths in the system
+are made by Bourns.  Part number?  We use both the 128 steps per
+rotation and the 256 steps per rotation encoders.  No index marks are
+on the encoders so no absolute zero can be determined.  The encoder
+is driven by 5VDC and and supplies two TTL level quadrature signals,
+A and B.  The pin assignment for the encoders is shown in 
+table \ref{tabOEpins}.
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{l|l}
+pin & assignment\\
+\hline
+1 & GND\\
+2 & N.C.\\
+3 & A output \\
+4 & VCC \\
+6 & B output \\
+\end{tabular}
+\caption[Bourns Optical Shaft Encoders Pin assignment]
+        {Bourns Optical Shaft Encoders Pin assignment.
+         Pins numbered from left to right with the encoder
+         shaft oriented away from viewer and pins at top.
+         \shwlabel{tabOEpins}
+        }
+\end{center}
+\end{table}
+The shaft encoders are read out by the {\em counter boards} which
+were designed inhouse at Queen's.  
+   
+  
+%-------------------------------------------------------------------------
+\clearpage
+\newpage
+\subsection{Load Cells}
+The load cells used in the manipulator are made by,
+\begin{verbatim}
+  Tranducer Techniques
+\end{verbatim}
+and are model MLP-100 (100 lb loads)
+Maximum allowed excitation is 12 VDC, calibration is done at 10 VDC.
+The connections for the load cells are shown in table \ref{tabLCconnections}.
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{l|l}
+wire & function\\ \hline
+red  & + excitation\\
+black & - excitation\\
+green & + signal\\
+white & - signal\\
+shield & ground\\
+\end{tabular}
+\caption[Load Cells]
+        {Load Cell Connections
+         \shwlabel{tabLCconnections}
+        }
+\end{center}
+\end{table}
+We drive the load cells at 8 VDC.  The reponse of the load cells is,
+\begin{center}
+\begin{tabular}{lll}
+type        &  load   & reponse \\
+            &  (lb)   & mV/V    \\
+\hline
+100 lb cell & 50    & 1 \\
+(MLP-100) & 100   & 2 \\
+\hline
+300 lb cell & 150 & 1 \\
+(MLP-300)   & 300 & 2 \\
+\hline
+\end{tabular}
+\end{center}
+where the reponse in mV/V means the output voltage (in mV) for a given
+driving voltage (in V).
+For an 8 volt driving voltage as used in the SNO manipulator, the
+output reponse is,
+\begin{center}
+\begin{tabular}{|rr|rr|}
+\hline
+\multicolumn{2}{|c|}{MLP-100} &\multicolumn{2}{|c|}{MLP-300} \\ 
+\hline
+load & signal &  load & signal \\
+(N)  & (mV)   &  (N)  & (mV)  \\
+\hline
+ 1   &  0.036 &    1  &  0.012 \\
+ 5   &  0.180 &    5  &  0.060 \\
+10   &  0.360 &   10  &  0.120 \\
+50   &  1.780 &   50  &  0.599 \\
+100  &  3.596 &  100  &  1.199 \\
+500  & 17.978 &  500  &  5.993 \\
+     &        & 1000  & 11.985 \\
+\hline
+\end{tabular}
+\end{center}
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+  
+\section{Software}
+  
+  
+\subsection{Program Description}
+\subsection{Data files}
+\begin{verbatim}
+On PC
+-----
+c:\motors\manip\
+  
+   wiring.dat  -- TIO 10 wiring map
+                   counter board wiring map
+                   motor fanout wiring map
+  
+       -- both the manipulator and the AV position sensors
+  
+   motor.dat    -- physical parameters for motors
+  
+   encoder.dat  -- physical parameters for encoders
+  
+   loadcell.dat -- physical parameters for load cells
+  
+   axis.dat     -- combines motor loadcell and encoder infor plus other
+                   stuff (i.e. wire tension etc) to form info on axis
+  
+   polyaxis.dat -- combines 3 axes into the manipulator
+  
+   av.dat       -- information on acrylic vesel geometry
+
+\end{verbatim}
+
+  
+
+
+

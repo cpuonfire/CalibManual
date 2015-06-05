@@ -1,0 +1,168 @@
+\markright{CalOp: Laser}
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+\chapter{Laser}
+\shwlabel{ChapterLaser}
+
+\newprocedure{CalOpLaser}
+       {Laser}
+      {P. Skensved}{Sept. 2003}{2}
+
+  
+   
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=7in
+\epsfbox{figures/lasergas.eps}
+~\\
+\caption[Laser Gas System]
+        {Laser Gas System
+         \shwlabel{figlasergas}
+        }
+\end{center}
+\end{figure}
+  
+\section{Commands}
+\begin{description}
+\item[n2laser]~\\
+  Lists commands for n2laser
+\item[n2laser monitor]~\\
+  displays status information on the n2laser.
+\item[n2laser poweron]~\\
+  Turns on the power and the N$_2$ gas to the laser
+\item[n2laser poweroff]~\\
+  Turns off the power and the N$_2$ gas to the laser
+\item[dyelaser]~\\
+  display dyelaser commands
+\item[dyelaser init]~\\
+  Initialize the dyelaser.  Must be followed by {\tt dyelaser findzero}
+\item[dyelaser findzero]~\\
+  Find the zero position of the dyelaser mirror.  The mirror
+  travels down it's track till it hits a stop.
+\item[dyelaser cell <0-4>]~\\
+  Select the dyelaser cell between 0 and 4.
+\item[filterwheela]~\\
+  Show commands for filterwheela.
+\item[filterwheela init]~\\
+  Initialize filterwheela.
+\item[filterwheela findtab]~\\
+  Find the calibration tab on filterwheela.
+\end{description}
+  
+\section{Procedures}
+
+\subsection{Laser Emergency Shutdown}
+\begin{enumerate}
+\item Pull the powercord to the Laser.
+\item If possible turn off the N$_2$ gas at the dewar ( valve MV1 ). 
+\end{enumerate}
+
+
+\subsection{Starting the Laser}
+\begin{enumerate}
+\item Open MV1 the manual valve on the LN$_2$ dewar.
+\item Open MV2 the pressure builder valve on the LN$_2$ dewar.
+\item Note pressure on PG1, the pressure gauge on the dewar.
+      The pressure should be at least 120 psig.
+\item Enter DCR and make sure the manual valve PRV8 is open.
+\item Plug in the powercord to the laser.
+\item On the laser set the POWER switch to {\bf remote}
+\item On the laser set the CONTROL switch to {\bf remote}
+\item Check that the manual shutoff valve MV9 is open.
+\item Reset the `Kill Switch' by pushing the red reset button.
+\item Do a 
+ \begin{verbatim}
+ n2laser poweron
+ \end{verbatim}
+from the manip computer. This will turn on
+the low voltage control power to the laser and energize the solenoid valve
+which controls  the N$_2$ gas flow to the laser head.
+\item Note values on PG2 and PG3 and FG1.
+  PG2 should be at least 120 psig, PG3 should be at least 100 psig and
+  FG1 should be at least 40 psig.
+If there is no flow consult an expert. {\bf Running the laser without sufficient N$_2$ flow
+causes serious damage to the laser head !}
+
+
+\item Note time.
+\item At this point the Thyratron should be warming up ( controlled by an
+internal timer in the laser ). Make sure that the head is thoroughly flushed
+before turning on the high voltage (~wait $\approx$ 10 minutes~)
+\item While waiting test the dyecell selection and check that the neutral density filter selection works.
+\item Use the manip computer to read PT4 and PT5.
+  PT4 should be at least 80 psi.
+\item Make sure the light is blocked
+\begin{verbatim}
+ n2laser setnd -1
+\end{verbatim}
+\item Once the Thyratron is warmed up and the head is flushed 
+the laser may be turned on with the 
+\begin{verbatim}
+n2laser start
+\end{verbatim}
+command.
+\end{enumerate}
+
+\subsection{Calibrating the Filter Wheels}
+The control system can sometimes lose track
+of where the filter wheels are positioned.
+To fix this follow this procedure.  This example
+is for {\tt filterwheela}, replace with 
+{\tt filterwheelb} for the 2nd filterwheel.
+\begin{enumerate}
+\item Reinitialize the filterwheel
+  \begin{verbatim}
+  filterwheela init
+  \end{verbatim}
+\item Find the tab on the wheel
+  \begin{verbatim}
+  filterwheela findtab
+  \end{verbatim}
+\item select the desired filterwheel position using
+  the {\tt n2laser setnd} command.
+\end{enumerate}
+
+\subsection{Calibrating the Dye Cell Mirror}
+\begin{enumerate}
+\item Reinitialize the mirror
+  \begin{verbatim}
+   dyelaser init
+  \end{verbatim}
+\item Find the zero of the mirror
+  \begin{verbatim}
+  dyelaser findzero
+  \end{verbatim}
+\item Select desired wavelength ( Note that the 5 {\bf physical} dyecell locations
+are shared between 10 {\bf logical} ones ). This is to distinguish bewteen 
+for example having the 620 nm or the 365 nm dye in cell position 1.
+  \begin{verbatim}
+  dyelaser cell <0-9>
+  \end{verbatim}
+\end{enumerate}
+
+
+
+\subsection{Shutting down the Laser}  
+\begin{enumerate}
+\item Block the light by typing 
+\begin{verbatim}
+n2laser setnd -1
+\end{verbatim}
+on the manip console
+\item At the manip console type 
+ \begin{verbatim}
+    n2laser stop
+ \end{verbatim}
+\item Then type
+\begin{verbatim}
+  n2laser poweroff
+\end{verbatim}
+\item Unplug the powercord to the laser 
+\item Turn off the pressure builder ( MV2 ) and the turn off the N$_2$ gas ( MV1 )
+\item Close the manual gas valve on the laser ( PRV8 )
+\end{enumerate}
+  
+

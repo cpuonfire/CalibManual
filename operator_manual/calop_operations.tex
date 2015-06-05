@@ -1,0 +1,310 @@
+
+\markright{CalOp: Controls}
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\chapter{Controls}
+\shwlabel{ChapterControls}
+
+  Control of the calibration manipulator and the calibration laser
+is done through the {\bf manip} computer running the {\bf manip} program
+which is a C++ program running under DOS.  There are three ways for
+the operator to send commands to {\bf manip}:
+\begin{itemize}
+\item From the {\bf manip} console in the DCR
+\item From the SHaRC Detector user interface.
+\item From the {\bf manmon} program runing on a number of
+  Linux or Unix boxes.
+\end{itemize}
+When changing sources or adjusting equipment in the DCR, the console
+is usually used.  Otherwise the calibration operator usually interacts
+with the manipulator through {\bf manmon}.  The manipulator can be 
+operated both from underground or from surface without any personnel in
+the lab.  There is also a 
+monitoring program running on {\bf crag1} (Surface control room workstation).
+This program called {\bf manip\_logger} generates a web page where
+the current manipulator status can be viewed and log files of the commands
+and errors can be downloaded.  
+
+
+\section{Controlling and Monitoring the Manipulator From manmon}
+
+  Normal operation of the manipulator is through {\bf manmon} which
+is a Tcl/Tk program which runs on various Linux workstations on site.
+Specifically, the workstations
+  \begin{description}
+  \item[ crug1, crug2, alcor ] The workstations in the underground control room.
+  \item[ crag1, crag2 ] The workstations in the surface control room.
+  \end{description}
+{\bf manmon} provides a GUI interface to display the manipulator data
+and to allow the Calibration Operator to move sources or operate the
+calibration laser.
+
+
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=5.0in
+\epsfbox{figures/f_manmon.ps}
+~\\
+\end{center}
+\caption[manmon main window] 
+        {manmon main window
+          \shwlabel{figmanmon}
+        }
+\end{figure}
+  
+\subsection{Starting manmon}
+\begin{enumerate}
+\item Log on to {\tt alcor} as yourself ( or as user {\tt operator} ).
+
+\item Go to the current manmon directory,
+  \begin{verbatim}
+      cd ~manipulator/manmon
+  \end{verbatim}
+  The directory {\tt manmon} is a softlink to the current version
+  of the manmon code.
+  
+\item start the {\bf manmon} program by typing
+  \begin{verbatim}
+       manmon
+  \end{verbatim}
+  A GUI user interface will pop up (figure \ref{figmanmon}).
+  
+\item On the control room computers ( {\tt crag}/{\tt crug } ) log on as
+user {\tt operator} .
+
+\item Go to the current manmon directory,
+\begin{verbatim}
+      cd ~calibrator/manmon
+\end{verbatim}
+
+
+
+
+\item Connect to the manipulator computer by clicking on the {\bf connect}
+  button.  A window will pop up (see figure \ref{figconnection}) 
+  asking if you wish to make this a
+  control connection (to operate the manipulator and laser) or a monitor
+  connection (to view but not affect the calibration system).
+  \begin{figure}[h]
+  \begin{center}
+  \leavevmode
+  %\epsfysize=0.85\textheight
+  \epsfxsize=2in
+  \epsfbox{figures/f_connection.ps}
+  \end{center}
+  \caption[manmon main window] 
+        {manmon connection dialog
+          \shwlabel{figconnection}
+        }
+  \end{figure}
+  The default is to make a monitor only connection.  To make this a 
+  control connection, click on the {\bf monitor only} button to deselect
+  it.  The window will disappear and the connection will be attempted.
+  If the connection is accepted properly, the message 
+  \begin{verbatim}
+         Connection Accepted
+  \end{verbatim}
+  will appear in the {\bf from server:} window and in the {\bf Connections}
+  panel of the display (top right) a line indicating the connection will
+  appear.  This line contains the {\em ID} of the process, the {\em Address}
+  of the machine that {\bf manmon} was started from and the {\em Idle Time}.
+  Because {\bf manmon} is constantly polling the manipulator the idle time
+  should always be zero.  If a different process connected to the
+  manipulator computer becomes hung, then that process's idle time
+  will continually grow.
+  
+\end{enumerate}
+ 
+
+
+
+%---------------------------------------------------
+  
+\newpage
+\section{Controlling the Manipulator from the Console}
+  
+Change to directory
+\begin{verbatim}
+   c:\motors\manip\
+\end{verbatim}
+and run program 
+\begin{verbatim}
+   manrun
+\end{verbatim}
+(this runs a batch file which runs manip ).  Basic Commands are :
+\begin{description}
+\item[help]~
+\item[list] lists all objects
+\item[logout] disconnects tcp/ip connection
+\item[quit] exits program
+\end{description}
+Commands for the {\tt prototype} object ( typically a source objcet like {\tt laserball}, {\tt acrylic}, {\tt n16} etc. ) 
+\begin{description}
+\item[{\tt prototype} by $<x>$ $<y>$ $<z>$] move manipulator amout x y z in 
+  manipulator space.
+\item[{\tt prototype} reset] resets encoders to agree with motor position and tension
+\item[{\tt prototype} locate $<x>$ $<y>$ $<z>$] defines the position to be x y z.
+\item[{\tt prototype} to $<x>$ $<y>$ $<z>$] moves to absolute position
+\end{description}
+A sample session:
+\begin{verbatim}
+motors> prototype reset              -- resets encoders to agree with motor position
+                                        and tension
+
+motors> prototype by  35 0 -40       -- moves differential amount in x,y,z
+
+motors> prototype locate 0 0 92.8    -- defines the current position to be
+                                        (0,0,92.8)
+  
+motors> prototype to  -180.0 0 32.3  -- moves to absolute position
+\end{verbatim}
+  
+
+A session in which the central rope was originally fully spooled and is
+unspooled, threaded through the pullies and attached to the carriage.
+\begin{verbatim}
+motors> centralrope reset              -- to reset the encoder on the central rope
+  
+motors> centralropemotor setcruise 2   -- change from maximum 4cm/c to 2cm/s
+                                          so it feeds off the drum slower.
+  
+motors> centralrope down 10000         -- feed out string
+  
+motors> stop                           -- stop when you have enough
+  
+motors> centralropemotor setcruise 4   -- change speed back to max.
+\end{verbatim}  
+  
+A session where the {\tt prototype} is disconnected and reconnected.
+\begin{verbatim}
+motors> prototype disconnect
+motors> prototype connect eastrope centralrope westrope
+motors> show prototype
+\end{verbatim}
+Note that the {\tt show} command has a different syntax.  This is because
+it is a system wide command unlike the others which are object commands.
+  
+
+  
+  
+%----------------------------------------------------------------------
+\newpage
+\section{Running the Manipulator from SHaRC}
+  
+You can run the manipulator through the data acquisition program.  First
+make sure that the manipulator program is running on the PC. Then start
+the program by clicking on :
+\begin{verbatim}
+  Windows -> Configuration 
+\end{verbatim}
+Then `Splat-Click' on MAN-1 to get a menu :
+\begin{verbatim}
+  Configure
+  Basic Ops
+  Special Ops
+  \end{verbatim}
+  select {\tt Configure}
+
+\begin{enumerate}
+\item Select {\tt Basic Ops} and a window with the manipulator status
+  will pop up.  This window has places to input commands to the manipulator
+  and readback.
+\item You can get a graphical display of the AV and the manipulator
+  position from the {\tt Special Ops} option.
+
+%\item To shut down the GUI interface to the manipulator,
+%  \begin{enumerate}
+%  \item shut down the DAQ.  MAC will wait forever trying to close the TCP/IP
+%    connection.
+%  \item close the TCP/IP connection from the PC by using either the 
+%    {\tt logout} command or by quitting.
+%  \end{enumerate}
+\end{enumerate}
+
+  
+
+
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+ %--------------------------------------------------------------
+\section{Data Logging}
+\shwlabel{SecDataLogging}
+  
+  There are several means by which data from the manipulator
+system are logged.
+\begin{itemize}
+\item {\bf manip\_logger} web based logging tool
+\item CMA logging of AV rope lengths
+\item Command and Error logging on {\bf manip}
+\item Explicit logging of source data through {\bf manmon}
+\end{itemize}
+   
+
+\subsection{manip\_logger web based data logging}
+
+ At preset the {\bf manip\_logger } is running on crag1. The output is stored in
+~detector/public\_html/private/manip\_logger . The polling can be configured in
+the file ``extra\_log.dat''  . A ``monitor'' argument should be added for frequently
+polled commands to cut down the amount of noise in the log file(s).
+An example file follows.
+
+\begin{verbatim}
+
+%Here is my documentation:
+
+%--------------------------------------------------------------- 
+
+This is the current "extra_log.dat" file:
+
+salt {
+state = off;
+delay = 60; // delay time (secs)
+entry = "TESTROPELOADCELL", "Tension:", 1;
+entry = "LASERBALL", "Position:", 3;
+}
+
+You can add up to 20 entries similar to this one.
+
+To enable the above polling, simply edit this file and change
+the state from "off" to "on".
+
+This entry produces a log file called "salt_YYMM.log2" with
+the following format:
+
+2001 7 17 12 49 43 94.12 9.00 -25.00 0.00
+2001 7 17 12 50 41 94.12 9.00 -25.00 0.00
+2001 7 17 12 51 41 94.12 9.00 -25.00 0.00
+2001 7 17 12 52 41 94.12 9.00 -25.00 0.00
+
+The first 6 lines are year, month, day, hour, minute, second,
+as with the other log2 files.  The next lines are those
+specified by the "entry" lines in "extra_log.dat".  Here,
+it has logged the testropeloadcell tension and the laserball
+position.
+
+Here are more details about the format of "extra_log.dat":
+
+state - "on" or "off" to enable or disable logging for this item.
+
+delay - nominal delay between log entries in seconds (actual
+delay implemented is the nearest multiple of 10 seconds).
+
+entry - The first argument is the object to poll (case
+insensitive).  The 2nd argument is the case-sensitive string
+to match the specific parameter of the "monitor" command to
+be logged.  This must be an exact match of all characters
+up to and including the colon.  The 3rd argument is the number
+of values to log for this parameter (ie.  x,y,z position is
+3 values).
+
+The manip_logger checks every logging cycle (10 seconds) to
+see if this file has been modified.  If it has, the new
+settings are loaded.
+
+\end{verbatim}
+

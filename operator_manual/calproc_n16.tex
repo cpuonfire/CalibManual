@@ -1,0 +1,979 @@
+
+
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{N16 Source Procedures}
+\shwlabel{secprocN16}
+
+\newprocedure{CalProcN16SourceProc}
+             {N16 Source Procedures}
+             {F. Duncan/P. Skensved}{Oct. 2004}{1}
+
+
+
+  These procedures describe the operation of the N16 calibration
+source.
+
+
+\newpage
+
+\subsection{DT Generator Emergency Shutdown Procedure}
+
+\shwlabel{procn16start}
+
+\newprocedure{CalProcDTEmShut}
+             {DT Generator Emergency Shutdown Procedure}
+             {F. DUuncan/P. Skensved}{Jun. 2002}{2}
+
+
+
+  This procedure describes how to turn off the DT generator and
+gas board in case of an emergency such as fire, severe gas leak,
+radiation problem etc.
+
+
+
+\begin{itemize}
+\item {\bf Turn off HV. }
+\item Turn off neutron pulser.
+\item Turn key to  ``Off''
+\item Close main valve on CO$_2$ bottle.
+
+
+\end{itemize}
+
+
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{DT Generator Turn On Procedure}
+\shwlabel{procdton}
+
+
+\newprocedure{CalProcDTTurnOn}
+             {DT Generator Turn On Procedure}
+             {F. Duncan/P. Skensved}{Sept. 2004}{2}
+
+
+ 
+  This procedure describes how to turn on the DT generator
+prior to operating either the N16 or LI8 sources.  Only authorized
+DT operators are allowed to operate the generator.
+  
+\subsubsection{State Prior To This Procedure}
+\begin{itemize}
+\item DT generator is OFF.
+\end{itemize}
+
+\subsubsection{Summary of Procedure}
+\begin{itemize}
+\item {\bf Make sure you understand the DT Generator shutdown and emergency shutdown  procedures.}
+\item Secure DT generator area.
+\item Turn on spare NCD counter.
+\item Turn on  DT generator.
+\item Check operation of DT generator at full NOC setting.
+\item Record maximum and minimum neutron flux.
+
+\end{itemize}
+
+\newpage
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\large\bf DT Generator Turn On Procedure}\\
+\hline
+ & \\
+Operator(s):~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} 
+
+
+
+\begin{enumerate}
+
+\checkitem Read and  make sure you { \bf understand } the DT Generator
+Turn Off and Emergency Turn Off procedures (also referred to as the DT Generator Shutdown
+procedures).
+
+
+\checkitem If it is not already on, turn on the gas computer.
+
+{\em The use of the Gas Computer is optional }
+
+\checkitem If it is not already running, start the Gas/DT monitoring
+  program on the gas computer by:
+  \begin{enumerate}
+  \item start labview from the programs menu.
+  \item from the labview file menu item select {\tt open}.
+  \item go to {\tt c:/labview/develop/}
+  \item select {\bf febmain.vi}.
+  \item After the VI has loaded, click on the run (arrow) button.
+  \end{enumerate}
+\checkitem If it is not already running and selected, on the labview
+  monitoring program, click on the {\bf fraser monitor} check box.
+
+\item\checkbox
+ Secure the DT area : ensure that the shielding blocks ( the ``donuts'' )
+ are in place and that the grey interlock boxes are in place and connected.
+
+\checkitem
+  Turn on the main instument panel, the flow controller and the stepper
+motor controller.
+
+\item\checkbox
+ Set the Interlock Override on the main instrument panel
+ to ``On'' for manual control (normal setting) or ``Computer'' for
+ Labview control.
+
+
+\item\checkbox
+ Check that the High Voltage (HV) and neutron pulser
+ switches on the DT control panel are in the OFF position,
+
+\item\checkbox
+   Set the Neutron Pulse Control (NPC) to 5 and the Neutron
+   Output Control (NOC) to 0. 
+
+
+
+\item\checkbox Make sure the HV supply for the spare NCD counter is turned
+off and the dial setting is at 0.
+
+\item\checkbox Turn on the NIM bin with the Fast Neutron Flux Meter (F.N.F.M)
+
+\item\checkbox Turn on the low voltage powersupply for the spare NCD counter.
+
+
+\item\checkbox Turn on the F.N.F.M high voltage supply and set the
+voltage to 800 V.
+
+\item\checkbox Connect an oscilloscope to the spare NCD counter amplifier. Set
+timebase to approximately 1 us/div and vertical scale to a small fraction of a
+volt per division.
+
+
+\item\checkbox Turn on the HV for the spare NCD counter. While watching the scope
+for pulses slowly ( about 1 minute ) increase the voltage to 1850 V.  
+
+\item\checkbox
+   Connect an oscilloscope to the SYNC output. Set timebase to 
+approximately 2 ms full sweep.
+
+\item\checkbox
+  Insert the DT generator key and turn on the power.
+
+\item\checkbox
+   At this time, the main power light on the DT control panel, and
+   the {\bf D.T. GEN ON} light located behind the DT Pit should be on.
+   {\bf If either of these lights does not come on, proceed to}
+   {\bf step five in the shutdown procedure. }
+
+
+\item\checkbox
+  Switch the neutron pulser on.  Make sure that the neutron pulser light
+comes on.  {\bf If the neutron pulser light does not come on, \
+proceed to step number four of the shutdown procedure.} 
+
+
+\item\checkbox
+ Make sure that the neutron pulser light comes on. 
+ {\bf If the neutron pulser light does not come on, }
+ {\bf proceed to step number four of the shutdown procedure
+ immediately.} 
+
+
+\item\checkbox
+ Verify that the DT generator is pulsing at  1.8 ms and that the pulse width
+is 180 ${\mu}$s.  
+
+\checkitem Leave the pulser running for approximately one minutes.
+
+\item\checkbox
+  When the HV is turned on the ``normal''  (green) and the ``high current'' (red)
+ will likely flicker for a few  seconds after which the green light will be off for
+a while before it comes on steady. The red light should be off .
+ { \bf There is now a built in timedelay in the DT generator source circuit - it may
+take up to 1 minute for the green light to be steady. As long as the red light does
+not  come on don't panic. If the green light continues to flicker past 20 seconds or the 
+  red light comes on steady proceed to step number two in the
+ shutdown procedure immediately } 
+
+
+\item\checkbox
+ Record the high voltage turn on time below,
+ as well as in the DT Generator Log Book. 
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     HV Turn on Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+ 
+
+\item\checkbox
+ Record Initial value of the F.N.F. Meter, 
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     FNFM Meter Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+       \\
+     FNFM Computer Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+\item\checkbox
+ Increase the NOC to 10 (slowly over a period of 20 sec) 
+ 
+
+\item\checkbox The NCD counter should be counting at a few Hz
+
+
+\item\checkbox
+ Record the final (max) value of the F.N.F. Meter, 
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     FNFM Meter Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+       \\
+     FNFM Computer Reading:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \hline
+     \end{tabular}
+     \end{center}
+
+
+\item\checkbox
+ Reset the NCD counter scaler.
+
+\checkitem Record start time and initial flux on DT Generator Log Sheet.
+
+\checkitem Turn the NOC setting back down to zero until the source
+ is deployed.
+
+
+\end{enumerate}
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{DT Generator Turn Off Procedure}
+\shwlabel{procn16start}
+
+
+\newprocedure{CalProcDTTurnOn}
+             {DT Generator Turn Off Procedure}
+         {F. Duncan/P. Skensved}
+         {Jun. 2002}{3}
+
+
+  This procedure describes how to turn off the DT generator.
+A trained and authorized DT generator operator is required to
+perform this procedure except {\bf in an emergency}.
+
+
+\vspace*{0.25in}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\large\bf DT Generator Turn Off Procedure}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+\begin{enumerate}
+
+\checkitem Decrease the NOC from 10 to 0 (Slowly over a period of 20 sec.)
+   Leave the Neutron Pulse Control at 5.
+  
+\checkitem Turn the HV Off.  Record this time in the DT Logbook.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     HV Turn off Time:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+ 
+\checkitem Wait 1 minute.
+  
+\checkitem Switch the neutron pulser off.
+  
+\checkitem Turn the DT Generator off and reurn 
+  keys to their proper location in the N$^{16}$ cabinet.
+
+\checkitem Record NCD counter total :
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     Dose:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+  
+\checkitem Turn down the HV for the NCD counter ( slowly ! )
+
+\checkitem Turn off the HV for the NCD counter
+
+\checkitem Turn off the low voltage powersupply for the NCD counter
+
+\item\checkbox Turn off HV for FNFM (just turn it off, don't ramp down).
+
+\checkitem Turn off the NIM bin
+
+\checkitem Fill Out DT Generator Log Sheet.
+
+
+\end{enumerate}
+
+\newpage
+
+%------------------------------------------------------------
+\newpage
+\begin{center}
+{\bf DT Generator Log Sheet}
+\end{center}
+\begin{tabular}{|l|}
+\hline
+      \\
+Previous Total Minutes:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+Previous Total Hours:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+\hline
+\end{tabular}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{start} &      &\multicolumn{4}{|c|}{stop} & duration & total\\
+\hline
+yy/mm/dd & hh:mm & FNFM & operator  & yy/mm/dd & hh:mm & FNFM & NCD counter   &time &total\\
+         &       & (hz) &           &         &       & (hz) & (counts) & (min)    &~~~minutes~~~~\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+  &  &  &  & & & & & &\\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+\begin{tabular}{|l|}
+\hline
+      \\
+Total Minutes:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+Total Hours:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+\hline
+\end{tabular}
+
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{N16 Source Startup Procedure}
+\shwlabel{procn16start}~\\
+
+\newprocedure{CalProcN16SourceStart}
+          {N16 Source Startup Procedure}
+          {F. Duncan/P. Skensved}{Sept. 2004}{2}
+
+ 
+  This procedure describes how to turn on the N16 source.
+An authorized DT and N16 operator is required to perform this 
+procedure.
+  
+\subsubsection{State Prior To This Procedure}
+\begin{itemize}
+\item DT generator is OFF.
+\item Gas flow to N16 gas board and chamber is OFF.
+\item N16 chamber is assembled and connected to gas board.
+%%\item N16 PMT is wired in to SNO trigger system.
+\end{itemize}
+
+\subsubsection{Summary of Procedure}
+\begin{itemize}
+\item Turn on DT generator.
+\item Set up the N16 gas board.
+\item Turn on the CO$_2$ gas flow to the gas board.
+\item Adjust to desired flow rate.
+\item Check pressure in N16 source chamber.
+\item Turn on N16 PMT.
+\item Adjust NOC and target position to desired $^{16}$N rate.
+\end{itemize}
+
+
+\begin{figure}
+\begin{center}
+\leavevmode
+%\epsfysize=0.85\textheight
+\epsfxsize=7in
+\epsfbox{./figures/n16_gas_panel.ps}
+~\\
+\caption[N16 Gas Panel]
+        {N16 Gas Panel
+         \shwlabel{fign16gaspanel}
+        } 
+        
+\end{center}
+\end{figure}
+
+
+\newpage
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf N16 Source Startup Procedure}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+
+\begin{itemize}
+\checkitem
+  Complete DT Generator startup procedure.
+
+\checkitem
+  Complete Gas Board startup procedure.
+
+\checkitem
+  Complete N16 PMT Turn On procedure.
+
+\checkitem
+  Complete $^{16}$N Detector Setup procedure.
+
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf Gas Board Startup Procedure}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+
+
+\begin{enumerate}
+
+\checkitem Verify all valves on the gas board are closed.
+\checkitem Verify the N$_2$ / CO$_2$ flow control (side B) is off (fully CCW).
+\checkitem Verify the Solenoid Valve II switch is in the OFF position.
+
+\checkitem Enter the DCR using standard entry procedure and 
+verify that 
+\begin {itemize}
+ \checkitem the gas input line is connected to the ``dry'' end of the umbilical
+ \checkitem the ``blue'' valve is in the open position. 
+ \checkitem the gas return line is connected to the ``dry'' end of the umbilical.
+  \checkitem the pressure transducer is powered up and that a voltmeter is connected to it.
+  \checkitem the voltmeter is reading the correct ( 18 psi )  ``pressure''.
+\end{itemize}
+\small
+{ \em The pressure transducer is hooked up in a temporary way for the time being. Consult
+OCE for details.}
+
+\normalsize
+
+\item \checkbox Turn on the power on the main instrument panel
+ and the dual flow controller box. 
+  
+\item\checkbox Flip the switch on flow controller box to ``B'' (for
+ N$_2$ and/or CO$_2$).  The reading takes
+  a few minutes to equilibriate to zero or near zero.
+
+\item \checkbox Ensure that the CO$_2$ bottle is hooked up to the input
+input line at valve VA2 . 
+
+\item\checkbox Check that VA2 is closewd.
+
+\checkitem Close the needle valve on the CO$_2$ bottle. 
+
+\checkitem Open the main CO$_2$ bottle valve.
+
+\checkitem Set the regulator to 80 PSIG. Note that once the gas starts
+ flowing the regulator and bottle starts to cool off and you will have 
+to readjust the setting.
+
+\checkitem  Record the bottle pressure:
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  Transducer & Reading\\
+  \hline
+    CO$_2$ Bottle Pressure & \\
+  (PSIG) & \\
+  \hline 
+  \end{tabular}
+  \end{center}
+  {\em The pressure of a full bottle is 850 to 900 psiG. The CO$_2$ in
+  the bottle is in liquid or solid form and the pressure will stay
+  relatively high until gas only and will drop rapidly thereafter.
+  The CO$_2$ regulator has a small white plastic insert ( disc with small
+hole ) in order to seal to the bottle. Do't damage or lose it.  }
+
+\checkitem Open the inline needle valve after the CO$_2$ regulator.
+
+\checkitem Open SVII by setting the switch on the main control panel
+  to {\bf MAN}.
+
+\item\checkbox Open the manual shut-off valve VB2.
+
+\item\checkbox Direct flow to the CO$_2$/N$_2$ flow meter using valve VC1.
+  
+
+\item\checkbox Set the CO$_2$/N$_2$ flow meter to manual and turn the
+control knob one turn so that some gas will flow.
+
+\item \checkbox Direct flow towards the CO$_2$/N$_2$ flow meter using valve VD1.
+
+\item\checkbox Direct flow to the N16 target chamber using valve VF1. Make
+ sure you are   not sending it to the oven !
+
+\item\checkbox Open valve VF2 to accept the returning CO$_2$.
+
+\item\checkbox Open valve VC2.
+
+\item\checkbox Direct the flow towards the exhaust using valve VB4.
+
+\item\checkbox Open the exhaust needle valve VA4 fully.
+
+\item\checkbox {\bf Slowly } open valve VA2 and look to see if gas is flowing.
+
+\item\checkbox {\bf Slowly} increase the flow until you reach around a 200-280
+  reading. Make sure P1 never goes above 100 PSIA. Remember that
+  the time constants are long.
+
+
+\checkitem 
+  Record Gas Presures and Flow.
+  \begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  Transducer & Reading\\
+  \hline
+    P1 & \\
+  (PSIA) & \\
+  \hline 
+    P2 & \\
+     (PSIA)  & \\
+  \hline 
+    P3 & \\
+     (PSIA)  & \\
+  \hline 
+    P4 & \\
+     (PSIA)  & \\
+  \hline 
+    Flow & \\
+    (cc/s x(1/1000)) & \\
+  \hline 
+    Target   & \\
+    Position & \\
+  \hline 
+  \end{tabular}
+  \end{center}
+
+
+\checkitem Go back to the DCR and verify that the pressure in the N16 source chamber is within
+the acceptable upper limit.
+\small
+{\em This is done by checking the voltage reading from the pressure transducer. The transducer gets
+its power from the monitor PMT supply. Contact the OCE for details }
+
+
+\normalsize
+
+
+\end{enumerate}
+
+
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{N16 Source Shutdown Procedure}
+\shwlabel{procn16start}
+
+\newprocedure{CalProcN16SourceShut}
+        {N16 Source Shutdown Procedure}
+             {F. Duncan/P. Skensved}{Jul. 2003}{2}
+
+
+  This procedure describes how to shut down the
+N16 source.  An authorize DT operator and an authorized N16 operator
+is required to perform this procedure.
+  
+\subsubsection{State Prior To This Procedure}
+\begin{itemize}
+\item DT generator is ON.
+\item Gas is flowing through the N16 board to the Chamber.
+\item N16 PMT is on.
+\end{itemize}
+
+\subsubsection{Summary of Procedure}
+\begin{itemize}
+\item Complete DT Generator Shutdown procedure.
+
+\item Complete Gas Board Shutdown procedure.
+
+\item Complete N16 PMT turn off procedure.
+
+\end{itemize}
+
+
+\newpage
+\subsubsection{Procedure}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf N16 Source Shutdown Procedure}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+
+\begin{enumerate}
+
+\item\checkbox Close the main CO$_2$ gas bottle
+  valve.
+  
+\item\checkbox Wait for pressure on P1, P2, P3, P4 to reach atmosphere
+  (approximately 18 PSIA).
+  
+\item\checkbox Turn off regulator on CO$_2$ bottle.
+  
+\item\checkbox Close inline valve near CO$_2$ regulator.
+  
+\item\checkbox Close VA2.
+
+\checkitem Close SVII by flipping the switch on the main controller
+panel to {\bf Off }.
+
+\checkitem Close VB2.
+
+\checkitem Close VC1.
+
+\checkitem Turen the flow control knob to zero.
+
+\checkitem VD1.
+
+\checkitem VF1.
+
+\checkitem VF2.
+
+\checkitem VC2.
+
+\checkitem VB4.
+
+\checkitem VA4.
+
+
+  
+\item\checkbox Turn OFF power to Flowmeter, Stepper Motor panel and
+main instrument panel.
+  
+
+
+\end{enumerate}
+
+
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{Adjusting Neutron Generator Target Position}
+\shwlabel{proctargetladder}
+
+
+\newprocedure{CalProcTargPos}
+     {Adjusting Neutron Generator Target Position}
+             {F. Duncan}
+             {Aug. 2000}{1}
+
+ 
+  This procedure describes how to change the position of
+the neutron generator target ladder position.  This procedure
+is used to move from the N16 target to the Li8 target or to
+adjust the neutron capture efficiency on a target (for example if
+it is desired to decrease the N16 rate).  The nominal target
+positions for the N16 and Li8 are listed in table \ref{tabladder}.
+
+\begin{table}[htbn]
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+target & Position \\
+\hline
+N16    & 36.4 \\
+\hline
+Li8    & 101 \\
+\hline
+\end{tabular}
+\caption[Neutron Generator Target Positions]
+        {Neutron Generator Target Positions
+        \shwlabel{tabladder}
+        }
+\end{center}
+\end{table}
+
+\subsubsection{Procedure}
+ 
+\begin{center}
+\begin{tabular} {|l|l|l|l|}
+\hline
+\multicolumn{4}{|c|}{\bf Adjusting Neutron Generator Target Position}\\
+\hline
+     &         &           &                   \\
+Date & Initial & Procedure ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&
+ Data and Comments ~~~~~~~~~~~~~~~~~\\
+     &         &           &                   \\
+\hline
+&& & \\
+&& Turn on Power & \\
+&& & \\
+\hline
+&& Run switch in down position & \\
+&& & \\
+\hline
+&& & \\
+&& Stop switch in down position & \\
+\hline
+&& & \\
+&& in1 in up position & \\
+&& & \\
+\hline
+&& & \\
+&& in2 in up position & \\
+&& & \\
+\hline
+&& & \\
+&& in3 in up position & \\
+&& & \\
+\hline
+&& & \\
+&& speed set to HIGH & \\
+&& & \\
+\hline
+&& Use jog forward/reverse to change position & \\
+&& to desired position& \\
+&& & \\
+\hline
+&& & \\
+&& Turn off controller box & \\
+&& & \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\newpage
+
+
+\subsection{N16 PMT Turn On Procedure}
+
+\newprocedure{CalProcPMTTurnOn}
+             {N16 PMT Turn On Procedure}
+        {P. Skensved}{Jul. 2003}{1}
+
+
+
+ This procedure describes how to turn on the N16 monitoring PMT.
+
+\begin{enumerate}
+
+\checkitem Verify that the that the HV controller is turned off and that the dial is turned fully CCW.
+
+\checkitem Verify that the controller cable is plugged into the HV controller.
+\checkitem Verify that the controller cable is connected to the ``dry'' end of the umbilical.
+
+\checkitem Connect a fast oscilloscope to the linear PMT output at the ``dry'' end
+of the umbilical. Terminate with ( real ) 50 ohm resistor. 
+\checkitem Set scope to something like 
+10 mV per division vertical, 10-20 ns per division horizontal, trigger on negative edge. Use
+AUTO trigger at first to verify presence of baseline/noise.
+
+\checkitem Turn on the NIM bin.
+
+\checkitem Turn on HV switch.
+
+\checkitem Start dialling ( slowly ! ) up the HV while watching the scope. You should see the glitches and changes in
+baseline on the scope as you do so. If not stop immediately and check that the scope is setup correctly.
+
+\checkitem Real PMT signals should be evident at a voltage setting at or above 2.00
+
+\checkitem Slowly increase the setting to 2.37 while watching for signs of breakdown. If you see any 
+{\bf stop immediately}  and reduce the voltage. Contact OCE.
+\small
+{\em There may be a tag attached to the power supply with a different voltage than the one 
+listed above. Always use the value on the tag if there is one}
+\normalsize 
+
+
+\checkitem Disconnect the scope.
+
+
+  The next steps need only be done if this procedure is executed as part of a general N16 procedure.
+
+\checkitem Verify that the FECD input at 17/15/4 is disconnected. Leave the `tee'' and 50 ohm in place.
+
+
+\checkitem Use the N16 custom cable to connect the N16 PMT to the correct spigot near the door.
+Cable tie this cable  to the URM. Don't cable tie to the ``dry'' end part of the N16 cable !
+
+
+\small
+{\em It is important that this cable be as short as possible to get the correct trigger timing. Don't
+just use any random cable you find. Use the correct cable.
+
+  Also, the ``dry'' end of the N16 PMT cable is fragile. Do {\bf not} cable tie to it. Cable tie to the 
+long cable instead}
+
+\normalsize
+
+
+\checkitem Do not connect 17/15/4 until permission has been obtained from the detector operator.
+
+
+\end{enumerate}
+
+
+\newpage
+
+\subsection{N16 PMT Turn Off Procedure}
+
+\newprocedure{CalProcPMTTurnOff}
+             {N16 PMT Turn Off Procedure}
+        {P. Skensved}{Jul. 2003}{1}
+
+
+ This procedure describes how to turn off the N16 monitoring PMT.
+
+\begin{enumerate}
+
+\checkitem Disconnect the cable at 17/15/4. Leave the ``tee'' and the 50 ohm in place.
+
+
+\checkitem Disconnect the cable going from the ``dry'' end to the patch  panel near the door.
+Coil it up and hang it on the cable rack.
+
+\checkitem Turn down ( slowly ! ) the HV control to a dial setting of zero,
+
+\checkitem Turn off the HV supply
+
+\checkitem Turn off the NIM bin
+\small
+{\em This also turns off the power to the pressure transducer. You may have to delay the last
+two steps until  a later time.}
+
+\normalsize
+
+\end{enumerate}
+

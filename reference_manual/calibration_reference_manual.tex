@@ -1,0 +1,156 @@
+%       
+%       Calibration Reference Manual
+%
+%
+
+\documentclass[]{report}
+\usepackage{epsfig}
+ 
+  
+  
+\Roman{table}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.5in}
+\pagestyle{plain}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\setlength{\parindent}{.4in}
+\setlength{\oddsidemargin}{0 in}
+\setlength{\topmargin}{-1.0in}
+\setlength{\marginparwidth}{0in}
+\setlength{\marginparsep}{0in}
+\setlength{\headheight}{1.0in}
+%\setlength{\footheight}{1.0in}
+\setlength{\footskip}{.37in}      %to get numbers printed
+\setlength{\topskip}{.333in}
+  
+%\newcommand{\shwlabel}[1]{{\bf #1}\label{#1}}
+\newcommand{\shwlabel}[1]{\label{#1}}
+
+
+
+\newcommand{\checkbox}{\framebox{\makebox[\height]{~\^~}}~}
+\newcommand{\checkitem}{\item\framebox{\makebox[\height]{~\^~}}~}
+\newcommand{\tfile} [1] {\texttt{#1}}
+
+
+\newcommand{\procedure}[4]{
+\shwlabel{#1}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+Written/Revised By  &  #2 \\
+\hline
+Date        &  #3 \\
+\hline
+Version     &  #4 \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+ 
+
+
+
+
+
+
+
+  
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+\begin{document}
+
+
+%------------------------------------------------------------
+
+\noindent
+\epsfxsize=0.5in
+\epsfbox{./figures/snologo.eps}
+{\Huge\bf SNO Calibraton Reference Manual}
+~\\
+\vspace*{0.05in}
+~\\
+\noindent
+\begin{picture}(0,0)
+\linethickness{3pt}
+%\put(-18,10){\line(1,0){470}}
+\put(0,10){\line(1,0){458}}
+\end{picture}
+\begin{center}
+{\Large\em Version 0.97}
+\end{center}
+
+%~\\
+%\vspace*{0.25in}
+
+\begin{center}
+\epsfxsize=6in
+\epsfbox{./figures/manipulator.ps}
+\end{center}
+
+
+
+%------------------------------------------------------------
+\newpage
+  
+
+~\\
+\vspace*{0.5in}
+~\\
+\noindent
+{\large
+Last Updated on \today
+}\\
+~\\
+\vspace*{0.5in}
+~\\
+\noindent
+{\large
+Compiled by:
+\begin{tabbing}
+aaaa\=aaa\kill
+  \>Fraser Duncan\\
+  \>Phil Harvey\\
+  \>{\bf \ldots}\\
+\end{tabbing}
+}
+
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+
+
+  
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+  
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+\include{calref_intro}
+\include{calref_geometry}
+\include{calref_manipulator}
+\include{calref_laser}
+\include{calref_radio_gas}
+\include{calref_sources}
+
+\appendix
+
+\include{calref_appendices}
+
+ 
+\end{document}
+
+
+
+
+

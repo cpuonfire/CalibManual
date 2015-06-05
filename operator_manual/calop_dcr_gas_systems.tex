@@ -1,0 +1,214 @@
+
+\markright{CalOp: Calibration Gas Systems}
+
+%========================================================================
+%========================================================================
+%========================================================================
+
+
+
+\chapter{Calibration Gas Systems}
+\shwlabel{ChapterCalGas}
+  
+  The SNO Detector calibration systems utilize several different
+sources of gas in the DCR.  Shown in figure \ref{FigDcrGas},
+these are:
+\begin{description}
+
+\item[Vacuum] There is a vacuum pump located in the Junction with
+  a 2 inch (check) line terminating at a valve in the cable tray above
+  the pipe box in the DCR.
+
+\item[High Pressure N$_2$] gas derived from a 150 PSIG LN$_2$ dewar
+  located in the Junction.  This N$_2$ gas has no significant amounts of
+  oxygen or radon and is used to feed the Calibration N$_2$ laser
+  and to supply (relatively) high pressure flushes of the 
+  URMs.
+
+\item[Low Pressure N$_2$] gas derived from the boil off of the
+  Detector Cover Gas Wessington Dewar located in the Junction.  This
+  gas has no significant amounts of oxygen or radon and is used
+  to maintain a low rate flush of the URMs and the side rope units
+  (located on the roof of the DCR).
+
+\item[Instrument Air] compressed air taken from the laboratory 
+  house air supply.  This is derived from the INCO compressed air
+  with a booster compressor located outside the  car wash.  This 
+  is compressed air containing the normal concentrations of oxygen
+  and radon.  It is used to pressurize the tensioning cylinders in
+  the URMs which provide the tension on the URM umbilicals.
+
+\item[Radioactive Gas] There is a radioactive gas handling system
+  located in the Junction.  This primarily used for the  $^{16}$N
+  gamma ray source but is also used for the $^{8}$Li $\beta$
+  source and the $^{17}$N neutron source.
+
+\end{description}
+
+ 
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+\epsfxsize=7in
+\epsfbox{figures/dcr_gas_systems.ps}
+~\\
+\caption[DCR Gas Systems]
+        {DCR Gas Systems
+         \shwlabel{FigDcrGas}
+        }
+\end{center}
+\end{figure}
+
+
+\section{(Proposed)Calibration Gas System Nomenclature}
+
+  To distinguish the different gas sys handling systems for
+the SNO Calibration equipment and to distinguish the calibration
+gas systems from the other SNO systems a unique naming convention
+is proposed for the calibration systems.  All Calibration 
+gas components will start with the letter ``C''.
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+  CMV  & Mechanical valve \\
+  CSV  & Solenoid valve \\
+  CRV  & Relief valve \\
+  CPR  & Pressure Regulator \\
+  CFM  & Flow meter \\
+  CPG  & Pressure gauge (mechanical) \\
+  CPT  & Pressure transducer (electronic readout) \\
+  CP   & Pump\\
+  CVP  & Vacuum Pump\\
+  CCV  & Check valve\\
+\hline
+  100 series & Vacuum \\
+  200 series & House Air \\
+  300 series & Low Pressure N$_2$ \\
+  400 series & High Pressure N$_2$ \\
+  600 series & Calibration Laser \\
+  800 series & Radioactive Gas \\
+\hline
+\end{tabular}
+\caption[Proposed numbering scheme for gas system components]
+  {Proposed numbering scheme for gas system components
+   \shwlabel{TabGasNumbering}
+  }
+\end{center}
+\end{table}
+
+  
+%========================================================================
+\clearpage
+\section{Nitrogen Flush System}
+\shwlabel{SecN2Flush}
+  
+\subsection{Introduction}  
+
+  The gas board is designed to allow the URMs and the side rope motor boxes
+to be flushed with dry  radon free N$_2$. In normal mode  the gas flow to the
+motorboxes and the URMs is restricted to a few liters per minute in order
+not to perturb the D$_2$O covergas system and to conserve LN$_2$. For initial
+flushing the flow may be increased to the URMs provided the gatevalve is closed.
+This is referred to as `bypass mode' below.
+
+ The gas enters the board on the left side and leaves through one or more exits
+at the bottom. There are individual lines to each of the side rope motor boxes
+located on the roof of the DCR and a common line to the URMs. This line is 
+in series with a flow meter and a needle valve ( both located at the south 
+east corner of the pipebox ). From there it branches out to the two URMs.
+
+
+ 
+ {\em Note : The maximum allowed pressure for the flush system is 10 psi.
+Do not under any circumstances exceed this pressure ! }
+
+ 
+
+
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+\epsfxsize=7in
+\epsfbox{figures/flush_gas_panel.ps}
+~\\
+\caption[DCR Flush System]
+        {N$_2$ Flush Gas Board
+         \shwlabel{FigFlushGasBoard}
+        }
+\end{center}
+\end{figure}
+
+\subsection{Operation}
+
+  N$_2$ to the board comes from one of two sources :
+
+\begin{itemize}
+
+\item Low pressure supply.
+
+  In this mode the gas is supplied from the Wessington dewar located in 
+the junction area.  The gas enters through the lower left input line and 
+the pressure is controlled by a fixed regulator on the dewar.
+
+
+\item High pressure supply.
+
+ Here the gas supply is a 160 psi dewar located in the junction. This dewar
+is also used for the laser. Gas enters the board through the top 
+left line and flows through the regulator on the board which should be 
+set at { \em no more than 10 psi}. Note that there is a checkvalve in  the 
+low pressure line which prevents gas flowing  back to the Wessington. This 
+particular valve appears to be `missing' on the board (~in case you were 
+wondering ...~).
+
+
+\end{itemize}
+
+
+
+ As indicated above the gas board can be operated in one of two modes :
+
+\begin{itemize}
+
+\item ``Normal mode''
+
+  In this mode the gas flows through small restrictions to the devices 
+and the flow is limited to approximately 1 liter per minute. 
+
+
+\item ``Bypass mode'' 
+
+  This mode is used  for rapid flush of a URM.   Direct the gas to the bypass
+line and set the three-way valve at the URM line appropriately.
+
+
+\end{itemize}
+  
+
+
+
+  
+%========================================================================
+\clearpage
+\section{Radioactive Gas System}
+\shwlabel{SecRadioactiveGas}
+
+ 
+\begin{figure}[htb]
+\begin{center}
+\leavevmode
+\epsfxsize=7in
+\epsfbox{figures/radioactive_gas_system.ps}
+~\\
+\caption[Radioactive Gas system]
+        {Radioactive Gas Handling System
+         \shwlabel{FigRadioactiveGas}
+        }
+\end{center}
+\end{figure}
+
+
+

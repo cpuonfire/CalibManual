@@ -1,0 +1,271 @@
+
+  
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+\chapter{TroubleShooting}
+\shwlabel{ChapterTroubleShooting}
+  
+
+    This chapter describes various problems that can arise from
+the calibration system and suggests ways to diagnose and correct
+them.
+
+%-----------------------------------------------------------------------
+\newpage
+\section{Manipulator Trouble}
+\shwlabel{secmanipulatortrouble}
+  
+\subsection{Manipulator Error Messages}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+{\bf STOPPED\_NONE} &
+\parbox[t]{3in}{
+ Sometimes the manipulator will stop with a {\bf STOPPED\_NONE}
+error message.  The cause of this could be a {\em Watchdog Timer Error}.   
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_LOW\_TENSION} &
+\parbox[t]{3in}{
+ A rope or umbilical has too low of a tension.  This is potentually
+a serious problem.   
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_HIGH\_TENSION} &
+\parbox[t]{3in}{
+ A rope or umbilical tension is too high.  
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_STUCK} & 
+\parbox[t]{3in}{
+ The manipulator is unable to get closer to the requested end point.
+This sort of error can be caused by friction in the ropes and pullies
+that cause the manipulator motion to be jerky and have hysteresis.
+It can sometimes be corrected by requesting the desired position again.
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_NET\_FORCE} &
+\parbox[t]{3in}{
+  The forces on the source do not sum to zero.  {\em Not used.}
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_AXIS\_ERROR} &
+\parbox[t]{3in}{
+  The encoder error for an axis is greater than the allowed limit
+(set to +/- 10 cm).  The encoder error is the difference in position
+determined by the axis' encoder and the number of steps sent to the
+axis stepper motor.
+This is may be caused by a slow drift on the
+encoder or it may indicate the failure of an encoder or a motor.
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_CALC\_ERROR} &
+\parbox[t]{3in}{
+  A calculation error stopped the motion.
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_AXIS\_FLAG} &
+\parbox[t]{3in}{
+  A digital flag stopped the motion
+} \\
+ & \\
+\hline
+ & \\
+{\bf STOPPED\_AXIS\_ALARM} &
+\parbox[t]{3in}{
+  If an axis tension exceeds a preset limit, the manipulator will
+shut down.  This limit is designed to prevent excessive loads on
+the manipulator components.
+} \\
+ & \\
+\hline
+\end{tabular}
+\end{center}
+
+ 
+%--------------------------------------------------------------------------
+\newpage 
+\subsection{Specific Errors}
+  
+\subsubsection{STOPPED\_NONE --- Watchdog Timer Error}
+  Sometimes the manipulator will stop for no obvious reason and
+will report a {\bf STOPPED\_NONE} error.   This could be caused by
+the watchdog timer timing out.  To see if this is the case look
+at the {\bf max poll time} on the main display of the GUI or on the
+manipulator console.  If this time is of order 500 (ms) or more, then
+it is likely that the error was a watchdog timer error.  The max
+poll time is displayed as a strip chart on the main GUI panel.  
+  
+  The cause of the watchdog timer error is intense ethernet trafic
+that causes the manipulator computer to freeze up.  The watchdog timer
+then times out shutting down the manipulator.  To prevent the motors
+from becoming unsynced, the manipulator computer generates a {\bf STOP}
+if the poll time goes above a few hundred ms.
+
+  
+\subsection{STOPPED\_LOW\_TENSION}
+  This is potentially the most serious kind of error.  If a rope
+goes to too low of tension it will unspool from the it's takeup drum
+and it will be necessary to open the motor box to repair the damage.
+
+  If a {\bf STOPPED\_LOW\_TENSION} error occurs, examine the situation
+to determine if it is a reasonable error.  For instance if the source
+is being driven down into a lower quadrant of the detector the side rope
+on the opposite side must go to low tension.  
+  
+\begin{enumerate}
+\item If the low tension alarm appears to be caused by the source in
+ being in a low tension region, try moving the source away from the 
+  low tension region.
+  \begin{itemize}
+  \item If the source will not move because the low tension alarm persists,
+    {\bf CONTACT EXPERT}.
+  \end{itemize}
+\item If there is no obvious reason for the low tension alarm, 
+    {\bf CONTACT EXPERT}.  
+\end{enumerate}
+  
+\subsection{STOPPED\_HIGH\_TENSION}
+  If the manipulator stopped with a high tension error, examine the 
+situation.  A high tension alarm can occur if trying to drive the
+source into an upper quadrant of the detector.  The rope on the side
+of the detector that the source is moving towards goes to high tension.
+  
+\begin{enumerate}
+\item If the alarm is due to driving into a high tension region,
+  attempt to back out of the region.  If the rope is still in
+  high tension and won't allow the  source to move,
+  {\bf CONTACT EXPERT}.
+\item If there is no obvious reason for the high tension alarm,
+  {\bf CONTACT EXPERT}.
+\end{enumerate}
+  
+\subsection{STOPPED\_STUCK}
+  This error indicates that the manipulator is having trouble getting
+to a desired location.  The likely cause is friction in the manipulator
+and the discreteness of the encoders cause the manipulator to overshoot.
+This is not an error that indicates potential risk to the manipulator.
+The options in this situation are:
+\begin{itemize}
+\item Retry the move to the position desired.
+\item Go somewhere else.
+\end{itemize}
+
+\subsection{STOPPED\_STUCK}
+  This error indicates an inconsistancy in the position calculations.
+It could indicate that one or more of the ropes is significantly miscalibrated.
+\begin{itemize}
+\item If the error persists, a recalibration of the system should be done.
+  {\bf CONTACT EXPERT}.
+\end{itemize}
+
+\subsubsection{STOPPED\_AXIS\_ERROR due to Umbilical}
+  
+  A {\bf STOPPED\_AXIS\_ERROR} caused by the umbilical may or may not
+be serious.  The calibration of the umbilicals is not ideal and so there
+is a slow drift that accumulates.  On the other hand a rapid accumulation
+of the encoder error indicates that either the encoder is  faulty or
+the motor is not functioning properly.  The quantity derived in the 
+GUI, {\bf dE/dL} is the rate of change of encoder error with umbilical
+length (as determined by the encoder).  A large dE/dL indicates problems
+with either the encoder or motor.  A small value indicates ``drift''.
+The figure of merrit to use is:
+
+\begin{description}
+\item[ $|$dE/dL$|$ $<$ 0.1] This is a slow drift indicative of 
+  miss calibration.\\
+  {\bf Reset the umbilical encoder and proceed}
+\item[ $|$dE/dL$|$ $>$ 0.1] This is a fast drift and may indicate
+  encoder or motor problems.\\
+  {\bf This is a potentially serious hardware fault.  Contact
+  manipulator expert.}
+\end{description}
+
+  
+\subsubsection{STOPPED\_AXIS\_ERROR due to a Rope}
+  This is an encoder error due to a rope's encoder being out of 
+agreement with it's motor.  This is an almost never unseen situation
+since the calibration of both motor and encoder on the ropes is 
+excellent.  Therefore this error should be considered an indication of
+a serious problem.
+  
+\begin{center}
+{\bf Contact a manipulator expert}
+\end{center}
+
+\subsection{STOPPED\_AXIS\_FLAG on Umbilical}
+  Umbilicals (URM2 and URM3) have limit switches to prevent
+playing out too much umbilical.  This is flag bit 0.  URM3 has
+a limit switch to prevent taking up too much umbilical as well
+(flag bit 1).  If there is a {\bf STOPPED\_AXIS\_FLAG} error, it
+could be due to the limit switches.   
+\begin{enumerate}
+\item  Check to see which bit has
+  failed.  In the GUI these bits are red if failed or green if the
+  interlock is satisfied.  
+\item If the interlock is failed, try moving the source away from
+  the limit switch.  I.e. if too much umbilical is played out, 
+  try moving the source up (shorter umbilical).
+  
+\item If moving the source away from the interlock condition does
+  not help, inspect the manipulator wiring to ensure the limit switches
+  are plugged in to the data concentrator (the interlocks default to
+  failed if  the path to the limit switch is broken).
+ 
+\item If these actions do not fix the problem, {\bf call a manipulator
+  expert}.
+
+\end{enumerate}
+
+
+\subsection{STOPPED\_AXIS\_FLAG on a Rope}
+  Ropes have an interlock that detects heavy loads (such as sudden
+shocks) on the rope.  This interlock trips at approximately 100 lb.
+If the manipulator stops due to a {\bf STOPPED\_AXIS\_FLAG} on
+a rope, it is possible that the rope unit has undergone a large
+load.  This could compromise the ability of the rope unit to hold
+sources.  
+\begin{enumerate}
+\item {\bf CONTACT EXPERT}
+\item Inspect the rope unit wiring to verify all cables are connected.
+\item Using a DVM check if the shock load switch is open (open indicates
+  a shock load).  
+\item If the DVM indicates that the switch  is indeed open, then the 
+  rope unit should be inspected visually.  If the detector is on and
+  the rope unit opens into the detector volume, it may be necessary to
+  turn off the detector to make the inspection.
+\end{enumerate}
+
+
+\subsection{STOPPED\_AXIS\_ALARM}
+  
+  If the manipulator halts due to a {\bf STOPPED\_AXIS\_ALARM},
+check the current tension of the rope or umbilical that caused the
+alarm to see if it exceeds the alarm limit.  The alarm function in
+the manipulator code also stores the maximum value of the tension
+that caused the alarm.  
+
+{\bf CONTACT EXPERT}
+
+
+ 
+  
+
+
+

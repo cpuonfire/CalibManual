@@ -1,0 +1,385 @@
+
+
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+\section{N17 Source Procedures}
+\shwlabel{secprocN17}
+
+  These procedures describe the operation of the N17 calibration
+source.
+
+
+%------------------------------------------------------------
+\newpage
+\subsection{N17 Engineering Run Procedure}
+\shwlabel{procn17}~\\
+\noindent
+\begin{tabular}{|l|l|}
+\hline
+Version              & 0.9 \\
+\hline
+Written/Revised by   & Eric B. Norman and Yuen-Dat Chan \\
+                     & D. Earle, F. Duncan 2001/04/05 \\
+\hline
+Date Written/Revised & 2001/03/28\\
+\hline
+\end{tabular}
+
+
+%--------------------------------------------------------------------------
+\newpage
+\subsubsection{Background and ${16}$N}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf Background and $^{16}$N Procedure Ver 0.9}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+\begin{enumerate}
+
+\checkitem Set pressure relief valves to 100 PSIA.
+ 
+
+\checkitem Open and close appropriate valves on gas board so
+  that  recirculation pump is in the gas loop and that we really have
+  a closed loop for the gas to flow from the gas board to the dt
+  generator, out to SNO and then back to the gas board.
+  \begin{enumerate}
+  \checkitem CO2 bottle valve CLOSED, CO2 regulator OPEN, CO2 line valve OPEN.
+  \checkitem He bottle valve CLOSED, He regulator OPEN, He line valve OPEN.
+  \checkitem VE3, VD2, VC3 CLOSED.
+  \checkitem VC2 OPEN
+  \checkitem VB5 CLOSED
+  \checkitem VB4 to pump
+  \checkitem VB3 to loop
+  \checkitem VB2 closed
+  \checkitem VC1 to CO2
+  \checkitem VD1 to CO2
+  \checkitem VF1 to N16
+  \checkitem VE2 OFF
+  \checkitem VF2 to Retrieval port.
+  \checkitem Set CO2 flow controller to full OPEN (should it be fully open?).
+  \end{enumerate}
+
+\checkitem Use vacuum pump connected to valve VE3 on gas board
+  to pump out the entire gas loop (gas board + transfer lines + decay
+  chamber).  To be sure you have really pumped things out well, let pump
+  run for 10 minutes with bypass valve VE2 open.  Pump out He and 
+  C$^{nat}$O$_{2}$ supply lines by opening valve VB2, solenoid valve
+  SV2 and valve VA2 (turn both ways)
+  that leads to Helium and the C$^{nat}$O$_{2}$
+  bottles.
+  
+\checkitem Close valve VB2 and valve VE3 and observe pressure on PG1 and
+  PG3 to make sure that there are no significant leaks in the system.
+  Note the ``zero'' pressure offsets on the gauges (expect of order 0.3 psi).
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+  
+\checkitem Open valve VB2.
+  
+\checkitem Carefully open valve VA2 on  C$^{nat}$O$_{2}$ supply bottle
+  to let in approximately 2 psi of  C$^{nat}$O$_{2}$ (above the
+  base pressure observed in step 3) into system.
+  Note:  you need to have the recirculation pump on and valve VB2
+  closed to be sure that you fill the entire loop with gas.  Turn
+  pump off to measure static gas pressure.  You can also open valve
+  VE2 once or twice to help equalize the pressure in the system,
+  but make sure VE2 is closed once you have put in the desired amount
+  of gas.  This step may take a while to settle down (as much as 10 minutes).
+
+  {\em Alternate method:  Allow line to fill with recirculation pump
+   usually off.}
+  
+\checkitem Verify VE2 is CLOSED.
+
+\checkitem Record static pressures PG1 and PG3.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+  
+\checkitem Close valve on  C$^{nat}$O$_{2}$ supply bottle.
+
+\checkitem Open valve VB2 and then carefully open valve VA2 to let in
+ enough He gas to make total pressure in the system equal approximately
+  50 psi static pressure.  Again use recirculation pump with valve VE2
+  closed to make sure the gas is really distributed everywhere in loop.
+  The pressure reading on PG1 will lag that read on PG3 until gas has
+  distributed itself uniformly throughout the system.  So, take your time.
+  
+  {\em Alternate method:  Leave recirc pump mostly off.  Turn it on
+   occasionally to fill the pump gas volume.}
+  
+\checkitem Record static pressures PG1 and PG3.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+  
+\checkitem Close valve VB2, solenoid valve SV2, and valve VA2.
+ 
+\checkitem Turn on recirculation pump.  Note PG1 and PG3.  
+  The inbalance is due to the pump pressure head.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\checkitem  During the running period, continue to log the
+  PG1 and PG2 pressures.  A drop in these pressures indicate
+  gas loss.
+
+\end{enumerate}
+
+Once these steps are done, you are ready to turn on the dt generator
+and run $^{16}$N.  With this set of gas pressures, one should get a total
+rate of approximately 10 Hz in the decay chamber.  To reduce the rate,
+turn down the neutron flux from the dt generator.
+
+
+
+
+
+%--------------------------------------------------------------------------
+\newpage
+\subsubsection{Charging Source and Loop with $^{17}$N for the First Time}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf $^{17}$N Procedure Ver 0.9}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+\begin{enumerate}
+
+\checkitem Set pressure relief valves to 100 PSIA.
+ 
+
+\checkitem Open and close appropriate valves on gas board so that
+  recirculation pump is in the gas loop and that we really have a closed
+  loop for  the gas to flow from the gas board to the dt generator, out
+  to SNO, and then back to the gas board.
+  \begin{enumerate}
+  \checkitem CO2 bottle valve CLOSED, CO2 regulator OPEN, CO2 line valve OPEN.
+  \checkitem He bottle valve CLOSED, He regulator OPEN, He line valve OPEN.
+  \checkitem VE3, VD2, VC3 all closed
+  \checkitem VC2 open
+  \checkitem VB5 closed
+  \checkitem VB4 to pump
+  \checkitem VB3 to loop
+  \checkitem VB2 closed
+  \checkitem VC1 to CO2
+  \checkitem VD1 to CO2
+  \checkitem VF1 to N16
+  \checkitem VE2 off
+  \checkitem VF2 to retreival port
+  \checkitem Set CO2 flow controller to full OPEN (should it be fully open?).
+  \end{enumerate}
+ 
+\checkitem Use vacuum pump connected to valve VE3 on gas board to pump out
+  entire gas loop (gas board + transfer lines + decay chamber).  To
+  be sure you have really pumped things out well, let pump run for 10 minutes
+  with bypass valve VE2 open.  Pump out He supply line from helium bottle
+  by opening valve VB2, solenoid valve SV2, and valve VA2 that leads to
+  Helium bottle.
+  
+\checkitem Close valve VB2 and valve VE3 and observe pressure on PG1 and
+  PG3 to make sure that there are no significant leaks in the system.
+  
+\checkitem Hook up C$^{17}$O$_{2}$ supply bottle to the open tube that
+  has a nut and a ferrule on the right-hand side of cross attached to 
+  plastic line from VD2.  
+  {\bf Note: Make SURE that the valve on the supply bottle is closed
+    before you do anything!}
+  
+\checkitem With valves on supply bottle and recovery bottle closed, pump
+  out the short section of plastic line from VD2 to the  C$^{17}$O$_{2}$
+  cross.
+  
+\checkitem Close valve VE3 to vacuum pump.
+  
+\checkitem Carefully open valve on  C$^{17}$O$_{2}$ supply bottle to
+  let in approximately 2 psi of  C$^{17}$O$_{2}$ (above the base pressure
+  observed in step 3) into the system.  Note: you need to have
+  the recirculation pump on to be sure that you fill the entire loop with
+  gas.  Turn pump off to measure static gas pressure.  You can also open
+  valve VE2 once or twice to help equalize the pressure in the system,
+  but make sure VE2 is closed once you have put in the desired amount of
+  gas.   This step may take a while to settle down (as much as 10 minutes).
+
+\checkitem Verify VE2 is CLOSED.
+  
+\checkitem Record static pressure PG1 and PG3.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+
+\checkitem Close valve on  C$^{17}$O$_{2}$ supply bottle.  Make sure
+  it is tightly closed!
+  
+\checkitem Close valve VD2
+  
+\checkitem Open valve VB2 and then carefully open valve VA2 to let in
+  enough He gas to make total pressure in the system equal approximately
+  50 psi static pressure.  Again use recirculation pump with valve VE2
+  closed to make sure the gas is really distributed everywhere in loop.
+  The pressure reading on PG1 will lag that read on PG3 until gas has
+  distributed itself uniformly throughout the system.  So, take your time.
+  
+\checkitem Record static pressures PG1 and PG3.
+     \begin{center}
+     \begin{tabular}{|l|}
+     \hline
+      \\
+     PG1:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+      \\
+     PG3:~~~~~~~~~~~~~~~~~~~~~~~~\\
+      \\
+     \hline
+     \end{tabular}
+     \end{center}
+  
+\checkitem Close valve VB2, solenoid valve SV2, and valve VA2.
+  
+
+\checkitem  During the running period, continue to log the
+  PG1 and PG2 pressures.  A drop in these pressures indicate
+  gas loss.
+
+\end{enumerate}
+
+Once these steps are done, you are ready to turn on the dt generator 
+and run $^{17}$N.  With this set of gas pressures, one should get a
+total rate of approximately 10 Hz in the decay chamber.  We estimate
+7 Hz will be from $^{16}$N decaysa nd 3 Hz from $^{17}$N decays.  To
+reduce the rate, turn down the neutron flux from the dt generator.
+
+
+
+
+%--------------------------------------------------------------------------
+\newpage
+\subsubsection{Recovery of $^{17}$N}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|l|}{\bf $^{17}$N Recovery Procedure Ver 0.9}\\
+\hline
+ & \\
+Operator:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ & Date: ~~~~~~~~~~~~~~~~~~~~\\
+ & \\
+\hline
+\end{tabular} \\
+
+\begin{enumerate}
+
+\checkitem Turn off the dt generator.
+  
+\checkitem Place dewar filled with liquid nitrogen (LN2) around 
+  recovery bottle (cover only lower half of recovery bottle with LN2).
+ 
+\checkitem Open valve VD2.
+ 
+\checkitem Open valve on the  C$^{17}$O$_{2}$ recovery bottle.  Look
+  for about a 10\% drop in the pressures read on PG1 and PG3 as gas
+  flows into recovery bottle.
+  
+\checkitem Wait approximately 1 minute.
+  
+\checkitem Isolate recovery bottle by closing valves VF2 and VC2 on gas
+  board.
+  
+\checkitem Open valve VE3 to vacuum pump for approximately 10 seconds.
+ This will pump He gas out of recovery bottle but will leave
+  frozen  C$^{17}$O$_{2}$ there.
+  
+\checkitem Close valve VE3.
+  
+\checkitem Open valves VF2 and VC2.
+  
+\checkitem Repeat steps 5 through 9 {\bf ten} times.  Note:  each time
+  you do this sequence of steps, you should se that the pressure on PG1
+  and PG3 go down as you are removing about 1/6 of the helium each time
+  you do this.  You will probably have to top off the LN2
+  dewar in order to keep lower half of recovery bottle covered with LN2.
+  
+\checkitem  Close valve on recovery bottle and close valve VD2.
+  
+\checkitem  Remove LN2 to allow recovery bottle to warm up.
+  To speed up the warming, one can place a dewar filled with warm
+  water around recovery bottle.  Note: there is a pressure relief
+  valve on the recovery bottle that will open if pressure inside
+  recovery bottle reaches 150 psi.  This should never happen unless
+  gas loop leaked and we trapped O$_{2}$ in recovery bottle.
+  
+\checkitem If desired, you can then remove the  C$^{17}$O$_{2}$ 
+  supply/recovery system from gas board.
+
+
+
+\end{enumerate}
+
+
+
+

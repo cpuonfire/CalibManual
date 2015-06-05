@@ -1,0 +1,394 @@
+%       
+%        Manipulator User Manual
+%
+%
+
+\documentclass[]{report}
+\usepackage{epsfig,color,html}
+\usepackage{times}
+
+  
+  
+\Roman{table}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.5in}
+\pagestyle{plain}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\setlength{\parindent}{.4in}
+\setlength{\oddsidemargin}{0 in}
+\setlength{\topmargin}{-1.0in}
+\setlength{\marginparwidth}{0in}
+\setlength{\marginparsep}{0in}
+\setlength{\headheight}{1.0in}
+%\setlength{\footheight}{1.0in}
+\setlength{\footskip}{.37in}      %to get numbers printed
+\setlength{\topskip}{.333in}
+  
+%\newcommand{\shwlabel}[1]{{\bf #1}\label{#1}}
+
+\newcommand{\shwlabel}[1]{\label{#1}}
+
+
+\newcommand{\version}{Ver. 1.2}
+  
+
+
+\newcommand{\checkbox}{\framebox{$^{}$\hspace*{0.05in}}}
+\newcommand{\checkitem}{\item\framebox{$^{}$\hspace*{0.05in}}~~}
+\newcommand{\tfile} [1] {\texttt{#1}}
+
+
+\newcommand{\procedure}[4]{
+\shwlabel{#1}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+Written/Revised By  &  #2 \\
+\hline
+Date        &  #3 \\
+\hline
+Version     &  #4 \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+ 
+ 
+\newcommand{\newprocedure}[5]{     % Use this procedure instead of the one above
+\shwlabel{#1}
+\markright{Intro: #2 Rev.#5}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+Written/Revised By  &  #3 \\
+\hline
+Date        &  #4 \\
+\hline
+Revision     &  #5 \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+
+ 
+
+\newcommand{\operator}{
+~\\
+\begin{tabular}{|l|l|}
+\hline
+ & \\
+Operator    & ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
+ & \\
+\hline
+ & \\
+Date        & ~~~~~~~~~~~~~~~~~~~~~~~~ \\
+ & \\
+\hline
+ & \\
+Time        & ~~~~~~~~~~~~~~~~~~~~~~~~ \\
+ & \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+ 
+
+
+
+
+\newcommand{\standardheader}{Detector Operator Manual \version}
+
+\markright{\standardheader}
+
+
+
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+\begin{document}
+\pagestyle{myheadings}
+\thispagestyle{empty}
+
+
+\noindent
+\epsfxsize=0.5in
+\epsfbox{./figures/snologo.eps}
+{\Huge\bf SNO Calibration Operator Manual}
+~\\
+\vspace*{0.05in}
+~\\
+\noindent
+\begin{picture}(0,0)
+\linethickness{3pt}
+%\put(-18,10){\line(1,0){470}}
+\put(0,10){\line(1,0){410}}
+\end{picture}
+\begin{center}
+{\Large\em Version \version}
+\end{center}
+
+%~\\
+%\vspace*{0.25in}
+
+\begin{center}
+\epsfxsize=6in
+\epsfbox{./figures/manipulator.ps}
+\end{center}
+
+
+
+%------------------------------------------------------------
+\newpage
+  
+
+~\\
+\vspace*{0.5in}
+~\\
+\noindent
+{\large
+Last Updated on \today
+}\\
+~\\
+\vspace*{0.5in}
+~\\
+\noindent
+{\large
+Compiled by:
+\begin{tabbing}
+aaaa\=aaa\kill
+  \>Fraser Duncan\\
+  \>Phil Harvey\\
+  \>Peter Skensved\\
+  \>{\bf \ldots}\\
+\end{tabbing}
+}
+
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+%--------------------------------------------------------------------------
+
+
+  
+\tableofcontents
+\listoftables
+\listoffigures
+
+
+  
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+
+
+\newpage
+
+
+\begin{center}
+  {\Large\bf Quick Start}
+\end{center}  
+
+
+
+\begin{itemize}
+
+
+\item Whatever your level of familiarity with the various SNO calibration
+systems is make sure you read and understand the rules of engagements 
+( section 1.2 ). Make sure you know who the On Call Expert ( OCE ) is
+and where he is {\em before} trying to operate any of the systems ( contact numbers are listed
+in section 1.1 ). Think before you act and call the OCE if you have any doubts about what to do
+or if anything appears to be out of the ordinary. 
+
+
+\item The first chapters of this manual contains brief descriptions and
+general procedures for each of the sub systems or components ( manipulator,
+laser, DT generator, ... ) and Chapter \ref{ChapterProcedures} contains detailed step by step
+procedures to perform some of the more routine calibration tasks ( PCA,
+$^{16}$N Stability run etc. ) and procedures for  switching between the laserball and one
+of the acrylic sources. 
+
+\item The standard procedures are set up to function like a check list and you are
+strongly encouraged to print out the relevant pages and check off each item
+as you go through the steps.
+
+
+\item If you are  unfamiliar with the SNO calibration source manipulator,
+Chapters \ref{ChapterManipulator}, \ref{ChapterGeometry} and \ref{ChapterControls},
+describes the manipulator system, its geometry and how to control it.
+  
+\item If you {\em are} familiar with the system and just want to start 
+  operating it, go directly to Chapter\ref{ChapterControls}, {\bf Controls}.
+ 
+
+\item Chapter \ref{ChapterManipulator}, {\bf Operating the Manipulator}, 
+  describes basic manipulator operations.
+  
+  
+\item Chapter \ref{ChapterCalGas} {\bf Operating the Gas System},
+ describes the basic Gas Board operations.
+
+\item Chapter \ref{ChapterLaser}, {\bf Operating the Laser},
+  describes basic laser operations.
+
+\item Chapter \ref{ChapterSources}, {\bf Sources }, describes the some of the sources.
+
+\item Finally chapter \ref{ChapterTroubleShooting} lists some of the more common manipulator
+error conditions and their possible resolutions.
+
+\end{itemize}
+
+
+
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+\clearpage
+\begin{center}
+{\huge\bf ToDo List for Manipulator System}
+\begin{enumerate}
+\item Add generic source deployment section ( Peter )
+\item Add AmBe procedure ( Peter )
+\item Add acrylic stem procedures ( x 4 ) ( Peter )
+\item Add some words on when and how to use the Wessington / High Pressure Dewar ( Peter )
+\item Assembly/Disassembly of acrylic sources ( + AmBe )  ( Peter )
+\item Add something on how to recover from caught umbilical to trobleshooting section ( Peter )
+\item Label valves and add text ( Peter )
+\end{enumerate}
+\end{center}
+
+
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+\include{calop_intro}
+
+
+\renewcommand{\newprocedure}[5]{
+\shwlabel{#1}
+\markright{CalOp: #2 Rev.#5}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+Written/Revised By  &  #3 \\
+\hline
+Date        &  #4 \\
+\hline
+Revision     &  #5 \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+
+
+
+\include{calop_operations}
+\include{calop_manipulator}
+\include{calop_geometry}
+\include{calop_dcr_gas_systems}
+\include{calop_laser}
+\include{calop_sources}
+
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+
+
+\markright{CalProc: Calibration Procedures}
+
+\renewcommand{\newprocedure}[5]{
+\shwlabel{#1}
+\markright{CalProc: #2 Rev.#5}
+~\\
+\begin{tabular}{|l|l|}
+\hline
+Written/Revised By  &  #3 \\
+\hline
+Date        &  #4 \\
+\hline
+Revision     &  #5 \\
+\hline
+\end{tabular}
+~\\
+\vspace*{0.25in}
+}
+
+
+
+\chapter{Calibration Procedures}
+\shwlabel{ChapterProcedures}
+  
+  \include{calproc_manipulator}
+  \include{calproc_move}
+  \include{calproc_laser}
+  \include{calproc_n16}
+  \include{calproc_standard}
+  \include{calproc_laserball_assembly}
+  \include{calproc_n16_assembly}
+  \include{calproc_acrylic}
+  \include{calproc_ambe}
+  \include{calproc_misc}
+
+
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+%--------------------------------------------------------------
+
+\include{calop_troubleshooting}
+
+  
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+%------------------------------------------------------------------------
+
+ 
+
+  
+  
+
+  
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+\appendix
+ 
+\include{calop_glossary}
+
+\include{calop_guidetube}
+
+
+\chapter{Obsolete Procedures}
+
+\include{calproc_n16_gt4}
+  \include{calproc_pcs}
+  \include{calproc_chime}
+  \include{calproc_camera}
+  \include{calproc_n17}
+  \include{calproc_salt_activation}
+  \include{calproc_saltprobe}
+
+
+
+%============================================================================
+%============================================================================
+%============================================================================
+%============================================================================
+ 
+\end{document}
+
+
+
+
+
